@@ -1,0 +1,23 @@
+<mat-sidenav-container class="example-container" >
+  <mat-sidenav mode="side" opened class="sidenav">
+
+    <h3>Genom App</h3>
+    <p>Gestionnaire des documents</p>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+
+    <h1 style="display:inline; margin-right:25rem;">Documents</h1>
+    <span class="example-spacer"></span>
+    <button type="button" mat-raised-button color="primary" name="button">Importer</button>
+    <form class="example-form">
+  <mat-form-field class="example-full-width example-spacer">
+    <input matInput placeholder="Search">
+    <i matSuffix class="material-icons">search</i>
+  </mat-form-field>
+  </form>
+  <document-card></document-card>
+  <document-card></document-card>
+  <document-card></document-card>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
