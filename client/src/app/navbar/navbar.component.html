@@ -1,8 +1,17 @@
-  <mat-toolbar class="navbar" color="primary">
-    <mat-toolbar-row>
-      <span>GENOM</span>
-      <span class="example-spacer"></span>
-      <a type="button" (click)="Accueil($event)" mat-button>Connecter</a>
-      <a type="button" mat-button>Inscrire</a>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<div class="navbar-fixed">
+
+<nav class="z-depth-2">
+    <div class="nav-wrapper indigo ">
+      <a href="#!" class="brand-logo">Genom</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Connecter</a></li>
+        <li><a href="badges.html">Inscrire</a></li>
+      </ul>
+    </div>
+  </nav>
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Connecter</a></li>
+    <li><a href="badges.html">Inscrire</a></li>
+  </ul>
+  </div>

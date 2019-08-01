@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -17,7 +16,6 @@ import { DocumentCardComponent } from './document-card/document-card.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

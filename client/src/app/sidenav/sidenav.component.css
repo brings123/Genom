@@ -1,29 +1,4 @@
-.example-container {
-  position: absolute;
-  top: 128px;
-  bottom: 0px;
-  left: 0;
-  right: 0;
-
-}
-.example-spacer {
-  flex: 1 1 auto;
-}
 .sidenav{
-  padding: 1rem;
-  width: 15rem;
-  text-align: center;
-
-}
-.content{
-  padding: 2rem;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
+  z-index: 2;
+  margin-top: 64px;
 }
