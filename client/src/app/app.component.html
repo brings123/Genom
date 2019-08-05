@@ -1,7 +1,7 @@
 <div>
 <navbar></navbar>
-<sidenav></sidenav>
-<div class="container">
+<sidenav *ngIf="location.path()!=''"></sidenav>
+<div [class.container]="noHome" [class.noHome]="noHome">
   <router-outlet></router-outlet>
 
 </div>
