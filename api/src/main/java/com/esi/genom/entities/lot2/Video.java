@@ -1,6 +1,3 @@
-/**
-* @author ABDERRAHIM Djebablia
-*/
 package com.esi.genom.entities.lot2;
 
 import java.io.Serializable;
@@ -14,85 +11,96 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.esi.genom.entities.users.User;
 
 @Entity
-@Table(name = "ANNONCE")
-public class Annonce implements Serializable{
-	private static final long serialVersionUID = -6790693372846798580L;
+@Table(name = "VIDEO")
+public class Video implements Serializable{
+	private static final long serialVersionUID = -1234563379876543210L;
 	
+	
+	@Column(name = "video_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column( name = "annonce_id",updatable = false, nullable = false)
-	private Long id;
+	private String id;
 	
-	@Column(name = "annonce_titre",nullable = false)
-	private String titre;
-    
-	@Column(name = "annonce_description",nullable = false)
-    private String Description;
+	@Column(name = "video_titre", length = 200)
+	@NotNull
+	private String titre ;
 	
-	@Column(name = "annonce_date_ajout")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "video_description", length = 400,unique = true)
+	@NotNull
+    private String description;
+	
+	@Column(name = "video_lien", length = 200,unique = true)
+	@NotNull
+    private String lien;
+	
+	@Column(name = "video_date_ajout")
+	@NotNull
 	private Date date_ajout;
 	
-	@Column(name = "annonce_img")
-	private String image;
 	
-	@Column(name = "annonce_valide")
+	@Column(name = "video_valide")
 	@NotNull
 	private Boolean valide;
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID")
 	private User creator;
-	
-	
-	
-	
-	public Long getId() {
+
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getTitre() {
 		return titre;
 	}
+
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
+
 	public String getDescription() {
-		return Description;
+		return description;
 	}
+
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
+
+	public String getLien() {
+		return lien;
+	}
+
+	public void setLien(String lien) {
+		this.lien = lien;
+	}
+
 	public Date getDate_ajout() {
 		return date_ajout;
 	}
+
 	public void setDate_ajout(Date date_ajout) {
 		this.date_ajout = date_ajout;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 	public Boolean getValide() {
 		return valide;
 	}
+
 	public void setValide(Boolean valide) {
 		this.valide = valide;
 	}
-
 	
+	
+	
+
+
 }
