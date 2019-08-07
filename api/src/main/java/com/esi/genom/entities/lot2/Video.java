@@ -24,7 +24,7 @@ public class Video implements Serializable{
 	@Column(name = "video_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 	
 	@Column(name = "video_titre", length = 200)
 	@NotNull
@@ -51,11 +51,11 @@ public class Video implements Serializable{
 	@JoinColumn(name="USER_ID")
 	private User creator;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
