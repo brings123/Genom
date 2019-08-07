@@ -12,6 +12,3 @@
 .none{
   display: none;
 }
-label input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
