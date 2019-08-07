@@ -26,7 +26,7 @@ public class Document implements Serializable{
 	@Column(name = "Document_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 	
 	@Column(name = "Document_titre", length = 200)
 	@NotNull
@@ -49,11 +49,11 @@ public class Document implements Serializable{
 	
 	
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
