@@ -10,21 +10,27 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "Ressource")
-public class Ressource {
+@Table(name = "Images")
+public class Localisation {
+
 	   @Id
 	   @GeneratedValue(strategy=GenerationType.IDENTITY)
 	   @JsonProperty("id")
 	   private Integer id;
 	   
-	   @Column(name="name")
-	   @JsonProperty("name")
-	   private String name;
+	   @Column(name="pays")
+	   @JsonProperty("pays")
+	   private String pays;
 	   
-	   @Column(name="description")
-	   @JsonProperty("description")
-	   private String description;
+	   @Column(name="ville")
+	   @JsonProperty("ville")
+	   private String ville;
 	   
+	   @Column(name="latitude")
+	   @JsonProperty("latitude")
+	   private String latitude;
 	   
-	   
+	   @Column(name="longitude")
+	   @JsonProperty("longitude")
+	   private String longitude;
 }
