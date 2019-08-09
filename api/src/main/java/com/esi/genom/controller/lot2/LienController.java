@@ -27,9 +27,9 @@ public class LienController {
 		return lienService.getLien(id);
 
 	}
-	/**
-	@RequestMapping(method =RequestMethod.POST)
+	
+	@RequestMapping(value= "lien",method =RequestMethod.POST)
     public void addLien(@RequestBody Lien lien) {
 		lienService.addLien(lien);
-	}	*/
+	}	
 }

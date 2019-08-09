@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,7 +25,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.esi.genom.entities.users.User;
 
 @Entity
-@Table(name = "CONTACT")
 public class Contact implements Serializable{
 	private static final long serialVersionUID = -1798070786993154676L;
 	@Column(name = "contact_id")
@@ -44,10 +44,11 @@ public class Contact implements Serializable{
 	@Column(name = "contact_valide")
 	@NotNull
 	private Boolean valide;
-	@OneToOne
-	@JoinColumn(name="USER_ID")
-	private User creator;
 	
+	
+	 @ManyToOne(optional = true)
+	 @JoinColumn(name="users_id")
+	private User creator;
 	
 	public String getId() {
 		return id;
@@ -85,5 +86,14 @@ public class Contact implements Serializable{
 	public void setValide(Boolean valide) {
 		this.valide = valide;
 	}
+	
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+	
 
 }

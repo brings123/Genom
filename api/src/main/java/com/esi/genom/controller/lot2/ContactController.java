@@ -25,12 +25,11 @@ public class ContactController {
 		return contactService.getContact(id);
 
 	}
-	/**
-	 *
-	@RequestMapping(method =RequestMethod.POST)
+	
+	@RequestMapping(value = "contact",method =RequestMethod.POST)
     public void addContact(@RequestBody Contact contact) {
 		contactService.addcontact(contact);
-	}*/	
+	}	
 	
 
 }

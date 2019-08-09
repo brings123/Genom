@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -16,7 +17,6 @@ import javax.validation.constraints.NotNull;
 import com.esi.genom.entities.users.User;
 
 @Entity
-@Table(name = "VIDEO")
 public class Video implements Serializable{
 	private static final long serialVersionUID = -1234563379876543210L;
 	
@@ -47,10 +47,11 @@ public class Video implements Serializable{
 	@NotNull
 	private Boolean valide;
 	
-	@OneToOne
-	@JoinColumn(name="USER_ID")
+	@ManyToOne(optional = true)
+	@JoinColumn(name="users_id")
 	private User creator;
-
+	 
+	 
 	public Long getId() {
 		return id;
 	}
@@ -97,6 +98,14 @@ public class Video implements Serializable{
 
 	public void setValide(Boolean valide) {
 		this.valide = valide;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
 	}
 	
 	
