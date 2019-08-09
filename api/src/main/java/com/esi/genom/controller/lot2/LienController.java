@@ -22,13 +22,14 @@ public class LienController {
 		return lienService.getAllLiens();
 	}
 	
-	@RequestMapping("/documents/{id}")
+	@RequestMapping("/Liens/{id}")
 	public Lien getLien(@PathVariable Long id) {
 		return lienService.getLien(id);
 
 	}
+	/**
 	@RequestMapping(method =RequestMethod.POST)
     public void addLien(@RequestBody Lien lien) {
 		lienService.addLien(lien);
-	}	
+	}	*/
 }

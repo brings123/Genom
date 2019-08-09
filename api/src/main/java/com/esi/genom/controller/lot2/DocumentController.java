@@ -26,10 +26,11 @@ public class DocumentController {
 		return documentService.getDocument(id);
 
 	}
+	/**
 	@RequestMapping(method =RequestMethod.POST)
     public void addDocument(@RequestBody Document document) {
 		documentService.addDocument(document);
-	}	
+	}	*/
 	
 
 }

@@ -30,9 +30,10 @@ public class VideoController {
 		return videoService.getVideo(id);
 
 	}
+	/**
 	@RequestMapping(method =RequestMethod.POST)
     public void addDocument(@RequestBody Video video) {
 		videoService.addVideo(video);
-	}	
+	}	*/
 
 }
