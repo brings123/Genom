@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-
+@Table(name="roles")
 @Entity
 public class Role {
     @Id
-    @Column(name = "ID")
+    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -22,7 +22,7 @@ public class Role {
     
 
     @JsonBackReference
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
     public Role() {
@@ -34,7 +34,7 @@ public class Role {
 
     public Role(RoleName name, List<User> users) {
         this.name = name;
-        this.users = users;
+        //this.users = users;
     }
 
     public Long getId() {

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -23,7 +24,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.esi.genom.entities.users.User;
 
 @Entity
-@Table(name = "ANNONCE")
 public class Annonce implements Serializable{
 	private static final long serialVersionUID = -6790693372846798580L;
 	
@@ -49,10 +49,10 @@ public class Annonce implements Serializable{
 	@Column(name = "annonce_valide")
 	@NotNull
 	private Boolean valide;
-	
-	@OneToOne
-	@JoinColumn(name="USER_ID")
+	 @ManyToOne(optional = false)
+	 @JoinColumn(name="users_id")
 	private User creator;
+	 
 	
 	
 	
@@ -93,6 +93,14 @@ public class Annonce implements Serializable{
 	public void setValide(Boolean valide) {
 		this.valide = valide;
 	}
+	public User getCreator() {
+		return creator;
+	}
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+	
+	
 
 	
 }

@@ -21,11 +21,11 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-@Table(name ="USER_app")
+@Table(name ="users")
 public class User  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
+	@Column
 	private Long id;
 	
 	
@@ -70,13 +70,18 @@ public class User  {
     @NotNull
     private Date lastPasswordResetDate;
 	
+	
+	@ManyToMany
+	/**
 	@NotNull
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "USER_ROLE",
+            name = "user_roles",	
             joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")})
-    private List<Role> roles;
+            inverseJoinColumns = {@JoinColumn(name = "ID")})
+    */
+	
+	private List<Role> roles;
 	
 	
 	
@@ -159,7 +164,7 @@ public class User  {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
+
 	
 	
 	
