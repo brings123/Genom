@@ -14,7 +14,7 @@ import com.esi.genom.services.lot2.ContactService;
 public class ContactController {
 	@Autowired
 	private ContactService contactService;
-	
+		
 	@RequestMapping("/contacts")
 	public List<Contact> getContacts(){
 		return contactService.getAllContact();
@@ -25,10 +25,12 @@ public class ContactController {
 		return contactService.getContact(id);
 
 	}
+	/**
+	 *
 	@RequestMapping(method =RequestMethod.POST)
-    public void addAnnonce(@RequestBody Contact contact) {
+    public void addContact(@RequestBody Contact contact) {
 		contactService.addcontact(contact);
-	}	
+	}*/	
 	
 
 }

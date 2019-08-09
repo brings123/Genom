@@ -28,11 +28,11 @@ public class AnnonceController {
 		return annonceService.getAnnonce(id);
 
 	}
+	
 	@RequestMapping(method =RequestMethod.POST)
     public void addAnnonce(@RequestBody Annonce annonce) {
 		annonceService.addAnnonce(annonce);
 	}	
-	
 	 
 
 }
