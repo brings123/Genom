@@ -29,9 +29,9 @@ public class Type {
 	   @JsonProperty("id")
 	   private Integer id;
 	   
-	   @Column(name="nom")
-	   @JsonProperty("nom")
-	   private String nom;
+	   @Column(name="name")
+	   @JsonProperty("name")
+	   private String name;
 	   
 	   @Column(name="description")
 	   @JsonProperty("description")

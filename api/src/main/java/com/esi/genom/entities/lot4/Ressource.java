@@ -44,9 +44,9 @@ public class Ressource {
 	   private Type type;
 	   
 	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	   @JoinColumn(name = "class_id", nullable = false)
+	   @JoinColumn(name = "classe_id", nullable = false)
 	   @JsonIgnore
-	   private Class Class;
+	   private Class classe;
 	   
 	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
 	   @JoinColumn(name = "categorie_id", nullable = false)

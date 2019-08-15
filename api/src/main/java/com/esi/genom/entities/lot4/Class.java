@@ -26,9 +26,9 @@ public class Class {
 	   @JsonProperty("id")
 	   private Integer id;
 	   
-	   @Column(name="nom")
-	   @JsonProperty("nom")
-	   private String nom;
+	   @Column(name="name")
+	   @JsonProperty("name")
+	   private String name;
 	   
 	   @Column(name="description")
 	   @JsonProperty("description")
@@ -39,8 +39,8 @@ public class Class {
 	   @JsonIgnore
 	   private Categorie categorie;
 	   
-	   @OneToMany(mappedBy = "class", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-		private Set<Ressource> ressources;
+	   @OneToMany(mappedBy = "classe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
+		private Set<Ressource> ressource;
 	   
 
 

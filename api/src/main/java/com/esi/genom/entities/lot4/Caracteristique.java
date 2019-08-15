@@ -38,6 +38,10 @@ public class Caracteristique {
     @Column(name="description")
 	private String description;
 	
+	@JsonProperty("degSecurite")
+    @Column(name="degSecurite")
+	private Integer degSecurite;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "categorie_id", nullable = false)
 	@JsonIgnore
