@@ -5,7 +5,7 @@ declare var M:any;
   templateUrl: './demande.component.html',
   styleUrls: ['./demande.component.css']
 })
-export class DemandeComponent implements OnInit, AfterViewInit {
+export class DemandeComponent implements OnInit {
 
   constructor() { }
 
