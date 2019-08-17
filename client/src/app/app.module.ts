@@ -7,8 +7,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DocumentCardComponent } from './document-card/document-card.component';
 import { DocumentsComponent } from './documents/documents.component';
+
 import { HomeComponent } from './home/home.component';
 import { DemandeComponent } from './demande/demande.component';
+import { AdminDocumentComponent } from './admin/admin-document/admin-document.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { DemandeComponent } from './demande/demande.component';
     DocumentCardComponent,
     DocumentsComponent,
     HomeComponent,
-    DemandeComponent
+    DemandeComponent,
+    AdminDocumentComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,10 @@ import { DemandeComponent } from './demande/demande.component';
       {
         path:'demande',
         component:DemandeComponent
+      },
+      {
+        path:'admin/documents',
+        component:AdminDocumentComponent
       }
     ])
   ],
