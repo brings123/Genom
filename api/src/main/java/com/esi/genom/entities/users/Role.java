@@ -4,10 +4,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import java.io.Serializable;
 import java.util.List;
 @Table(name="roles")
 @Entity
-public class Role {
+public class Role implements Serializable{
+	private static final long serialVersionUID = -1398291839821412331L;
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
