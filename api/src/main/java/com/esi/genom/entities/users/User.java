@@ -59,7 +59,7 @@ public class User  {
 	@NotNull
     @Size(min = 4, max = 50)
 	private String email;
-	
+	/**
 	@Column(name = "ENABLED")
 	@NotNull
 	private Boolean enabled;
@@ -69,18 +69,17 @@ public class User  {
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     private Date lastPasswordResetDate;
+	*/
 	
-	
-	@ManyToMany
 	/**
 	@NotNull
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "user_roles",	
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "ID")})
+            joinColumns = {@JoinColumn(name = "users_id")},
+            inverseJoinColumns = {@JoinColumn(name = "roles_id")})
     */
-	
+	@ManyToMany
 	private List<Role> roles;
 	
 	
@@ -141,21 +140,6 @@ public class User  {
 		this.password = password;
 	}
 
-	public Boolean getEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public Date getLastPasswordResetDate() {
-		return lastPasswordResetDate;
-	}
-
-	public void setLastPasswordResetDate(Date lastPasswordResetDate) {
-		this.lastPasswordResetDate = lastPasswordResetDate;
-	}
 
 	public List<Role> getRoles() {
 		return roles;
