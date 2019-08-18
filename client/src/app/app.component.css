@@ -9,9 +9,10 @@
   font-size: 20px;
 }
 
-.container {
+.noHome {
       padding-left: 150px;
     }
+
 
     @media only screen and (max-width : 992px) {
       .container {
