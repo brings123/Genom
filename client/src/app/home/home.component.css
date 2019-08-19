@@ -7,3 +7,9 @@
 .content{
   margin-top:675px;
 }
+.ligne{
+  width: 6rem;
+  height: .4rem;
+  border:none;
+  border-radius: 10%;
+}
