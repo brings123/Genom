@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.esi.genom.entities.lot4.Images;
 import com.esi.genom.repositories.lot4.ImagesRepository;
-
+@RestController
 public class ImagesController {
 	@Autowired
 	ImagesRepository imagrepo;
