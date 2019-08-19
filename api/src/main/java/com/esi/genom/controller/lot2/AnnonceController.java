@@ -29,7 +29,7 @@ public class AnnonceController {
 
 	}
 	
-	@RequestMapping(method =RequestMethod.POST)
+	@RequestMapping(value="/annonces",method =RequestMethod.POST)
     public void addAnnonce(@RequestBody Annonce annonce) {
 		annonceService.addAnnonce(annonce);
 	}	
