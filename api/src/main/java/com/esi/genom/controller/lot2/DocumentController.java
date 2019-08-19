@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.esi.genom.entities.lot2.Contact;
 import com.esi.genom.entities.lot2.Document;
 import com.esi.genom.services.lot2.DocumentService;
 
@@ -31,6 +33,18 @@ public class DocumentController {
     public void addDocument(@RequestBody Document document) {
 		documentService.addDocument(document);
 	}	
+	/**
+	 * UPDATE DOCUMENT 
+	 * @param document
+	 * @param id
+	 */
+	
+	@RequestMapping(value="/documents/update/{id}",method =RequestMethod.PUT)
+    public void updateDocument(@RequestBody Document document,@PathVariable Long id) {
+		documentService.updateDocument(document);
+	}	
+	
+	
 	
 
 }

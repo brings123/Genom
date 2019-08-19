@@ -45,7 +45,8 @@ public class VideoService {
 	 * @param id
 	 * @param annonce
 	 */
-	public void updateLien(Long id, Document document) {
+	public void updateVideo(Video video) {
+		videoRepository.save(video);
 		
 	}
 	

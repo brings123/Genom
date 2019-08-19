@@ -44,8 +44,8 @@ public class AnnonceService {
 	 * @param id
 	 * @param annonce
 	 */
-	public void updateAnnonce(Long id, Annonce annonce) {
-		
+	public void updateAnnonce(Annonce annonce) {
+		annonceRepository.save(annonce);
 	}
 	
 	public void deleteAnnonce(Long id) {	

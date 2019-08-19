@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.esi.genom.entities.lot2.Document;
 import com.esi.genom.entities.lot2.Lien;
 import com.esi.genom.services.lot2.LienService;
 
@@ -32,4 +33,16 @@ public class LienController {
     public void addLien(@RequestBody Lien lien) {
 		lienService.addLien(lien);
 	}	
+	
+	/**
+	 * UPDATE Lien 
+	 * @param lien
+	 * @param id
+	 */
+	
+	@RequestMapping(value="/liens/update/{id}",method =RequestMethod.PUT)
+    public void updateLien(@RequestBody Lien lien,@PathVariable Long id) {
+		lienService.updateLien(lien);
+	}	
+	
 }
