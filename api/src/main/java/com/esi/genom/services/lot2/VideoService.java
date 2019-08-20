@@ -53,6 +53,12 @@ public class VideoService {
 	public void deleteVideo(Long id) {	
 		videoRepository.deleteById(id);
 	}
-
+	
+	/**
+	 * get recent video added 
+	 */
+	public List<Video> getRecentVideo(){
+		return videoRepository.findTop10ByOrderByDate_ajoutDesc();
+	}
 
 }

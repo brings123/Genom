@@ -50,12 +50,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().
                 authorizeRequests()
-                .antMatchers("/token/*", "/signup","/annonces","/contacts","/documents","/roles").permitAll()
+                .antMatchers("/token/*", "/signup","/annonces/*","/contacts/*","/documents/*","/roles").permitAll()
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
-                .antMatchers(HttpMethod.POST,"/caracteristique/*","/caracteristiques").permitAll()
+                .antMatchers("/caracteristique","/caracteristique/*","/caracteristiques").permitAll()
                 .antMatchers(HttpMethod.POST,"/categorie/*","/categories").permitAll()
-                .antMatchers(HttpMethod.POST,"/classe/*","/classes").permitAll()
-                .antMatchers(HttpMethod.POST,"/image/*","/images").permitAll()
+                .antMatchers("/classe","/classe/*","/classes").permitAll()
+                .antMatchers("/image","/images").permitAll()
                 .antMatchers(HttpMethod.POST,"/localisation/*","/localisations").permitAll()
                 .antMatchers(HttpMethod.POST,"/ressource/*","/ressources").permitAll()
                 .antMatchers(HttpMethod.POST,"/type/*","/types").permitAll()

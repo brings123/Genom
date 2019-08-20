@@ -19,15 +19,20 @@ public class AnnonceController {
 	@Autowired
 	private AnnonceService annonceService;
 	
-	@RequestMapping("/annonces/all")
+	@RequestMapping(method= RequestMethod.GET,value ="/annonces/all")
 	public List<Annonce> getAllAnnonce(){
 		return annonceService.getAllAnnonce();
 	}
 	
-	@RequestMapping("/annonces/{id}")
+	@RequestMapping(method = RequestMethod.GET,value ="/annonces/{id}")
 	public Annonce getAnnonce(@PathVariable Long id) {
 		return annonceService.getAnnonce(id);
 
+	}
+	
+	@RequestMapping(method = RequestMethod.GET,value ="/annonces/recent")
+	public List<Annonce> getRecentAnonnces(){
+		return annonceService.getTop10ByDate();
 	}
 	
 	
@@ -56,6 +61,8 @@ public class AnnonceController {
     public List<Caracteristique> getAnnonceByTitre(@PathVariable String titre) {
 		return null;
 	 }
+	
+	
 	
 	
 	
