@@ -20,16 +20,33 @@ import com.esi.genom.services.lot2.VideoService;
 public class VideoController {
 	@Autowired
 	private VideoService videoService;
-	
-	@RequestMapping("/videos/all")
+	/**
+	 * GET all video 
+	 * @return
+	 */
+	@RequestMapping(method =RequestMethod.GET,value="/videos/all")
 	public List<Video> getAllVideo(){
 		return videoService.getAllVideos();
 	}
+	/**
+	 * Get video By id
+	 * @param id
+	 * @return
+	 */
 	
-	@RequestMapping("/videos/{id}")
+	@RequestMapping(method =RequestMethod.GET,value="/videos/{id}")
 	public Video getVideo(@PathVariable Long id) {
 		return videoService.getVideo(id);
 
+	}
+	
+	/**
+	 * 
+	 * get all recent video added
+	 */
+	@RequestMapping(method =RequestMethod.GET,value="/videos/recent")
+	public List<Video> getRecentVideo() {
+		return videoService.getRecentVideo();
 	}
 	
 	@RequestMapping(value="video",method =RequestMethod.POST)
@@ -39,7 +56,7 @@ public class VideoController {
 	
 	/**
 	 * UPDATE Lien 
-	 * @param lien
+	 * @param liens
 	 * @param id
 	 */
 	
