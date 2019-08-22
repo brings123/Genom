@@ -29,11 +29,11 @@ public class AnnonceController {
 		return annonceService.getAnnonce(id);
 
 	}
-	
-	@RequestMapping(method = RequestMethod.GET,value ="/annonces/recent")
-	public List<Annonce> getRecentAnonnces(){
-		return annonceService.getTop10ByDate();
-	}
+//	
+//	@RequestMapping(method = RequestMethod.GET,value ="/annonces/recent")
+//	public List<Annonce> getRecentAnonnces(){
+//		return annonceService.getTop10ByDate();
+//	}
 	
 	
 	@RequestMapping(value="/annonces",method =RequestMethod.POST)
@@ -49,7 +49,7 @@ public class AnnonceController {
 	
 	@RequestMapping(value="/annonces/update/{id}",method =RequestMethod.PUT)
     public void updateAnnonce(@RequestBody Annonce annonce,@PathVariable Long id) {
-		
+		annonceService.updateAnnonce(annonce);
 	}	
 	
 	/**
@@ -58,8 +58,8 @@ public class AnnonceController {
 	 * @return
 	 */
 	@RequestMapping(method=RequestMethod.GET,value="/annonces/titre/{titre}")
-    public List<Caracteristique> getAnnonceByTitre(@PathVariable String titre) {
-		return null;
+    public List<Annonce> getAnnonceByTitre(@PathVariable String titre) {
+		return annonceService.getAnnoncesByTitle(titre);
 	 }
 	
 	

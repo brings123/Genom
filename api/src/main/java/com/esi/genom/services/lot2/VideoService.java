@@ -57,8 +57,8 @@ public class VideoService {
 	/**
 	 * get recent video added 
 	 */
-	public List<Video> getRecentVideo(){
-		return videoRepository.findTop10ByOrderByDate_ajoutDesc();
-	}
+//	public List<Video> getRecentVideo(){
+//		return videoRepository.findTop10ByOrderByDate_ajoutDesc();
+//	}
 
 }

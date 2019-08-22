@@ -52,8 +52,12 @@ public class AnnonceService {
 		annonceRepository.deleteById(id);
 	}
 	
-	public List<Annonce> getTop10ByDate(){
-		return annonceRepository.findTop10ByOrderByDate_ajoutDesc();
+//	public List<Annonce> getTop10ByDate(){
+//		return annonceRepository.findTop10ByOrderByDate_ajoutDesc();
+//	}
+	
+	public List<Annonce> getAnnoncesByTitle(String titre){
+		return annonceRepository.findByTitre(titre);
 	}
 	
 

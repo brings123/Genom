@@ -9,6 +9,6 @@ import com.esi.genom.entities.lot2.Contact;
 import com.esi.genom.entities.lot2.Video;;
 
 public interface ContactRepository extends CrudRepository<Contact,String> {
-	public List<Contact> findTop10ByOrderByDate_ajoutDesc(Date date_ajout);
+//	public List<Contact> findTop10ByOrderByDate_ajoutDesc(Date date_ajout);
 
 }

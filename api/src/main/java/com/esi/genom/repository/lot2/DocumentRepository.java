@@ -8,8 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import com.esi.genom.entities.lot2.Document;
 
 public interface DocumentRepository extends CrudRepository<Document,Long> {
-	public List<Document> findAll(String titre);
-	public List<Document> findTop10ByOrderByDate_ajoutDesc(Date date_ajout);
+	public List<Document> findByTitre(String titre);
+//	public List<Document> findTop10ByOrderByDate_ajoutDesc();
 
 
 }

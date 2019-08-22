@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.esi.genom.entities.lot2.Video;
 
 public interface VideoRepository extends CrudRepository<Video,Long> {
-	public List<Video> findAll(String titre);
-	public List<Video> findTop10ByOrderByDate_ajoutDesc();
+	public List<Video> findByTitre(String titre);
+	//public List<Video> findTop10ByOrderByDate_ajoutDesc();
 
 }

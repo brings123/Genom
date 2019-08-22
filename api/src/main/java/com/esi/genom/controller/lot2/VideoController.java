@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esi.genom.entities.lot2.Document;
-import com.esi.genom.entities.lot2.Lien;
 import com.esi.genom.entities.lot2.Video;
-import com.esi.genom.services.lot2.DocumentService;
 import com.esi.genom.services.lot2.VideoService;
 
 
@@ -44,10 +41,10 @@ public class VideoController {
 	 * 
 	 * get all recent video added
 	 */
-	@RequestMapping(method =RequestMethod.GET,value="/videos/recent")
-	public List<Video> getRecentVideo() {
-		return videoService.getRecentVideo();
-	}
+//	@RequestMapping(method =RequestMethod.GET,value="/videos/recent")
+//	public List<Video> getRecentVideo() {
+//		return videoService.getRecentVideo();
+//	}
 	
 	@RequestMapping(value="video",method =RequestMethod.POST)
     public void addVideo(@RequestBody Video video) {

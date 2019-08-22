@@ -50,16 +50,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().
                 authorizeRequests()
-                .antMatchers("/token/*", "/signup","/annonces/*","/contacts/*","/documents/*","/roles").permitAll()
+                .antMatchers("/token/*", "/signup","/annonces","/contacts","/documents","/roles").permitAll()
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
                 .antMatchers("/caracteristique","/caracteristique/*","/caracteristiques").permitAll()
-                .antMatchers(HttpMethod.POST,"/categorie/*","/categories").permitAll()
+                .antMatchers("/categorie","/categorie/*","/categories").permitAll()
                 .antMatchers("/classe","/classe/*","/classes").permitAll()
-                .antMatchers("/image","/images").permitAll()
-                .antMatchers(HttpMethod.POST,"/localisation/*","/localisations").permitAll()
-                .antMatchers(HttpMethod.POST,"/ressource/*","/ressources").permitAll()
-                .antMatchers(HttpMethod.POST,"/type/*","/types").permitAll()
-                .antMatchers(HttpMethod.POST,"/valeur/*","/valeurs").permitAll()
+                .antMatchers("/image","/image/*","/images").permitAll()
+                .antMatchers("/localisation","/localisation/*","/localisations").permitAll()
+                .antMatchers("/ressource","/ressource/*","/ressources").permitAll()
+                .antMatchers("/type","/type/*","/types").permitAll()
+                .antMatchers("/valeur","/valeur/*","/valeurs").permitAll()
                 
                 .anyRequest().authenticated()
                 .and()

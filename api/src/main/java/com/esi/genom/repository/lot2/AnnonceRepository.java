@@ -9,7 +9,7 @@ import com.esi.genom.entities.lot2.Annonce;
 
 @Repository
 public interface AnnonceRepository extends CrudRepository<Annonce,Long> {
-	public List<Annonce> findAll(String titre);
-	public List<Annonce> findTop10ByOrderByDate_ajoutDesc();
+	public List<Annonce> findByTitre(String titre);
+//	public List<Annonce> findTop10ByOrderByDate_ajoutDesc();
 
 }
