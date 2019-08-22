@@ -44,11 +44,21 @@ public class AnnonceService {
 	 * @param id
 	 * @param annonce
 	 */
-	public void updateAnnonce(Long id, Annonce annonce) {
-		
+	public void updateAnnonce(Annonce annonce) {
+		annonceRepository.save(annonce);
 	}
 	
 	public void deleteAnnonce(Long id) {	
 		annonceRepository.deleteById(id);
 	}
+	
+//	public List<Annonce> getTop10ByDate(){
+//		return annonceRepository.findTop10ByOrderByDate_ajoutDesc();
+//	}
+	
+	public List<Annonce> getAnnoncesByTitle(String titre){
+		return annonceRepository.findByTitre(titre);
+	}
+	
+
 }

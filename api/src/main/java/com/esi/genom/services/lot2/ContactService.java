@@ -44,8 +44,8 @@ public class ContactService {
 	 * @param id
 	 * @param annonce
 	 */
-	public void updateContact(Long id, Contact contact) {
-		
+	public void updateContact( Contact contact) {
+		contactRepository.save(contact);
 	}
 	
 	public void deleteContact(String id) {	

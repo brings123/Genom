@@ -44,8 +44,8 @@ public class DocumentService {
 	 * @param id
 	 * @param annonce
 	 */
-	public void updateDocument(Long id, Document document) {
-		
+	public void updateDocument( Document document) {
+		documentRepository.save(document);
 	}
 	
 	public void deleteDocument(Long id) {	

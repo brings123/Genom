@@ -45,13 +45,20 @@ public class VideoService {
 	 * @param id
 	 * @param annonce
 	 */
-	public void updateLien(Long id, Document document) {
+	public void updateVideo(Video video) {
+		videoRepository.save(video);
 		
 	}
 	
 	public void deleteVideo(Long id) {	
 		videoRepository.deleteById(id);
 	}
-
+	
+	/**
+	 * get recent video added 
+	 */
+//	public List<Video> getRecentVideo(){
+//		return videoRepository.findTop10ByOrderByDate_ajoutDesc();
+//	}
 
 }

@@ -1,10 +1,13 @@
 package com.esi.genom.dto.users;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.util.List;
 
+import com.esi.genom.entities.users.Role;
 
-public class UserDto {
-	
+public class UserDto implements Serializable{
+	private static final long serialVersionUID = -987257642374843223L;
+
 	private Long id;
 	private String username;
 	private String password;
@@ -12,8 +15,7 @@ public class UserDto {
 	private String prenom;
 	private String telephone;
 	private String email;
-    private Date lastPasswordResetDate;
-	
+	private Role roles;
     
     
     public Long getId() {
@@ -55,14 +57,13 @@ public class UserDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getLastPasswordResetDate() {
-		return lastPasswordResetDate;
+	public Role getRoles() {
+		return roles;
 	}
-	public void setLastPasswordResetDate(Date lastPasswordResetDate) {
-		this.lastPasswordResetDate = lastPasswordResetDate;
+	public void setRoles(Role roles) {
+		this.roles = roles;
 	}
-    
-    
 	
-
+	
+	
 }

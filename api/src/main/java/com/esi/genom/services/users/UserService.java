@@ -2,6 +2,7 @@ package com.esi.genom.services.users;
 
 import org.springframework.stereotype.Service;
 
+import com.esi.genom.entities.users.Role;
 import com.esi.genom.entities.users.User;
 import com.esi.genom.repository.users.UserRepository;
 
@@ -42,10 +43,10 @@ public class UserService implements UserDetailsService{
 	
 	private Set<SimpleGrantedAuthority> getAuthority(User user) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-		user.getRoles().forEach(role -> {
+		Role role = new Role();
 			//authorities.add(new SimpleGrantedAuthority(role.getName()));
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
-		});
+		
 		return authorities;
 		//return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
 	}
@@ -75,6 +76,7 @@ public class UserService implements UserDetailsService{
 		newUser.setPrenom(user.getPrenom());
 		newUser.setTelephone(user.getTelephone());
 		newUser.setEmail(user.getEmail());
+		newUser.setRoles(user.getRoles());
         return userRepository.save(newUser);
     }
 	/**
