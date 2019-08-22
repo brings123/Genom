@@ -24,7 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "Ressource")
-public class Ressource {
+public class Ressource implements Serializable {
+	   private static final long serialVersionUID = 1L;
 	   @Id
 	   @GeneratedValue(strategy=GenerationType.IDENTITY)
 	   @JsonProperty("id")
@@ -38,26 +39,86 @@ public class Ressource {
 	   @JsonProperty("description")
 	   private String description;
 	   
-	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	   @JoinColumn(name = "type_id", nullable = false)
-	   @JsonIgnore
+	   @ManyToOne(optional = false)
+	   @JoinColumn(name = "type_id")
+	   @JsonProperty("type")
 	   private Type type;
 	   
-	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	   @JoinColumn(name = "classe_id", nullable = false)
-	   @JsonIgnore
+	   @ManyToOne(optional = false)
+	   @JoinColumn(name = "class_id")
+	   @JsonProperty("classe")
 	   private Class classe;
 	   
-	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	   @JoinColumn(name = "categorie_id", nullable = false)
-	   @JsonIgnore
+	   @ManyToOne(optional = false)
+	   @JoinColumn(name = "categorie_id")
+	   @JsonProperty("categorie")
 	   private Categorie categorie;
 	   
 	   @ManyToMany
 	   private List<Localisation> localisations;
 	   
-	   @OneToMany(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-		private Set<Images> images;
+	   /*@OneToMany(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
+		private Set<Images> images;*/
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
+	public List<Localisation> getLocalisations() {
+		return localisations;
+	}
+
+	public void setLocalisations(List<Localisation> localisations) {
+		this.localisations = localisations;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Ressource(Integer id, String name, String description, Categorie categorie, List<Localisation> localisations
+		) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.categorie = categorie;
+		this.localisations = localisations;
+	}
+
+	public Ressource() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	   
 	   
 	   

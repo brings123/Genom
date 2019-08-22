@@ -21,10 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "Categorie")
-public class Categorie {
+public class Categorie implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@JsonProperty("id")
+	@Column(name = "id")
 	private Integer id;
 	
 	@JsonProperty("name")
@@ -35,15 +37,62 @@ public class Categorie {
     @Column(name="description")
 	private String description;
 	
-	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-	private Set<Ressource> ressources;
 	
-	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
+	/*@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
+	private Set<Ressource> ressources;*/
+	
+	/*@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
 	private Set<Type> types;
 	
 	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-	private Set<Class> classes;
+	private Set<Class> classes;*/
 	
+	public Categorie() {
+	}
+
+	public Categorie(Integer categorieid, String name, String description, Set<Caracteristique> caracteristique) {
+		super();
+		this.id = categorieid;
+		this.name = name;
+		this.description = description;
+		this.caracteristique = caracteristique;
+	}
+
+
+
+
+	public Integer getCategorieid() {
+		return id;
+	}
+
+	public void setCategorieid(Integer categorieid) {
+		this.id = categorieid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<Caracteristique> getCaracteristique() {
+		return caracteristique;
+	}
+
+	public void setCaracteristique(Set<Caracteristique> caracteristique) {
+		this.caracteristique = caracteristique;
+	}
+
 	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
 	private Set<Caracteristique> caracteristique;
 }

@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.esi.genom.entities.lot4.Categorie;
 public interface CategorieRepository extends JpaRepository<Categorie,Integer> {
-
+	//public Categorie findByid(String name);
 	public List<Categorie> findByName(String name);
 	 @Modifying
 	 @Transactional

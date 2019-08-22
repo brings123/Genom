@@ -11,6 +11,7 @@ import com.esi.genom.entities.lot4.Caracteristique;
 import com.esi.genom.entities.lot4.Categorie;
 public interface CaracteristiqueRepository extends JpaRepository<Caracteristique,Integer>{
 	public List<Caracteristique> findByName(String name);
+	public List<Caracteristique> findByCategorieId(Integer id);
 	 @Modifying
 	 @Transactional
 	 public void deleteByName(String name);

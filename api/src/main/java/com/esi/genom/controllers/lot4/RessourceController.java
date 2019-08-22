@@ -31,6 +31,21 @@ public class RessourceController {
 	public Optional<Ressource> getResById(@PathVariable Integer id) {
 	    return ressrepo.findById(id);
 	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/ressource/categorie/{id}")
+	public List<Ressource> getResByCat(@PathVariable Integer id) {
+	    return ressrepo.findByCategorieId(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/ressource/classe/{id}")
+	public List<Ressource> getResByClas(@PathVariable Integer id) {
+	    return ressrepo.findByClasseId(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/ressource/type/{id}")
+	public List<Ressource> getResByTyp(@PathVariable Integer id) {
+	    return ressrepo.findByTypeId(id);
+	}
 	/*
 	 * 
 	 *	POST
@@ -45,7 +60,7 @@ public class RessourceController {
 	
     @RequestMapping(method=RequestMethod.POST,value="/ressource")
     public void  addClasse(@RequestBody Ressource ressource) {
-    	ressrepo.save(ressource);
+    	ressrepo.save(ressource);	
     }
     
     
