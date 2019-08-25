@@ -39,6 +39,10 @@ public class Ressource implements Serializable {
 	   @JsonProperty("description")
 	   private String description;
 	   
+	   @Column(name="validation")
+	   @JsonProperty("validation")
+	   private boolean validation;
+	   
 	   @ManyToOne(optional = false)
 	   @JoinColumn(name = "type_id")
 	   @JsonProperty("type")

@@ -12,7 +12,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,15 +41,24 @@ public class Valeur implements Serializable{
     @Column(name="val")
 	private String val;
 	
-	@ManyToMany(mappedBy="valeurs")
-	private List<Caracteristique> caracteristique;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "caracteristique_id")
+	@JsonProperty("caracteristique")
+	private Caracteristique caracteristique;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "ressource_id")
+	@JsonProperty("ressource")
+	private Ressource ressource;
 
 	public Valeur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Valeur(Integer id, String name, String description, String val, List<Caracteristique> caracteristique) {
+
+
+	public Valeur(Integer id, String name, String description, String val, Caracteristique caracteristique) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -55,6 +66,20 @@ public class Valeur implements Serializable{
 		this.val = val;
 		this.caracteristique = caracteristique;
 	}
+
+
+
+	public Caracteristique getCaracteristique() {
+		return caracteristique;
+	}
+
+
+
+	public void setCaracteristique(Caracteristique caracteristique) {
+		this.caracteristique = caracteristique;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -88,13 +113,7 @@ public class Valeur implements Serializable{
 		this.val = val;
 	}
 
-	public List<Caracteristique> getCaracteristique() {
-		return caracteristique;
-	}
 
-	public void setCaracteristique(List<Caracteristique> caracteristique) {
-		this.caracteristique = caracteristique;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

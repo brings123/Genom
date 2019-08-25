@@ -59,7 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/localisation","/localisation/*","/localisations").permitAll()
                 .antMatchers("/ressource","/ressource/classe/*","/ressource/type/*","/ressource/categorie/*","/ressource/categorie/*","/ressource/*","/ressources").permitAll()
                 .antMatchers("/type","/type/categorie/*","/type/*","/types").permitAll()
-                .antMatchers("/valeur","/valeur/*","/valeurs").permitAll()
+                .antMatchers("/valeur","/valeur/caracteristique/*","/valeur/ressource/*","/valeur/*","/valeurs").permitAll()
+                .antMatchers("/valeurabs","/valeurabs/caracteristique/*","/valeurabs/ressource/*","/valeurabs/*","/valeursabs").permitAll()
                 
                 .anyRequest().authenticated()
                 .and()

@@ -45,7 +45,11 @@ public class Categorie implements Serializable {
 	private Set<Type> types;
 	
 	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-	private Set<Class> classes;*/
+	private Set<Class> classes;
+	
+	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
+	private Set<Caracteristique> caracteristique;
+	*/
 	
 	public Categorie() {
 	}
@@ -55,7 +59,6 @@ public class Categorie implements Serializable {
 		this.id = categorieid;
 		this.name = name;
 		this.description = description;
-		this.caracteristique = caracteristique;
 	}
 
 
@@ -85,14 +88,4 @@ public class Categorie implements Serializable {
 		this.description = description;
 	}
 
-	public Set<Caracteristique> getCaracteristique() {
-		return caracteristique;
-	}
-
-	public void setCaracteristique(Set<Caracteristique> caracteristique) {
-		this.caracteristique = caracteristique;
-	}
-
-	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-	private Set<Caracteristique> caracteristique;
 }
