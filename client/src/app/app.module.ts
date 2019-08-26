@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DocumentCardComponent } from './document-card/document-card.component';
 import { DocumentsComponent } from './documents/documents.component';
+import { EventComponent } from './event/event.component';
 
 import { HomeComponent } from './home/home.component';
 import { DemandeComponent } from './demande/demande.component';
@@ -21,6 +22,7 @@ import { AdminDocumentComponent } from './admin/admin-document/admin-document.co
     DocumentsComponent,
     HomeComponent,
     DemandeComponent,
+    EventComponent,
     AdminDocumentComponent
   ],
   imports: [
@@ -38,6 +40,10 @@ import { AdminDocumentComponent } from './admin/admin-document/admin-document.co
       {
         path:'demande',
         component:DemandeComponent
+      },
+      {
+        path:'event',
+        component:EventComponent
       },
       {
         path:'admin/documents',

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+declare var M:any;
+
 @Component({
   selector: 'app-addvideo',
   templateUrl: './addvideo.component.html',
@@ -9,13 +11,11 @@ export class AddVideoComponent implements OnInit{
   constructor() { }
 
   ngOnInit() {
-    $(document).ready(function () {
-      $('.datepicker').datepicker();
-    });
-
-    $(document).ready(function () {
-      $('input#input_text, textarea#video_description').characterCounter();
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.datepicker');
+        const options={};
+        var instances = M.Datepicker.init(elems, options);
+      });
   }
 
 }

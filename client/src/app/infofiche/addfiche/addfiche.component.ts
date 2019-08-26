@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var M:any;
 @Component({
   selector: 'app-addfiche',
   templateUrl: './addfiche.component.html',
@@ -10,9 +11,11 @@ export class AddFicheComponent implements OnInit{
 
   ngOnInit() {
 
-    $(document).ready(function () {
-      $('.datepicker').datepicker();
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.datepicker');
+        const options={};
+        var instances = M.Datepicker.init(elems, options);
+      });
 
   }
 
