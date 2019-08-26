@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { DemandeComponent } from './demande/demande.component';
 import { AdminDocumentComponent } from './admin/admin-document/admin-document.component';
 
+import {EventComponent} from './event/event.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { AdminDocumentComponent } from './admin/admin-document/admin-document.co
     DocumentsComponent,
     HomeComponent,
     DemandeComponent,
-    AdminDocumentComponent
+    AdminDocumentComponent,
+
+    EventComponent,  
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,10 @@ import { AdminDocumentComponent } from './admin/admin-document/admin-document.co
       {
         path:'admin/documents',
         component:AdminDocumentComponent
+      },
+      {
+        path: 'events',
+        component: EventComponent
       }
     ])
   ],

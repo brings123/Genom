@@ -9,9 +9,6 @@ export class EventComponent implements OnInit{
   constructor() { }
 
   ngOnInit() {
-    $(document).ready(function () {
-      $('.collapsible').collapsible();
-    });
 
 
   }

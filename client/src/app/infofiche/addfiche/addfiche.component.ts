@@ -10,9 +10,6 @@ export class AddFicheComponent implements OnInit{
 
   ngOnInit() {
 
-    $(document).ready(function () {
-      $('.datepicker').datepicker();
-    });
 
   }
 

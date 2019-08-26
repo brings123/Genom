@@ -9,13 +9,7 @@ export class AddEventComponent implements OnInit{
   constructor() { }
 
   ngOnInit() {
-    $(document).ready(function () {
-      $('.datepicker').datepicker();
-    });
 
-    $(document).ready(function () {
-      $('input#input_text, textarea#event_description').characterCounter();
-    });
   }
 
 }
