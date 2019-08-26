@@ -16,7 +16,6 @@ export class EventComponent implements OnInit{
       var instances = M.Collapsible.init(elems, options);
     });
 
-
   }
 
 }

@@ -1,6 +1,20 @@
 <div>
 <navbar></navbar>
-<sidenav *ngIf="location.path()!=''"></sidenav>
+<sidenav *ngIf="location.path()=='/documents'"></sidenav>
+<sidenav *ngIf="location.path()=='/demande'"></sidenav>
+<sidenav *ngIf="location.path()=='/admin/documents'"></sidenav>
+<pubnav *ngIf="location.path()=='/news'"></pubnav>
+<pubnav *ngIf="location.path()=='/addnews'"></pubnav>
+<pubnav *ngIf="location.path()=='/infofiche'"></pubnav>
+<pubnav *ngIf="location.path()=='/addfiche'"></pubnav>
+<pubnav *ngIf="location.path()=='/events'"></pubnav>
+<pubnav *ngIf="location.path()=='/addevent'"></pubnav>
+<pubnav *ngIf="location.path()=='/videos'"></pubnav>
+<pubnav *ngIf="location.path()=='/addvideo'"></pubnav>
+<pubnav *ngIf="location.path()=='/links'"></pubnav>
+<pubnav *ngIf="location.path()=='/addlink'"></pubnav>
+<pubnav *ngIf="location.path()=='/contacts'"></pubnav>
+<pubnav *ngIf="location.path()=='/newcontact'"></pubnav>
 <div [class.container]="noHome" [class.noHome]="noHome">
   <router-outlet></router-outlet>
 
