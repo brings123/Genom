@@ -2,4 +2,10 @@
 https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/
 How to define a bidirectional one-to-many mapping and when should you use it ?
 
+2.
+https://www.baeldung.com/spring-data-sorting
+Sorting Query Results with Spring Data
 
+3.
+https://www.postgresql.org/docs/7.4/jdbc-binary-data.html
+Storing Binary Data in postgresal
