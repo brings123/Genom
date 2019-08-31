@@ -1,4 +1,4 @@
-package com.esi.genom.controller.lot2;
+package com.esi.genom.controllers.lot2;
 
 import java.util.List;
 
