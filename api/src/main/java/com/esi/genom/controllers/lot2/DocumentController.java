@@ -1,4 +1,4 @@
-package com.esi.genom.controller.lot2;
+package com.esi.genom.controllers.lot2;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esi.genom.entities.lot2.Contact;
 import com.esi.genom.entities.lot2.Document;
 import com.esi.genom.services.lot2.DocumentService;
 
