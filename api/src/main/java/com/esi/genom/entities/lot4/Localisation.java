@@ -1,6 +1,8 @@
 package com.esi.genom.entities.lot4;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -44,24 +46,46 @@ public class Localisation implements Serializable{
 	   @JsonProperty("longitude")
 	   private String longitude;
 	   
-	   @ManyToMany(mappedBy = "localisations")    
-	   private Set<Ressource> ressources;
-
-	public Localisation() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Localisation(Integer id, String pays, String ville, String latitude, String longitude,
-			Set<Ressource> ressources) {
+	   @ManyToOne(optional = false)
+	   @JoinColumn(name = "ressource_id")
+	   @JsonProperty("ressource")
+	   private Ressource ressource;
+	   
+	   public Localisation(Integer id, String pays, String ville, String latitude, String longitude, Ressource ressource) {
 		super();
 		this.id = id;
 		this.pays = pays;
 		this.ville = ville;
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.ressources = ressources;
+		this.ressource = ressource;
 	}
+
+	/*@ManyToMany(mappedBy = "localisations")    
+	   private List<Ressource> ressources;*/
+
+	public Ressource getRessource() {
+		return ressource;
+	}
+
+	public void setRessource(Ressource ressource) {
+		this.ressource = ressource;
+	}
+
+	public Localisation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Localisation(Integer id, String pays, String ville, String latitude, String longitude) {
+		super();
+		this.id = id;
+		this.pays = pays;
+		this.ville = ville;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+	
 
 	public Integer getId() {
 		return id;
@@ -103,13 +127,6 @@ public class Localisation implements Serializable{
 		this.longitude = longitude;
 	}
 
-	public Set<Ressource> getRessources() {
-		return ressources;
-	}
-
-	public void setRessources(Set<Ressource> ressources) {
-		this.ressources = ressources;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

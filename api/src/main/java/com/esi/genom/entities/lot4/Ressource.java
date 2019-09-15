@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -58,8 +59,11 @@ public class Ressource implements Serializable {
 	   @JsonProperty("categorie")
 	   private Categorie categorie;
 	   
-	   @ManyToMany
-	   private List<Localisation> localisations;
+	  /* @ManyToMany
+	   @JoinTable(name = "ressource_localisations",
+       joinColumns = @JoinColumn(name = "ressource_id", referencedColumnName = "id"),
+       inverseJoinColumns = @JoinColumn(name = "localisation_id", referencedColumnName = "id"))
+	   private List<Localisation> localisations;*/
 	   
 	   /*@OneToMany(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
 		private Set<Images> images;*/
@@ -96,27 +100,19 @@ public class Ressource implements Serializable {
 		this.categorie = categorie;
 	}
 
-	public List<Localisation> getLocalisations() {
-		return localisations;
-	}
-
-	public void setLocalisations(List<Localisation> localisations) {
-		this.localisations = localisations;
-	}
-
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
 
-	public Ressource(Integer id, String name, String description, Categorie categorie, List<Localisation> localisations
+	public Ressource(Integer id, String name, String description, Categorie categorie
 		) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.categorie = categorie;
-		this.localisations = localisations;
 	}
 
 	public Ressource() {
