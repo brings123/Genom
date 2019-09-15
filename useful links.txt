@@ -39,3 +39,20 @@ Examples
 Note: a pattern and a path must both be absolute or mustboth be relative in order for the two to match. Therefore it is recommendedthat users of this implementation to sanitize patterns in order to prefixthem with "/" as it makes sense in the context in which they're used.
 Since:16.07.2003
 Author:Alef ArendsenJuergen HoellerRob HarropArjen PoutsmaRossen StoyanchevSam Brannen
+
+5.
+Reverse coodinations Google Maps
+https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+
+6.
+GPS coordination
+https://www.gps-coordinates.net/
+
+7.
+Bing Maps
+https://docs.microsoft.com/en-us/bingmaps/?redirectedfrom=MSDN
+
+8.
+GED functions
+https://www.pulsar-informatique.com/services/ged-open-source/les-fonctions-d-une-ged-open-source
+http://www.starxpert.fr/PDF/Bien_comprendre_la_GED.pdf
