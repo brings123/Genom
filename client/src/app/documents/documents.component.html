@@ -17,9 +17,10 @@
 
 
 <ul class="collection">
-  <li class="collection-item avatar">
+
+  <li *ngFor="let document of documents" class="collection-item avatar">
     <i class="material-icons circle">picture_as_pdf</i>
-    <a href="#" class="title">Document1</a>
+    <a href="#" class="title">{{document.nomDocument}}</a>
     <p><strong>Relation avec:</strong><br>
        Document2, Document3
     </p>

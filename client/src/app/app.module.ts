@@ -23,6 +23,8 @@ import { LinkComponent } from './link/link.component';
 import { AddLinkComponent } from './link/addlink/addlink.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewContactComponent } from './contact/newContact/newcontact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DocumentService } from './document.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { NewContactComponent } from './contact/newContact/newcontact.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path:'documents',
@@ -124,7 +127,7 @@ import { NewContactComponent } from './contact/newContact/newcontact.component';
       },
     ])
   ],
-  providers: [],
+  providers: [ DocumentService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
