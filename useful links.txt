@@ -1,0 +1,58 @@
+1.
+https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/
+How to define a bidirectional one-to-many mapping and when should you use it ?
+
+2.
+https://www.baeldung.com/spring-data-sorting
+Sorting Query Results with Spring Data
+
+3.
+https://www.postgresql.org/docs/7.4/jdbc-binary-data.html
+Storing Binary Data in postgresal
+
+4.
+To authorize requests for your controller URIs you should add them to WebSecurityConfig class -> configure method
+Please read the following Spring documentation about the antMatchers method
+
+org.springframework.util.AntPathMatcher
+
+
+PathMatcher implementation for Ant-style path patterns. 
+
+Part of this mapping code has been kindly borrowed from Apache Ant. 
+
+The mapping matches URLs using the following rules:
+
+•? matches one character
+•* matches zero or more characters
+•** matches zero or more directories in a path
+• {spring:[a-z]+}} matches the regexp [a-z]+ as a path variable named "spring"
+
+Examples
+•com/t?st.jsp — matches com/test.jsp but also com/tast.jsp or com/txst.jsp
+•com/*.jsp — matches all .jsp files in the com directory
+•com/**/test.jsp — matches all test.jsp files underneath the com path
+•org/springframework/**/*.jsp — matches all .jsp files underneath the org/springframework path
+•org/**/servlet/bla.jsp — matches org/springframework/servlet/bla.jsp but also org/springframework/testing/servlet/bla.jsp and org/servlet/bla.jsp
+• com/{filename:\\w+}.jsp} will match com/test.jsp and assign the value testto the filename variable
+
+Note: a pattern and a path must both be absolute or mustboth be relative in order for the two to match. Therefore it is recommendedthat users of this implementation to sanitize patterns in order to prefixthem with "/" as it makes sense in the context in which they're used.
+Since:16.07.2003
+Author:Alef ArendsenJuergen HoellerRob HarropArjen PoutsmaRossen StoyanchevSam Brannen
+
+5.
+Reverse coodinations Google Maps
+https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+
+6.
+GPS coordination
+https://www.gps-coordinates.net/
+
+7.
+Bing Maps
+https://docs.microsoft.com/en-us/bingmaps/?redirectedfrom=MSDN
+
+8.
+GED functions
+https://www.pulsar-informatique.com/services/ged-open-source/les-fonctions-d-une-ged-open-source
+http://www.starxpert.fr/PDF/Bien_comprendre_la_GED.pdf

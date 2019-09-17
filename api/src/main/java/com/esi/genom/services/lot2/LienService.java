@@ -44,8 +44,8 @@ public class LienService {
 	 * @param id
 	 * @param annonce
 	 */
-	public void updateLien(Long id, Document document) {
-		
+	public void updateLien(Lien lien) {
+		lienRepository.save(lien);
 	}
 	
 	public void deleteLien(Long id) {	
