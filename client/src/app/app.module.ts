@@ -51,9 +51,12 @@ import { DocumentService } from './document.service';
     AddLinkComponent,
     ContactComponent,
     NewContactComponent,
+    RessourcesComponent,
+    RessourceComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot([
@@ -125,6 +128,11 @@ import { DocumentService } from './document.service';
         path: 'newcontact',
         component: NewContactComponent
       },
+      {
+        path: 'ressources',
+        component: RessourcesComponent
+      },
+
     ])
   ],
   providers: [ DocumentService ],
