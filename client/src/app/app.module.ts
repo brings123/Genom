@@ -23,6 +23,9 @@ import { LinkComponent } from './link/link.component';
 import { AddLinkComponent } from './link/addlink/addlink.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewContactComponent } from './contact/newContact/newcontact.component';
+import { RessourcesComponent } from './Ressource/ressources/ressources.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RessourceComponent } from './ressource/ressource.component';
 
 @NgModule({
   declarations: [
@@ -49,9 +52,12 @@ import { NewContactComponent } from './contact/newContact/newcontact.component';
     AddLinkComponent,
     ContactComponent,
     NewContactComponent,
+    RessourcesComponent,
+    RessourceComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
       {
@@ -122,6 +128,11 @@ import { NewContactComponent } from './contact/newContact/newcontact.component';
         path: 'newcontact',
         component: NewContactComponent
       },
+      {
+        path: 'ressources',
+        component: RessourcesComponent
+      },
+      
     ])
   ],
   providers: [],
