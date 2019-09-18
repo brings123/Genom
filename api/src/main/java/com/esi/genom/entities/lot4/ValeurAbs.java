@@ -1,4 +1,5 @@
 package com.esi.genom.entities.lot4;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
@@ -16,15 +17,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 @Entity
-@Table(name = "Caracteristique")
-public class Caracteristique implements Serializable {
+@Table(name = "valeurabs")
+public class ValeurAbs implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -38,30 +36,44 @@ public class Caracteristique implements Serializable {
 	@JsonProperty("description")
     @Column(name="description")
 	private String description;
-	
-	@JsonProperty("degSecurite")
-    @Column(name="degSecurite")
-	private Integer degSecurite;
+
 	
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "categorie_id")
-	@JsonProperty("categorie")
-	private Categorie categorie;
-	
+	@JoinColumn(name = "caracteristique_id")
+	@JsonProperty("caracteristique")
+	private Caracteristique caracteristique;
 
-	public Caracteristique() {
+
+	public ValeurAbs() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Caracteristique(Integer id, String name, String description, Integer degSecurite, Categorie categorie) {
+
+	public ValeurAbs(Integer id, String name, String description, Caracteristique caracteristique) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.degSecurite = degSecurite;
-		this.categorie = categorie;
+		this.caracteristique = caracteristique;
 	}
+
+
+
+
+
+
+	public Caracteristique getCaracteristique() {
+		return caracteristique;
+	}
+
+
+
+	public void setCaracteristique(Caracteristique caracteristique) {
+		this.caracteristique = caracteristique;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -87,20 +99,10 @@ public class Caracteristique implements Serializable {
 		this.description = description;
 	}
 
-	public Integer getDegSecurite() {
-		return degSecurite;
-	}
 
-	public void setDegSecurite(Integer degSecurite) {
-		this.degSecurite = degSecurite;
-	}
 
-	public Categorie getCategorie() {
-		return categorie;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
-
+	
 }

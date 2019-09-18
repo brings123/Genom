@@ -31,6 +31,11 @@ public class CaracteristiqueController {
 	public Optional<Caracteristique> getResById(@PathVariable Integer id) {
 	    return catrepo.findById(id);
 	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/caracteristique/categorie/{id}")
+	public List<Caracteristique> getResByCat(@PathVariable Integer id) {
+	    return catrepo.findByCategorieId(id);
+	}
 	/*
 	 * 
 	 *	POST

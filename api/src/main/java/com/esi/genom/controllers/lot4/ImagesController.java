@@ -27,6 +27,11 @@ public class ImagesController {
 	public Optional<Images> getResById(@PathVariable Integer id) {
 	    return imagrepo.findById(id);
 	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/image/ressource/{id}")
+	public List<Images> getResByRes(@PathVariable Integer id) {
+	    return imagrepo.findByRessourceId(id);
+	}
 	/*
 	 * 
 	 *	POST

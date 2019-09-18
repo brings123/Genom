@@ -27,3 +27,16 @@
       </form>
     </div>
   </nav>
+
+  <ul class="collection">
+    <li class="collection-item avatar" *ngFor="let ressource of ressources$ | async">
+        <i class="material-icons circle teal accent-4">picture_as_pdf</i>
+        <a href="#" class="title"><b>{{ressource.name}}</b></a>
+        <p><strong>Type : {{ressource.type.name}} </strong></p>
+        <br>
+        <a href="#!" class="waves-effect">
+          <span>Supprimer</span></a>
+        <a href="#!" class="secondary-content">
+          <span><i class="material-icons">file_download</i></span><br>PDF</a>
+      </li>
+  </ul>

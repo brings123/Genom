@@ -9,8 +9,9 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.repository.CrudRepository;
 
 import com.esi.genom.entities.lot4.Categorie;
+import com.esi.genom.entities.lot4.Class;
 import com.esi.genom.entities.lot4.Images;
 
 public interface ImagesRepository extends JpaRepository<Images,Integer>{
-
+	public List<Images> findByRessourceId(Integer id);
 }
