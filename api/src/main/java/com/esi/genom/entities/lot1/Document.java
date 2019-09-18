@@ -36,7 +36,7 @@ public class Document {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long document_id;
+	private Long id;
 	
 	@Size(max = 255)
     @Column(name="nom_document", nullable = false)
@@ -51,22 +51,25 @@ public class Document {
 	private Date documentDateCreation;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "document_date_modification", updatable = true)
+	@Column(name = "document_date_modification", nullable =true, updatable = true)
 	@LastModifiedDate
 	private Date documentDateModification;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "document_type", nullable = false, updatable = true) // @JoinColumn pour indiquer que c'est une clé étrangère
+	@JoinColumn(name = "id_type_document", nullable = false, updatable = true) // @JoinColumn pour indiquer que c'est une clé étrangère
 	@OnDelete(action = OnDeleteAction.CASCADE)
+	//@Column(name = "type_document", updatable = true)
 	private DocumentType documentType;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "createur_document", nullable = false, updatable = true)
+	@JoinColumn(name = "createur_document_id", nullable = false, updatable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
+	//@Column(name = "id_createur_document", updatable = true)
 	private User createurDocument;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "modificateur_document", nullable = false, updatable = true)
+	@JoinColumn(name = "modificateur_document_id", nullable = false, updatable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
+	//@Column(name = "id_modificateur_document", updatable = true)
 	private User modificateurDocument;
 }

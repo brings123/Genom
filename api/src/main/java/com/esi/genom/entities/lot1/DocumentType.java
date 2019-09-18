@@ -20,6 +20,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.esi.genom.entities.users.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 //Est que c'est une loi nationale, loi international, convention ...
@@ -28,26 +29,29 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DocumentType {
 	
 	@Id
+	//@NotNull
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_type_document", nullable = false)
 	//@JsonProperty("type_document_id")
-	private Long typeDocumentId;
+	private Long id;
 	
 	@JsonProperty("nom_type_document")
     @Column(name="nom_type_document", nullable = false, updatable = true)
 	@Size(max = 255)
 	private String nomTypeDocument;
 	
-	@JsonProperty("description_type_document")
+	//@JsonProperty("description_type_document")
     @Column(name="description_type_document", nullable = false, updatable = true)
 	private String descriptionTypeDocument;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "type_document_date_creation", nullable = false, updatable = false)
 	@CreatedDate
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date typeDocumentDateCreation;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "createur_type_document", nullable = false, updatable = true)
+	@JoinColumn(name = "id", nullable = false, updatable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private User createurTypeDocument;
 }
