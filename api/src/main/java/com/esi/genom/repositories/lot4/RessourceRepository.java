@@ -11,6 +11,7 @@ import com.esi.genom.entities.lot4.Ressource;
 public interface RessourceRepository extends JpaRepository<Ressource,Integer> {
 	//public Ressource findByid(Integer id);
 	public List<Ressource> findByName(String name);
+	public List<Ressource> findByNameContainingIgnoreCase(String name);
 	public List<Ressource> findByCategorieId(Integer id);
 	public List<Ressource> findByClasseId(Integer id);
 	public List<Ressource> findByTypeId(Integer id);

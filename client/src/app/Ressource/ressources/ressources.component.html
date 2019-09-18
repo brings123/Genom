@@ -7,36 +7,36 @@
         <li><a class="waves-effect " routerLink="/events">Evenements</a></li>
         <li><a class="waves-effect " routerLink="/videos">Vidéos</a></li>
         <li><a class="waves-effect " routerLink="/links">Gestionnaire de liens</a></li>
-        <li><a class="waves-effect " routerLink="/contacts">Contacts</a></li>
-  
+        <li><a class="waves-effect " routerLink="/contacts">Contacts</a></li> 
 </ul>
 
 <div class="panel">
     <h4>Ressource</h4>
   </div>
   <hr>
-
+  <div class="chip  light-blue lighten-4 black-text" *ngFor="let categorie of categories$ | async" [class.lighten-1]="categorie === selectedCat" (click)="onSelectCat(categorie)">
+      {{categorie.name}}
+  </div >
+  <div class="chip  light-blue lighten-4 black-text" [class.lighten-1]="All === 'All'" (click)="selectAllCat()">
+      All
+  </div>
 <nav class="teal lighten-5 searchbar">
     <div class="nav-wrapper">
-      <form>
         <div class="input-field">
-          <input id="search" type="search" required>
+          <input id="search" type="search" [(ngModel)]="searchString" (ngModelChange)="inputChanged()" required>
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
-      </form>
     </div>
   </nav>
 
   <ul class="collection">
     <li class="collection-item avatar" *ngFor="let ressource of ressources$ | async">
-        <i class="material-icons circle teal accent-4">picture_as_pdf</i>
+        <i class="material-icons circle teal ">settings_input_svideo</i>
         <a href="#" class="title"><b>{{ressource.name}}</b></a>
         <p><strong>Type : {{ressource.type.name}} </strong></p>
         <br>
         <a href="#!" class="waves-effect">
           <span>Supprimer</span></a>
-        <a href="#!" class="secondary-content">
-          <span><i class="material-icons">file_download</i></span><br>PDF</a>
       </li>
   </ul>

@@ -24,7 +24,7 @@ public class RessourceController {
 	
     @RequestMapping(method=RequestMethod.GET,value="/ressource/name/{name}")
     public List<Ressource> getResByName(@PathVariable String name) {
-    	return ressrepo.findByName(name);
+    	return ressrepo.findByNameContainingIgnoreCase(name);
     }
 	
 	@RequestMapping(method=RequestMethod.GET,value="/ressource/{id}")

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Document } from './documents/model/documents';
-import { Observable } from 'rxjs/Observable';
+import { Document } from './documents/model/document';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class DocumentService {
