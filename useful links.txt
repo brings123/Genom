@@ -56,3 +56,7 @@ https://docs.microsoft.com/en-us/bingmaps/?redirectedfrom=MSDN
 GED functions
 https://www.pulsar-informatique.com/services/ged-open-source/les-fonctions-d-une-ged-open-source
 http://www.starxpert.fr/PDF/Bien_comprendre_la_GED.pdf
+
+9.
+Many to Many with Hibernate
+https://stackoverflow.com/questions/28451546/spring-mvc-saving-a-java-list-in-postgresql-with-hibernate
