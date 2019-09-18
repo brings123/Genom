@@ -25,6 +25,8 @@ import { ContactComponent } from './contact/contact.component';
 import { NewContactComponent } from './contact/newContact/newcontact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DocumentService } from './document.service';
+import { RessourcesComponent } from './Ressource/ressources/ressources.component';
+import { RessourceComponent } from './Ressource/ressource.component';
 
 @NgModule({
   declarations: [
