@@ -1,6 +1,6 @@
 import { Categorie } from './categorie';
 
-export class Type {
+export class Classe {
     id : number;
     name :string;
     description :string;

@@ -2,6 +2,8 @@ package com.esi.genom.entities.lot4;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

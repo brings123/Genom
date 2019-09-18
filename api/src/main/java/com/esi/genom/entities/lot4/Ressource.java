@@ -1,5 +1,6 @@
 package com.esi.genom.entities.lot4;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
@@ -46,7 +47,7 @@ public class Ressource implements Serializable {
 	   private Type type;
 	   
 	   @ManyToOne(optional = false)
-	   @JoinColumn(name = "class_id")
+	   @JoinColumn(name = "classe_id")
 	   @JsonProperty("classe")
 	   private Class classe;
 	   
