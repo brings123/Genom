@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DocumentService } from './document.service';
 import { RessourcesComponent } from './Ressource/ressources/ressources.component';
 import { RessourceComponent } from './Ressource/ressource.component';
+import { AddressourceComponent } from './Ressource/addressource/addressource.component';
+import { AddressourcevalComponent } from './Ressource/addressourceval/addressourceval.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { RessourceComponent } from './Ressource/ressource.component';
     ContactComponent,
     NewContactComponent,
     RessourcesComponent,
-    RessourceComponent
+    RessourceComponent,
+    AddressourceComponent,
+    AddressourcevalComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { RessourceComponent } from './Ressource/ressource.component';
     HttpClientModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path:'documents',
@@ -135,6 +140,14 @@ import { RessourceComponent } from './Ressource/ressource.component';
       {
         path: 'ressources',
         component: RessourcesComponent
+      },
+      {
+        path: 'addressource',
+        component: AddressourceComponent
+      },
+      {
+        path: 'addressourceval/:id',
+        component: AddressourcevalComponent
       },
 
     ])

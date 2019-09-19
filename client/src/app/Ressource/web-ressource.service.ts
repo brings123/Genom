@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Ressource} from './ressource'
 import { Categorie } from './categorie';
+import { Type } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,20 @@ export class WebRessourceService {
     return this.http.get<Categorie[]>("http://localhost:8081/categories");
   }
 
+  getTypeCat (idCat:number): Observable<Type[]> {
+    return this.http.get<Type[]>("http://localhost:8081/type/categorie/"+idCat);
+  }
+
+  postRessource(val){
+    var ressource = {
+      "name": val.name,
+      "description": val.description,
+      "categorie":{"id":val.categorie},
+      "classe":{"id":val.classe},
+      "type":{"id":val.type}
+    }
+    this.http.post("http://localhost:8081/ressource",ressource)
+  }
+ 
 
 }
