@@ -1,13 +1,21 @@
 package com.esi.genom.dto.users;
 
 import java.io.Serializable;
-import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.esi.genom.entities.users.Role;
 
 public class UserDto implements Serializable{
 	private static final long serialVersionUID = -987257642374843223L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	//@JsonProperty("createur")
 	private Long id;
 	private String username;
 	private String password;

@@ -44,25 +44,27 @@ public class DocumentsController {
 		return documentsService.getAllDocumentsOrderedByNomDocument();
 	}
 	
-	@GetMapping("/documents_of_type_id/{typeId}")
-	public List<Document> getTopic(@PathVariable("typeId") Long id) {
-		return documentsService.getAllDocumentsOfType(id);
-	}
-	
-	@GetMapping("/documents_of_type_id/{typeId}/ordered_by/modification_date")
-	public List<Document> getAllDocumentsOfTypeOrderedByModificationDate(@PathVariable("typeId") Long id) {
-		return documentsService.getAllDocumentsOfTypeOrderedByModificationDate(id);
-	}
-	
-	@GetMapping("/documents_of_type_id/{typeId}/ordered_by/creation_date")
-	public List<Document> getAllDocumentsOfTypeOrderedByCreationDate(@PathVariable("typeId") Long id) {
-		return documentsService.getAllDocumentsOfTypeOrderedByCreationDate(id);
-	}
-
-	@GetMapping("/documents_of_type_id/{typeId}/ordered_by/document_name")
-	public List<Document> getAllDocumentsOfTypeOrderedByDocumentName(@PathVariable("typeId") Long id) {
-		return documentsService.getAllDocumentsOfTypeOrderedByDocumentName(id);
-	}
+	/*
+	 * @GetMapping("/documents_of_type_id/{typeId}") public List<Document>
+	 * getTopic(@PathVariable("typeId") Long id) { return
+	 * documentsService.getAllDocumentsOfType(id); }
+	 * 
+	 * @GetMapping("/documents_of_type_id/{typeId}/ordered_by/modification_date")
+	 * public List<Document>
+	 * getAllDocumentsOfTypeOrderedByModificationDate(@PathVariable("typeId") Long
+	 * id) { return
+	 * documentsService.getAllDocumentsOfTypeOrderedByModificationDate(id); }
+	 * 
+	 * @GetMapping("/documents_of_type_id/{typeId}/ordered_by/creation_date") public
+	 * List<Document>
+	 * getAllDocumentsOfTypeOrderedByCreationDate(@PathVariable("typeId") Long id) {
+	 * return documentsService.getAllDocumentsOfTypeOrderedByCreationDate(id); }
+	 * 
+	 * @GetMapping("/documents_of_type_id/{typeId}/ordered_by/document_name") public
+	 * List<Document>
+	 * getAllDocumentsOfTypeOrderedByDocumentName(@PathVariable("typeId") Long id) {
+	 * return documentsService.getAllDocumentsOfTypeOrderedByDocumentName(id); }
+	 */
 	@GetMapping("/documents_of_type/{typeName}")
 	public List<Document> getAllDocumentsOfType(@PathVariable("typeName") String type) {
 		return documentsService.getAllDocumentsOfType(type);

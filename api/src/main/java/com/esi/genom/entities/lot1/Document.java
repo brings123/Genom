@@ -55,11 +55,12 @@ public class Document {
 	@LastModifiedDate
 	private Date documentDateModification;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id_type_document", nullable = false, updatable = true) // @JoinColumn pour indiquer que c'est une clé étrangère
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	//@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	//@JoinColumn(name = "id_type_document", nullable = false, updatable = true) // @JoinColumn pour indiquer que c'est une clé étrangère
+	//@OnDelete(action = OnDeleteAction.CASCADE)
 	//@Column(name = "type_document", updatable = true)
-	private DocumentType documentType;
+	@Column(name = "type_document", nullable =false, updatable = true)
+	private String documentType;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "createur_document_id", nullable = false, updatable = true)

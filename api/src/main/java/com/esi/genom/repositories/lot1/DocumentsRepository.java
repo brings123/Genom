@@ -13,14 +13,14 @@ import com.esi.genom.entities.lot1.Document;
 @Repository
 public interface DocumentsRepository extends JpaRepository<Document, Long>{
 	
-	public List<Document> findByDocumentTypeId (Long id);
-	public List<Document> findByDocumentTypeId (Long id, Sort sort);
+	//public List<Document> findByDocumentTypeId (Long id);
+	//public List<Document> findByDocumentTypeId (Long id, Sort sort);
 	//Les deux méthodes qui se suivent pouvent être remplacé par la méthode juste avant
-	public List<Document> findByDocumentTypeIdOrderByDocumentDateCreation(Long id);
-	public List<Document> findByDocumentTypeIdOrderByDocumentDateModification(Long id);
+	//public List<Document> findByDocumentTypeIdOrderByDocumentDateCreation(Long id);
+	//public List<Document> findByDocumentTypeIdOrderByDocumentDateModification(Long id);
 	
-	public List<Document> findByDocumentTypeNomTypeDocument(String nomTypeDocument);
-	public List<Document> findByDocumentTypeNomTypeDocument(String nomTypeDocument, Sort sort);
+	public List<Document> findByDocumentType(String nomTypeDocument);
+	public List<Document> findByDocumentType(String nomTypeDocument, Sort sort);
 	
 	public List<Document> findByCreateurDocumentUsername(String userName);
 	public List<Document> findByCreateurDocumentUsername(String userName, Sort sort);
