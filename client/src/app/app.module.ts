@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DocumentService } from './document.service';
 import { RessourcesComponent } from './Ressource/ressources/ressources.component';
 import { RessourceComponent } from './Ressource/ressource.component';
+import { LoginComponent } from './login/login.component';
+import { SingupComponent } from './singup/singup.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { RessourceComponent } from './Ressource/ressource.component';
     ContactComponent,
     NewContactComponent,
     RessourcesComponent,
-    RessourceComponent
+    RessourceComponent,
+    LoginComponent,
+    SingupComponent
   ],
   imports: [
     BrowserModule,
@@ -136,10 +140,17 @@ import { RessourceComponent } from './Ressource/ressource.component';
         path: 'ressources',
         component: RessourcesComponent
       },
-
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'singup',
+        component: SingupComponent
+      },
     ])
   ],
   providers: [ DocumentService ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
