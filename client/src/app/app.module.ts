@@ -30,6 +30,8 @@ import { RessourcesComponent } from './Ressource/ressources/ressources.component
 import { RessourceComponent } from './Ressource/ressource.component';
 import { AddressourceComponent } from './Ressource/addressource/addressource.component';
 import { AddressourcevalComponent } from './Ressource/addressourceval/addressourceval.component';
+import { LoginComponent } from './login/login.component';
+import { SingupComponent } from './singup/singup.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { AddressourcevalComponent } from './Ressource/addressourceval/addressour
     RessourcesComponent,
     RessourceComponent,
     AddressourceComponent,
-    AddressourcevalComponent
+    AddressourcevalComponent,
+    LoginComponent,
+    SingupComponent
   ],
   imports: [
     BrowserModule,
@@ -149,10 +153,18 @@ import { AddressourcevalComponent } from './Ressource/addressourceval/addressour
         path: 'addressourceval/:id',
         component: AddressourcevalComponent
       },
-
+    
+    {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'singup',
+        component: SingupComponent
+      },
     ])
   ],
   providers: [ DocumentService ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

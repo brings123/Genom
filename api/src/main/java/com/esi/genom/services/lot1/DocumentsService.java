@@ -41,48 +41,51 @@ public class DocumentsService {
 		return documents;
 	}
 	//trouver tous les documents tq id_type_document = typeId
-	public List<Document> getAllDocumentsOfType(Long typeId){
-		documentsRepository.findByDocumentTypeTypeDocumentId(typeId).forEach(documents::add);
-		return documents;
-	}
-	
-	//trouver tous les documents tq id_type_document = typeId ordonnées par la dernière date de modification
-	public List<Document> getAllDocumentsOfTypeOrderedByModificationDate(Long typeId){
-		documentsRepository.findByDocumentTypeTypeDocumentId(typeId, Sort.by(Sort.Direction.DESC,"documentDateModification" )).forEach(documents::add);
-		return documents;
-	}
-	
-	//trouver tous les documents tq id_type_document = typeId ordonnées par la dernière date de création
-	public List<Document> getAllDocumentsOfTypeOrderedByCreationDate(Long typeId){
-		documentsRepository.findByDocumentTypeTypeDocumentId(typeId, Sort.by(Sort.Direction.DESC,"documentDateCreation" )).forEach(documents::add);
-		return documents;
-	}
-	
-	public List<Document> getAllDocumentsOfTypeOrderedByDocumentName(Long typeId){
-		documentsRepository.findByDocumentTypeTypeDocumentId(typeId, Sort.by(Sort.Direction.ASC,"nomDocument" )).forEach(documents::add);
-		return documents;
-	}
+	/*
+	 * public List<Document> getAllDocumentsOfType(Long typeId){
+	 * documentsRepository.findByDocumentTypeId(typeId).forEach(documents::add);
+	 * return documents; }
+	 * 
+	 * //trouver tous les documents tq id_type_document = typeId ordonnées par la
+	 * dernière date de modification public List<Document>
+	 * getAllDocumentsOfTypeOrderedByModificationDate(Long typeId){
+	 * documentsRepository.findByDocumentTypeId(typeId,
+	 * Sort.by(Sort.Direction.DESC,"documentDateModification"
+	 * )).forEach(documents::add); return documents; }
+	 * 
+	 * //trouver tous les documents tq id_type_document = typeId ordonnées par la
+	 * dernière date de création public List<Document>
+	 * getAllDocumentsOfTypeOrderedByCreationDate(Long typeId){
+	 * documentsRepository.findByDocumentTypeId(typeId,
+	 * Sort.by(Sort.Direction.DESC,"documentDateCreation"
+	 * )).forEach(documents::add); return documents; }
+	 * 
+	 * public List<Document> getAllDocumentsOfTypeOrderedByDocumentName(Long
+	 * typeId){ documentsRepository.findByDocumentTypeId(typeId,
+	 * Sort.by(Sort.Direction.ASC,"nomDocument" )).forEach(documents::add); return
+	 * documents; }
+	 */
 
 	//trouver tous les documents tq type_document = type
 	public List<Document> getAllDocumentsOfType(String type){
-		documentsRepository.findByDocumentTypeNomTypeDocument(type).forEach(documents::add);
+		documentsRepository.findByDocumentType(type).forEach(documents::add);
 		return documents;
 	}
 	
 	//trouver tous les documents tq type_document = type ordonnées par la dernière date de modification
 	public List<Document> getAllDocumentsOfTypeOrderedByModificationDate(String type){
-		documentsRepository.findByDocumentTypeNomTypeDocument(type, Sort.by(Sort.Direction.DESC,"documentDateModification" )).forEach(documents::add);
+		documentsRepository.findByDocumentType(type, Sort.by(Sort.Direction.DESC,"documentDateModification" )).forEach(documents::add);
 		return documents;
 	}
 	
 	//trouver tous les documents tq type_document = type ordonnées par la dernière date de création
 	public List<Document> getAllDocumentsOfTypeOrderedByCreationDate(String type){
-		documentsRepository.findByDocumentTypeNomTypeDocument(type, Sort.by(Sort.Direction.DESC,"documentDateCreation" )).forEach(documents::add);
+		documentsRepository.findByDocumentType(type, Sort.by(Sort.Direction.DESC,"documentDateCreation" )).forEach(documents::add);
 		return documents;
 	}
 	
 	public List<Document> getAllDocumentsOfTypeOrderedByDocumentName(String type){
-		documentsRepository.findByDocumentTypeNomTypeDocument(type, Sort.by(Sort.Direction.ASC,"nomDocument" )).forEach(documents::add);
+		documentsRepository.findByDocumentType(type, Sort.by(Sort.Direction.ASC,"nomDocument" )).forEach(documents::add);
 		return documents;
 	}
 	

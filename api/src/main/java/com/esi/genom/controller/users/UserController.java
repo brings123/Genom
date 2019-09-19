@@ -18,7 +18,7 @@ public class UserController {
     private UserService userService;
 
     //@Secured({"ROLE_ADMIN", "ROLE_USER"})
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value="/users", method = RequestMethod.GET)
     public List<User> listUser(){
         return userService.findAll();
