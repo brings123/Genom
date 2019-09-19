@@ -18,7 +18,7 @@ public class Moyen {
 	@Column(name = "id_moyen")
 	private Long id;
 	
-	@Column(name="moyen", nullable = false)
+	@Column(name="moyen", nullable = false, unique  = true)
 	private String moyen;
 	
 	@NotNull
