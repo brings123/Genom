@@ -1,6 +1,11 @@
 <div class="panel">
   <h4>Documents</h4>
-  <button type="button" class="btn light-green right waves-effect text-white" name="button">Importer</button>
+     <div class="file-field input-field right">
+  <div class="btn light-green waves-effect text-white right">
+    <span>Importer</span>
+    <input type="file">
+  </div>
+   </div>
     </div>
     <hr>
  <nav class="light-green searchbar">
@@ -17,9 +22,10 @@
 
 
 <ul class="collection">
-  <li class="collection-item avatar">
+
+  <li *ngFor="let document of documents" class="collection-item avatar">
     <i class="material-icons circle">picture_as_pdf</i>
-    <a href="#" class="title">Document1</a>
+    <a href="#" class="title">{{document.nomDocument}}</a>
     <p><strong>Relation avec:</strong><br>
        Document2, Document3
     </p>

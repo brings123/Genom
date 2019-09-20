@@ -13,6 +13,7 @@ import com.esi.genom.entities.lot4.Class;
 
 public interface ClassRepository extends JpaRepository<Class,Integer> {
 	public List<Class> findByName(String name);
+	public List<Class> findByCategorieId(Integer id);
 	 @Modifying
 	 @Transactional
 	 public void deleteByName(String name);

@@ -24,7 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "Caracteristique")
-public class Caracteristique {
+public class Caracteristique implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@JsonProperty("id")
@@ -42,11 +43,64 @@ public class Caracteristique {
     @Column(name="degSecurite")
 	private Integer degSecurite;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "categorie_id", nullable = false)
-	@JsonIgnore
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "categorie_id")
+	@JsonProperty("categorie")
 	private Categorie categorie;
 	
-	@ManyToMany
-	private List<Valeur> valeurs;
+
+	public Caracteristique() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Caracteristique(Integer id, String name, String description, Integer degSecurite, Categorie categorie) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.degSecurite = degSecurite;
+		this.categorie = categorie;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Integer getDegSecurite() {
+		return degSecurite;
+	}
+
+	public void setDegSecurite(Integer degSecurite) {
+		this.degSecurite = degSecurite;
+	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
 }

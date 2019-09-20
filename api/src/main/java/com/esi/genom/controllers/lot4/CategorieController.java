@@ -28,8 +28,8 @@ public class CategorieController {
     }
 	
 	@RequestMapping(method=RequestMethod.GET,value="/categorie/{id}")
-	public Optional<Categorie> getResById(@PathVariable Integer id) {
-	    return catrepo.findById(id);
+	public Categorie getResById(@PathVariable Integer id) {
+	    return catrepo.findById(id).get();
 	}
 	/*
 	 * 

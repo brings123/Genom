@@ -12,19 +12,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "Ressource")
-public class Ressource {
+public class Ressource implements Serializable {
+	   private static final long serialVersionUID = 1L;
 	   @Id
 	   @GeneratedValue(strategy=GenerationType.IDENTITY)
 	   @JsonProperty("id")
@@ -38,26 +37,85 @@ public class Ressource {
 	   @JsonProperty("description")
 	   private String description;
 	   
-	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	   @JoinColumn(name = "type_id", nullable = false)
-	   @JsonIgnore
+	   @Column(name="validation")
+	   @JsonProperty("validation")
+	   private boolean validation;
+	   
+	   @ManyToOne(optional = false)
+	   @JoinColumn(name = "type_id")
+	   @JsonProperty("type")
 	   private Type type;
 	   
-	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	   @JoinColumn(name = "classe_id", nullable = false)
-	   @JsonIgnore
+	   @ManyToOne(optional = false)
+	   @JoinColumn(name = "classe_id")
+	   @JsonProperty("classe")
 	   private Class classe;
 	   
-	   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	   @JoinColumn(name = "categorie_id", nullable = false)
-	   @JsonIgnore
+	   @ManyToOne(optional = false)
+	   @JoinColumn(name = "categorie_id")
+	   @JsonProperty("categorie")
 	   private Categorie categorie;
 	   
-	   @ManyToMany
-	   private List<Localisation> localisations;
+	  /* @ManyToMany
+	   @JoinTable(name = "ressource_localisations",
+       joinColumns = @JoinColumn(name = "ressource_id", referencedColumnName = "id"),
+       inverseJoinColumns = @JoinColumn(name = "localisation_id", referencedColumnName = "id"))
+	   private List<Localisation> localisations;*/
 	   
-	   @OneToMany(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-		private Set<Images> images;
+	   /*@OneToMany(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
+		private Set<Images> images;*/
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+
+	public Ressource(Integer id, String name, String description, Categorie categorie
+		) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.categorie = categorie;
+	}
+
+	public Ressource() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	   
 	   
 	   

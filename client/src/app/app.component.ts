@@ -17,6 +17,7 @@ noHome:boolean;
     }else{
       this.noHome=false;
     }
+    if(this.location.path()==="/login") this.noHome=false;
     console.log(this.noHome);
    }
   title = "Gestionnaire des documents";
