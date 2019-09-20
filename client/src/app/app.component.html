@@ -1,6 +1,6 @@
 <div>
 <navbar></navbar>
-<sidenav *ngIf="location.path()!=''"></sidenav>
+<sidenav  *ngIf="(location.path()!='/login' && location.path()!='' )" ></sidenav>
 <div [class.container]="noHome" [class.noHome]="noHome">
   <router-outlet></router-outlet>
 

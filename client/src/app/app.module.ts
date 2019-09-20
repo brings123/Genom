@@ -11,6 +11,21 @@ import { DocumentsComponent } from './documents/documents.component';
 import { HomeComponent } from './home/home.component';
 import { DemandeComponent } from './demande/demande.component';
 import { AdminDocumentComponent } from './admin/admin-document/admin-document.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { LoginComponent } from './Components/login/login.component';
+import { AlertComponent } from './Components/alert/alert.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { AddUserComponent } from './Components/add-user/add-user.component';
+import { EditUserComponent } from './Components/edit-user/edit-user.component';
+import { ListUserComponent } from './Components/list-user/list-user.component';
+import { ApiService } from './_services/api.service';
+import { TokenInterceptor } from './_helper/interceptor';
+import { RoleGuardService } from './_helper/role.guard';
+
+
 
 @NgModule({
   declarations: [
@@ -21,11 +36,21 @@ import { AdminDocumentComponent } from './admin/admin-document/admin-document.co
     DocumentsComponent,
     HomeComponent,
     DemandeComponent,
-    AdminDocumentComponent
+    AdminDocumentComponent,
+    LoginComponent,
+    AlertComponent,
+    RegisterComponent,
+    AddUserComponent,
+    EditUserComponent,
+    ListUserComponent
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path:'documents',
@@ -42,10 +67,18 @@ import { AdminDocumentComponent } from './admin/admin-document/admin-document.co
       {
         path:'admin/documents',
         component:AdminDocumentComponent
-      }
+      },
+      
+      { path: 'login', component: LoginComponent , },
+      { path: 'add-user', component: AddUserComponent, },
+      { path: 'list-user', component: ListUserComponent ,},
+      { path: 'edit-user', component: EditUserComponent },
+      {path : '', component : LoginComponent}
     ])
   ],
-  providers: [],
+  providers: [ApiService, {provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

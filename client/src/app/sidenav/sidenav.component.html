@@ -2,9 +2,14 @@
   <h4 class="center">Genom</h4>
   <hr>
   <br>
-      <li><a class="waves-effect " routerLink="documents">Les lois</a></li>
-      <li><a class="waves-effect " routerLink="demande">Demandes des ressources</a></li>
-      <li><a class="waves-effect " routerLink="admin/documents">Documents des lois déposé</a></li>
+  <div *ngIf="role === 'ADMIN'">
+    <li><a class="waves-effect " routerLink="add-user">Ajouter un utilisateur</a></li>
+      <li><a class="waves-effect " routerLink="edit-user">Modifier utilisateur</a></li>
+      <li><a class="waves-effect " routerLink="list-user">La list des utilisateurs</a></li>
+  </div >
+  <!--li><a class="waves-effect " routerLink="documents">Les lois</a></li>
+  <li><a class="waves-effect " routerLink="demande">Demandes des ressources</a></li>
+  <li><a class="waves-effect " routerLink="admin/documents">Documents des lois déposé</a></li-->
 
     </ul>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>

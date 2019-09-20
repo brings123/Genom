@@ -1,0 +1,84 @@
+<br><br><br>
+<!--
+<div class="card col-md-10 ">
+  <div class="card-body  login-container   ">
+  !--div class="col-md-6 login-container"
+      <h2 classe =".text-success" style="margin: auto">Login </h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">UserName:</label>
+          <input type="text" class="form-control" formControlName="username" id="username"  >
+          
+          <div class="error" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">Username is required</div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" formControlName="password" id="pwd"  >
+          <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required</div>
+        </div>
+        <button class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
+        <div *ngIf="invalidLogin" class="error">
+          <div>Invalid credentials.</div>
+        </div>
+      </form>
+    /div->
+  </div>
+</div>
+-->
+
+
+
+
+
+
+
+
+
+
+  <div class="main center">
+      <img class="responsive-img" style="width: 100px; margin-top:2rem;" src="https://www.trzcacak.rs/myfile/full/176-1762655_plant-natural-resources-png.png" />
+      <h5 class="light-green-text darken-3">Se Connecter à votre compte</h5>
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+
+            <form class="col s12" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    
+                <div class='row'>
+                  <div class='input-field col s12'>
+                    <input class='validate' type='text'  formControlName="username" name='username' id='username' />
+                    <label for='user'>Nom d'utilisateur</label>
+                    <div class="error" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">Username is required</div>
+                  </div>
+                </div>
+            
+                <div class='row'>
+                  <div class='input-field col s12'>
+                      <input type="password" class="validate" formControlName="password" name='password' id="password"  >
+                      <label for='password'>Mot de passe</label>
+                      <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required</div>    
+                  </div>
+                  <label style='float: right;'>
+                    <a class='pink-text' href='#!'><b>Mot de passe oublié?</b></a>
+                  </label>
+                </div>
+            
+                <br />
+            
+                  <div class='row'>
+                      <button class="col s12 btn btn-large waves-effect light-green" [disabled]="loginForm.invalid">Login</button>
+                      <div *ngIf="invalidLogin" class="error">
+                        <div>Invalid credentials.</div>
+                      </div>     
+                   </div>
+                  
+              </form>
+              
+
+
+        </div>
+      </div>
+    <div class="section"></div>
+    <div class="section"></div>
+  </div>

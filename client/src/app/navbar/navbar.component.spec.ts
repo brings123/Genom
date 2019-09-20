@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import { ApiService } from '../_services/api.service';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -23,3 +24,4 @@ describe('NavbarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
