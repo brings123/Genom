@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from './../app.component';
+import { ApiService } from '../_services/api.service';
 declare var M:any;
 @Component({
   selector: 'navbar',
@@ -8,7 +9,7 @@ declare var M:any;
 })
 export class NavbarComponent implements OnInit {
  title = "Client";
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     var elems = document.querySelectorAll('.sidenav');

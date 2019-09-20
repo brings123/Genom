@@ -1,6 +1,7 @@
 package com.esi.genom.controller.users;
 
 import com.esi.genom.configuration.TokenProvider;
+import com.esi.genom.entities.users.ApiResponse;
 import com.esi.genom.entities.users.AuthToken;
 import com.esi.genom.entities.users.LoginUser;
 import com.esi.genom.entities.users.User;
@@ -18,7 +19,7 @@ import static com.esi.genom.configuration.Constants.TOKEN_PREFIX;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/token")
+@RequestMapping("/auth")
 public class AuthenticationController {
 
     @Autowired
@@ -30,8 +31,8 @@ public class AuthenticationController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/generate-token", method = RequestMethod.POST)
-    public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ApiResponse<AuthToken>  register(@RequestBody LoginUser loginUser) throws AuthenticationException {
 
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -41,7 +42,11 @@ public class AuthenticationController {
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final String token = jwtTokenUtil.generateToken(authentication);
-        return ResponseEntity.ok(new AuthToken(token));
+        final User user = userService.findByUsername(loginUser.getUsername());
+        System.out.print(user);
+
+        return new ApiResponse<>(200, "success", new AuthToken(token, user.getUsername()));
+
     }
 
 }

@@ -68,16 +68,11 @@ public class UserService implements UserDetailsService{
 		userRepository.deleteById(id);
 	}
 	
-	public User save(com.esi.genom.dto.users.UserDto user) {
-	    User newUser = new User();
-	    newUser.setUsername(user.getUsername());
-	    newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		newUser.setNom(user.getNom());
-		newUser.setPrenom(user.getPrenom());
-		newUser.setTelephone(user.getTelephone());
-		newUser.setEmail(user.getEmail());
-		newUser.setRoles(user.getRoles());
-        return userRepository.save(newUser);
+	public User save(User user) {
+	    String password =bcryptEncoder.encode(user.getPassword());  
+		user.setPassword(password);
+		
+        return userRepository.save(user);
     }
 	/**
 	 * 
@@ -87,5 +82,7 @@ public class UserService implements UserDetailsService{
 	public User findById(Long id ) {
 		return userRepository.findById(id).get();
 	}
-
+    public  User findByUsername (String username) {
+    	return userRepository.findByUsername(username);
+    }
 }

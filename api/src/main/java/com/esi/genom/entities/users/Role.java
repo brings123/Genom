@@ -22,12 +22,11 @@ public class Role implements Serializable{
     @Enumerated(EnumType.STRING)
     private RoleName name;
     
+  
     
     
 
-    @JsonBackReference
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+   
 
     public Role() {
     }
@@ -57,12 +56,6 @@ public class Role implements Serializable{
         this.name = name;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+  
 
 }

@@ -12,6 +12,23 @@ import { DocumentsComponent } from './documents/documents.component';
 import { HomeComponent } from './home/home.component';
 import { DemandeComponent } from './demande/demande.component';
 import { AdminDocumentComponent } from './admin/admin-document/admin-document.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { LoginComponent } from './Components/login/login.component';
+import { AlertComponent } from './Components/alert/alert.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { AddUserComponent } from './Components/add-user/add-user.component';
+import { EditUserComponent } from './Components/edit-user/edit-user.component';
+import { ListUserComponent } from './Components/list-user/list-user.component';
+import { ApiService } from './_services/api.service';
+import { TokenInterceptor } from './_helper/interceptor';
+import { RoleGuardService } from './_helper/role.guard';
+
+
+
 import { NewsComponent } from './news/news.component';
 import { AddNewsComponent } from './news/addnews/addnews.component';
 import { InfoFicheComponent } from './infofiche/infofiche.component';
@@ -33,6 +50,7 @@ import { AddressourcevalComponent } from './Ressource/addressourceval/addressour
 import { LoginComponent } from './login/login.component';
 import { SingupComponent } from './singup/singup.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +62,13 @@ import { SingupComponent } from './singup/singup.component';
     HomeComponent,
     DemandeComponent,
     AdminDocumentComponent,
+    LoginComponent,
+    AlertComponent,
+    RegisterComponent,
+    AddUserComponent,
+    EditUserComponent,
+    ListUserComponent
+
 
 
     NewsComponent,
@@ -62,16 +87,22 @@ import { SingupComponent } from './singup/singup.component';
     RessourceComponent,
     AddressourceComponent,
     AddressourcevalComponent,
-    LoginComponent,
+  
     SingupComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+
+    FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+
+    ReactiveFormsModule,
+
     RouterModule.forRoot([
       {
         path:'documents',
@@ -93,6 +124,12 @@ import { SingupComponent } from './singup/singup.component';
         path:'admin/documents',
         component:AdminDocumentComponent
       },
+      
+      { path: 'login', component: LoginComponent , },
+      { path: 'add-user', component: AddUserComponent, },
+      { path: 'list-user', component: ListUserComponent ,},
+      { path: 'edit-user', component: EditUserComponent },
+      {path : '', component : LoginComponent},
       {
         path: 'news',
         component: NewsComponent
@@ -164,7 +201,10 @@ import { SingupComponent } from './singup/singup.component';
       },
     ])
   ],
-  providers: [ DocumentService ],
-  bootstrap: [ AppComponent ]
+  providers: [ApiService, {provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi : true}],
+  bootstrap: [AppComponent]
+
 })
 export class AppModule { }

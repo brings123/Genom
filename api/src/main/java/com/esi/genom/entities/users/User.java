@@ -9,10 +9,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -77,16 +83,24 @@ public class User  {
             inverseJoinColumns = {@JoinColumn(name = "roles_id")})
     */
 	
-	@OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
+	@ManyToOne(optional = false)
+    @JoinColumn(name = "role_id")
 	private Role roles;
 	
 	
+	@JsonCreator
 	
+
 	public Long getId() {
 		return id;
 	}
 	
+	
+	public User() {
+		super();
+	}
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
