@@ -35,5 +35,12 @@ public class Responsable {
 	
 	@NotNull
 	private String pays;
+	
+	@NotNull
+	private String profession;
+	
+	
+	@NotNull
+	private String organisation;
 
 }

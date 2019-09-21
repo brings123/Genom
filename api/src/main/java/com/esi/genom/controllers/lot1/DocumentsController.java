@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.esi.genom.services.lot1.DocumentsService;
 
 @RestController
 @RequestMapping("/lot1")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class DocumentsController {
 	
 	@Autowired
@@ -151,12 +153,12 @@ public class DocumentsController {
 		documentsService.updateDocument(document);
 	}
 	
-	@DeleteMapping("/delete_by_id/{id}")
+	@DeleteMapping("/delete_document/{id}")
 	public void deleteDocumentById(@PathVariable Long id) {
 		documentsService.deleteDocumentById(id);
 	}
 	
-	@DeleteMapping("/delete_by_name/{nomDocument}")
+	@DeleteMapping("/delete_document/{nomDocument}")
 	public void deleteDocumentByName(@PathVariable String nomDocument) {
 		documentsService.deleteDocumentByName(nomDocument);
 	}
