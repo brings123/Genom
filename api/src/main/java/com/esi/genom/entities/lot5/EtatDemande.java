@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name= "lot5_etat_demande")
 public class EtatDemande {
@@ -26,6 +28,7 @@ public class EtatDemande {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date_debut_etat_demande", nullable = false, updatable = true)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateDebutEtatDemande;
 	
 	@Column(name = "description_etat_demande", nullable = false, updatable = true)

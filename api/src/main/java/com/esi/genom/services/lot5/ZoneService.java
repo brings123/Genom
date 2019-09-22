@@ -62,6 +62,9 @@ public class ZoneService {
 		return zones;
 	}
 	
+	public Zone getZoneById(Long id) {
+		return zoneRepository.findById(id).get();
+	}
 	public void addZone(Zone zone) {
 		zoneRepository.save(zone);
 	}

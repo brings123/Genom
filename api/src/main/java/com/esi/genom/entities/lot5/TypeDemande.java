@@ -13,13 +13,13 @@ public class TypeDemande {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_type_document")
+	@Column(name = "id_type_demande")
 	private Long id;
 	
-	@Column(name = "type_document")
+	@Column(name = "type_demande")
 	private String type;
 	
-	@Column(name = "description_type_document")
+	@Column(name = "description_type_demande")
 	private String description;
 
 }

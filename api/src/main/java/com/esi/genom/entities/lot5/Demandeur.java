@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name= "lot5_demandeur")
 public class Demandeur {
@@ -16,7 +18,7 @@ public class Demandeur {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_demandeur", nullable = false)
-	private Long idDemandeur;
+	private Long id;
 	
 	@Column(name="prenom", nullable = false)
 	private String prenom;
@@ -25,6 +27,7 @@ public class Demandeur {
 	private String nom;
 	
 	@Column(name="date_de_naissance", nullable = false)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateNaissance;
 	
 	@Column(name="adresse", nullable = false)
