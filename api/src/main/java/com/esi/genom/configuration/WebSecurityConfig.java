@@ -63,6 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/valeur","/valeur/caracteristique/*","/valeur/ressource/*","/valeur/*","/valeurs").permitAll()
                 .antMatchers("/valeurabs","/valeurabs/caracteristique/*","/valeurabs/ressource/*","/valeurabs/*","/valeursabs").permitAll()
                 .antMatchers("/lot1/**").permitAll()
+                .antMatchers("/lot5/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

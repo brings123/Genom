@@ -33,10 +33,11 @@ public class MoyenService {
 		return moyenRepository.findByMoyen(moyen);
 	}
 	
-	public List<Moyen> findMoyenByTypeOrderedByMoyen(String type){
-		moyenRepository.findByType(type, Sort.by(Sort.Direction.ASC, "moyen")).forEach(moyens::add);;
-		return moyens;
-	}
+	/*
+	 * public Moyen findMoyenByTypeOrderedByMoyen(String type){
+	 * moyenRepository.findByType(type, Sort.by(Sort.Direction.ASC,
+	 * "moyen")).forEach(moyens::add);; return moyens; }
+	 */
 	
 	public void addMoyen(Moyen moyen) {
 		moyenRepository.save(moyen);
