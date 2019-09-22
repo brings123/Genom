@@ -33,8 +33,5 @@ public class Operateur {
 	private String adresse;
 	
 	@NotNull
-	private String profession;
-	
-	@NotNull
 	private String pays;
 }

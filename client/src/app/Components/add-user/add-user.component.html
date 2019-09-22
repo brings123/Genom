@@ -1,0 +1,48 @@
+
+<div class="panel">
+    <h2 class="text-center">Add User</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">User Name:</label>
+        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+      </div>
+  
+      <div class="form-group">
+        <label for="Prenom">:</label>
+        <input formControlName="prenom" placeholder="Prenom" name="Prenom" class="form-control" id="prenom">
+      </div>
+  
+      <div class="form-group">
+        <label for="nom">Nom:</label>
+        <input formControlName="nom" placeholder="Nom" name="Nom" class="form-control" id="nom">
+      </div>
+  
+      <div class="form-group">
+        <label for="telephone">telephone:</label>
+        <input type="number" formControlName="telephone" placeholder="telephone" name="telephone" class="form-control" id="telephone">
+      </div>
+      <div class="form-group">
+          <label for="role">role:</label>
+          <select materialize="material_select" formControlName="role" id="role">
+              <option value="" disabled selected>Choisir le role de l'utilisateur</option>
+              <option *ngFor="let role of roles$ | async" [value]="role.id">
+                {{role.name}}
+              </option>       
+               </select>
+      </div>
+      
+    
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input  formControlName="email" placeholder="email" name="email" class="form-control" id="email">
+      </div>
+     
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>
