@@ -11,7 +11,7 @@ export class DocumentService {
 
   constructor(private http: HttpClient) {
     this.usersUrl = 'http://localhost:8081/lot1/allDocuments/unordered';
-    this.addDocUrl = 'http://localhost:8081/lot1//add_document';
+    this.addDocUrl = 'http://localhost:8081/lot1/add_document';
   }
 
   public findAll(): Observable<Document[]> {

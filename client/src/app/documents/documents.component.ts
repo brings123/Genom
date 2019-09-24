@@ -21,6 +21,8 @@ export class DocumentsComponent implements OnInit {
   onFileSelected(event) {
         console.log(this.currentInput);
         this.document.nom_document = this.currentInput;
+        this.document.chemin_document = this.currentInput;
+        console.log(this.document);
     }
   onSubmit() {
     this.documentService.save(this.document).subscribe(result => this.gotoDocumentList());
