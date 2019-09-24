@@ -18,6 +18,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "lot5_accords")
 public class Accords {
@@ -30,6 +32,7 @@ public class Accords {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date_creation_accord", nullable = false, updatable = false) // le temps qui est sur le papier de l'accord
 	@CreatedDate
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateAccord;
 	
 	@Column(name = "source_accord", nullable =false)

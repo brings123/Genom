@@ -50,9 +50,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().
                 authorizeRequests()
-                .antMatchers("/token/*", "/signup","/annonces","/contacts","/documents","/roles").permitAll()
-                .antMatchers(HttpMethod.GET,"/users").permitAll()
-                .antMatchers("/caracteristique","/caracteristique/categorie/*","/caracteristique/*","/caracteristiques").permitAll()
+                .antMatchers("/auth/*", "/signup","/annonces","/contacts","/documents","/role").permitAll()
+                .antMatchers("/users","/users/*","/users/username/*").permitAll()
+                .antMatchers("/roles/*").permitAll()
+                .antMatchers("/caracteristique","/caracteristique/*","/caracteristiques").permitAll()
                 .antMatchers("/categorie","/categorie/*","/categories").permitAll()
                 .antMatchers("/classe","/classe/*","/classe/categorie/*","/classes").permitAll()
                 .antMatchers("/image","/image/ressource/*","/image/*","/images").permitAll()
@@ -62,6 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/valeur","/valeur/caracteristique/*","/valeur/ressource/*","/valeur/*","/valeurs").permitAll()
                 .antMatchers("/valeurabs","/valeurabs/caracteristique/*","/valeurabs/ressource/*","/valeurabs/*","/valeursabs").permitAll()
                 .antMatchers("/lot1/**").permitAll()
+                .antMatchers("/lot5/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

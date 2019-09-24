@@ -1,8 +1,9 @@
 <div>
 <navbar></navbar>
-<sidenav *ngIf="location.path()=='/documents'"></sidenav>
-<sidenav *ngIf="location.path()=='/demande'"></sidenav>
-<sidenav *ngIf="location.path()=='/admin/documents'"></sidenav>
+
+<sidenav  *ngIf="(location.path()!='/login' && location.path()!='' )" ></sidenav>
+
+
 <pubnav *ngIf="location.path()=='/news'"></pubnav>
 <pubnav *ngIf="location.path()=='/addnews'"></pubnav>
 <pubnav *ngIf="location.path()=='/infofiche'"></pubnav>
@@ -15,6 +16,7 @@
 <pubnav *ngIf="location.path()=='/addlink'"></pubnav>
 <pubnav *ngIf="location.path()=='/contacts'"></pubnav>
 <pubnav *ngIf="location.path()=='/newcontact'"></pubnav>
+
 <div [class.container]="noHome" [class.noHome]="noHome">
   <router-outlet></router-outlet>
 
