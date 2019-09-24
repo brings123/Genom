@@ -10,7 +10,7 @@ export class SidenavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    debugger;
+
     this.role = JSON.parse(JSON.stringify(window.localStorage.getItem('role')));
     //alert(this.role);
     console.log(this.role);

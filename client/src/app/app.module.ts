@@ -250,7 +250,7 @@ import { CategorieComponent } from './Ressource/categorie/categorie.component';
       }
     ])
   ],
-  providers: [ApiService, {provide: HTTP_INTERCEPTORS,
+  providers: [ApiService,DocumentService, {provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
   bootstrap: [AppComponent]
