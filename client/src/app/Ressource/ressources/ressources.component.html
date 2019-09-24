@@ -33,7 +33,7 @@
   <ul class="collection">
     <li class="collection-item avatar" *ngFor="let ressource of ressources$ | async">
         <i class="material-icons circle teal ">settings_input_svideo</i>
-        <a href="#" class="title"><b>{{ressource.name}}</b></a>
+        <a routerLink="/ressource/{{ressource.id}}" class="title"><b>{{ressource.name}}</b></a>
         <p><strong>Type : {{ressource.type.name}} </strong></p>
         <br>
         <a href="#!" class="waves-effect">

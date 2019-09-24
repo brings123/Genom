@@ -1,0 +1,40 @@
+<div class="row card-panel ">
+        <h4>Ajouter une Caracteristique</h4>
+        <hr>
+        <br><br>
+        <form class="col s12" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">check_circle</i>
+                          <select formControlName="categorie">
+                            <option value="" disabled selected>Choisir la categorie</option>
+                            <option *ngFor="let categorie of categories$ | async" [value]="categorie.id" >{{categorie.name}}</option>
+                          </select>
+                          <label>Categorie</label>
+                        </div>
+                      </div>        
+          <div class="row">
+            <div class="input-field col s8">
+              <i class="material-icons prefix">title</i>
+              <input id="fiche_titre" formControlName="name" type="text" class="validate">
+              <label for="fiche_titre">Nom</label>
+            </div>
+          </div>
+          <div class="row">
+                <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <textarea id="textarea1" formControlName="description" class="materialize-textarea"></textarea>
+                         <label for="textarea1">Description</label>
+                </div>
+          </div>
+          
+                <button class="btn waves-effect waves-light right teal darken-2">Ajouter
+                    <i class="material-icons left">add_circle</i>
+                  </button>
+        </form>
+        <button (click)="onBack()" class="btn waves-effect waves-light left teal darken-2">Retour
+                <i class="material-icons left ">keyboard_backspace</i>
+            </button>
+      
+
+      </div>

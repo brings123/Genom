@@ -59,8 +59,9 @@ public class RessourceController {
     }
 	
     @RequestMapping(method=RequestMethod.POST,value="/ressource")
-    public void  addClasse(@RequestBody Ressource ressource) {
-    	ressrepo.save(ressource);	
+    public Ressource  addClasse(@RequestBody Ressource ressource) {
+    	ressrepo.save(ressource);
+    	return ressource;
     }
     
     

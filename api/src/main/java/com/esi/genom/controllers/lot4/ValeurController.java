@@ -62,8 +62,9 @@ public class ValeurController {
     }
 	
     @RequestMapping(method=RequestMethod.POST,value="/valeur")
-    public void  addClasse(@RequestBody Valeur valeur) {
+    public Valeur  addClasse(@RequestBody Valeur valeur) {
     	valrepo.save(valeur);
+    	return valeur;
     }
     
     

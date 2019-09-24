@@ -32,6 +32,16 @@ import { AddressourceComponent } from './Ressource/addressource/addressource.com
 import { AddressourcevalComponent } from './Ressource/addressourceval/addressourceval.component';
 import { LoginComponent } from './login/login.component';
 import { SingupComponent } from './singup/singup.component';
+import { CaracteristiquesComponent } from './Ressource/caracteristiques/caracteristiques.component';
+import { CaracteristiqueComponent } from './Ressource/caracteristique/caracteristique.component';
+import { AddValAbsComponent } from './Ressource/add-val-abs/add-val-abs.component';
+import { AddCaracteristiqueComponent } from './Ressource/add-caracteristique/add-caracteristique.component';
+import { ClassesComponent } from './classes/classes.component';
+import { TypesComponent } from './types/types.component';
+import { ClasseComponent } from './classe/classe.component';
+import { TypeComponent } from './type/type.component';
+import { CategoriesComponent } from './Ressource/categories/categories.component';
+import { CategorieComponent } from './Ressource/categorie/categorie.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +73,17 @@ import { SingupComponent } from './singup/singup.component';
     AddressourceComponent,
     AddressourcevalComponent,
     LoginComponent,
-    SingupComponent
+    SingupComponent,
+    CaracteristiquesComponent,
+    CaracteristiqueComponent,
+    AddValAbsComponent,
+    AddCaracteristiqueComponent,
+    ClassesComponent,
+    TypesComponent,
+    ClasseComponent,
+    TypeComponent,
+    CategoriesComponent,
+    CategorieComponent
   ],
   imports: [
     BrowserModule,
@@ -150,6 +170,10 @@ import { SingupComponent } from './singup/singup.component';
         component: AddressourceComponent
       },
       {
+        path: 'ressource/:id',
+        component: RessourceComponent
+      },
+      {
         path: 'addressourceval/:id',
         component: AddressourcevalComponent
       },
@@ -162,6 +186,42 @@ import { SingupComponent } from './singup/singup.component';
         path: 'singup',
         component: SingupComponent
       },
+      {
+        path:'caracteristique',
+        component:CaracteristiquesComponent
+      },
+      {
+        path:'caracteristique/:id',
+        component:CaracteristiqueComponent
+      },
+      {
+        path:'addvaleurabs/:id',
+        component:AddValAbsComponent
+      },
+      {
+        path:'addcaracteristique',
+        component:AddCaracteristiqueComponent
+      },
+      {
+        path:'classes',
+        component:ClassesComponent
+      },{
+        path:'types',
+        component:TypesComponent
+      },{
+        path:'type',
+        component:TypeComponent
+      },{
+        path:'classe',
+        component:ClasseComponent
+      },
+      {
+        path:'categories',
+        component:CategoriesComponent
+      },{
+        path:'categorie',
+        component:CategorieComponent
+      }
     ])
   ],
   providers: [ DocumentService ],

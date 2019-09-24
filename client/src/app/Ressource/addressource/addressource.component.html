@@ -32,9 +32,7 @@
                   <i class="material-icons prefix">class</i>
                   <select formControlName="classe"> 
                     <option value="" disabled selected>Choisir la classe</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option *ngFor="let classe of classes$ | async" [value]="classe.id" >{{classe.name}}</option>
                   </select>
                   <label>Classe</label>
                 </div>
@@ -53,6 +51,9 @@
                     <i class="material-icons left ">add_circle</i>
                   </button>
         </form>
+        <button (click)="onBack()" class="btn-flat waves-effect waves-light left">
+            <i class="material-icons left ">keyboard_backspace</i>
+        </button>
       
 
       </div>

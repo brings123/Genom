@@ -3,6 +3,8 @@ import {WebRessourceService} from '../web-ressource.service'
 import { Observable } from 'rxjs';
 import { Ressource } from '../ressource';
 import { Categorie } from '../categorie';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ressources',
@@ -17,7 +19,11 @@ export class RessourcesComponent implements OnInit {
   All = 'All';
   searchString = '';
 
-  constructor(private webService:WebRessourceService) { }
+  constructor(
+    private webService:WebRessourceService,
+    private location:Location,
+    private router : Router,
+    ) { }
 
   ngOnInit() {
     this.ressources$ = this.webService.getRessources();
@@ -41,6 +47,10 @@ export class RessourcesComponent implements OnInit {
     this.ressources$ = this.webService.getRessourcesCat(this.selectedCat);
     else 
     this.ressources$ = this.webService.getRessources();
+  }
+
+  onBack(){
+    this.location.back();
   }
 
 }

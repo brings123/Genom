@@ -18,6 +18,7 @@ import com.esi.genom.repositories.lot4.ValeurRepository;
 import javassist.NotFoundException;
 
 import com.esi.genom.entities.lot4.Valeur;
+import com.esi.genom.entities.lot4.ValeurAbs;
 
 
 
@@ -27,22 +28,22 @@ public class ValeurAbsController {
 	ValeurAbsRepository valrepo;
 	
 	@RequestMapping(method=RequestMethod.GET,value="/valeursabs")
-	public List<Valeur> getAllClasses(){
+	public List<ValeurAbs> getAllClasses(){
 		return valrepo.findAll();
 	}
 	
     @RequestMapping(method=RequestMethod.GET,value="/valeurabs/name/{name}")
-    public List<Valeur> getResByName(@PathVariable String name) {
+    public List<ValeurAbs> getResByName(@PathVariable String name) {
     	return valrepo.findByName(name);
     }
 	
 	@RequestMapping(method=RequestMethod.GET,value="/valeurabs/{id}")
-	public Optional<Valeur> getResById(@PathVariable Integer id) {
+	public Optional<ValeurAbs> getResById(@PathVariable Integer id) {
 	    return valrepo.findById(id);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/valeurabs/Caracteristique/{id}")
-	public List<Valeur> getResByCar(@PathVariable Integer id) {
+	@RequestMapping(method=RequestMethod.GET,value="/valeurabs/caracteristique/{id}")
+	public List<ValeurAbs> getResByCar(@PathVariable Integer id) {
 	    return valrepo.findByCaracteristiqueId(id);
 	}
 	/*
@@ -52,19 +53,19 @@ public class ValeurAbsController {
 	 */
 	
 
-    @RequestMapping(method=RequestMethod.POST,value="/valeursabs")
-    public void addClasses(@RequestBody List<Valeur> valeurs) {
+    @RequestMapping(method=RequestMethod.POST,value="/valeursabss")
+    public void addClasses(@RequestBody List<ValeurAbs> valeurs) {
     	valrepo.saveAll(valeurs);
     }
 	
     @RequestMapping(method=RequestMethod.POST,value="/valeurabs")
-    public void  addClasse(@RequestBody Valeur valeur) {
+    public void  addClasse(@RequestBody ValeurAbs valeur) {
     	valrepo.save(valeur);
     }
     
     
 	@RequestMapping(method=RequestMethod.PUT,value="/valeurabs")
-    public void updateClasse(@RequestBody Valeur valeur) {
+    public void updateClasse(@RequestBody ValeurAbs valeur) {
     	valrepo.save(valeur);
     }
 
