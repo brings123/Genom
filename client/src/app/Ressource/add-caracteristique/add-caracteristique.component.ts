@@ -46,7 +46,7 @@ categories$ : Observable<Categorie[]>;
   }
   onSubmit(){
     this.webService.postCaracteristique(this.form.value).subscribe(res => {
-      this.router.navigate(['/caracteristique']);
+      this.router.navigate(['/caracteristiques']);
     })
   }
   onBack(){

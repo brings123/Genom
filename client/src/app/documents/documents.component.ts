@@ -15,7 +15,8 @@ export class DocumentsComponent implements OnInit {
  document: Document;
   constructor(private route: ActivatedRoute, private router: Router, private documentService: DocumentService) { 
     this.document = new Document();
-    this.document.createur = 1;
+    this.document.createur = {"id":1};
+   
     
   }
   onFileSelected(event) {

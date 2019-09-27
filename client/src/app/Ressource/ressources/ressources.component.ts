@@ -5,6 +5,7 @@ import { Ressource } from '../ressource';
 import { Categorie } from '../categorie';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { switchMap, tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ressources',
@@ -15,6 +16,7 @@ export class RessourcesComponent implements OnInit {
 
   ressources$ : Observable<Ressource[]>;
   categories$ : Observable<Categorie[]>;
+  images = [];
   selectedCat : Categorie;
   All = 'All';
   searchString = '';
@@ -26,6 +28,9 @@ export class RessourcesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.webService.getImages().subscribe(res => {
+      this.images = res ;
+    });
     this.ressources$ = this.webService.getRessources();
     this.categories$ = this.webService.getCategories();
   }
@@ -39,6 +44,11 @@ export class RessourcesComponent implements OnInit {
     this.All = "All";
     this.selectedCat = null;
     this.ressources$ = this.webService.getRessources();
+  }
+  getRessourceImage(id){
+    return this.images.find((val,i)=>{
+     return val.ressource.id == id;
+    })
   }
   inputChanged(){
     if(this.searchString != '')

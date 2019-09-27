@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/*", "/signup","/annonces","/contacts","/documents","/role").permitAll()
                 .antMatchers("/users","/users/*","/users/username/*").permitAll()
                 .antMatchers("/roles/*").permitAll()
-                .antMatchers("/caracteristique","/caracteristique/*","/caracteristiques").permitAll()
+                .antMatchers("/caracteristique","/caracteristique/*","/caracteristique/categorie/*","/caracteristiques").permitAll()
                 .antMatchers("/categorie","/categorie/*","/categories").permitAll()
                 .antMatchers("/classe","/classe/*","/classe/categorie/*","/classes").permitAll()
                 .antMatchers("/image","/image/ressource/*","/image/*","/images").permitAll()

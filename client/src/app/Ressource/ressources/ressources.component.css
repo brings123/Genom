@@ -1,3 +1,7 @@
 .sidenav{
     margin-top: 64px;
   }
+
+  .card-image {
+    height: 200px;
+  }

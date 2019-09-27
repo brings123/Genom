@@ -50,9 +50,21 @@ import { ClasseComponent } from './classe/classe.component';
 import { TypeComponent } from './type/type.component';
 import { CategoriesComponent } from './Ressource/categories/categories.component';
 import { CategorieComponent } from './Ressource/categorie/categorie.component';
+<<<<<<< HEAD
 import { AddInstitutionComponent } from './institution/add-institution/add-institution.component';
 import { ListInstitutionComponent } from './institution/list-institution/list-institution.component';
 import { InstitutionService } from './institution/institution.service';
+=======
+import { CategorieUpdateComponent } from './Ressource/categorie-update/categorie-update.component';
+import { CaracteristiqueUpdateComponent } from './caracteristique-update/caracteristique-update.component';
+import { ResnavComponent } from './resnav/resnav.component';
+import { AdminDemandeComponent } from './demande/admin/admin-demande/admin-demande.component';
+import { ConnectionComponent } from './demande/admin/connection/connection.component';
+import { AddDetenteurComponent } from './demande/add-detenteur/add-detenteur.component';
+import { AddOperateurComponent } from './demande/add-operateur/add-operateur.component';
+import { AddScientifiqueComponent } from './demande/add-scientifique/add-scientifique.component';
+import { AddResponsableComponent } from './demande/add-responsable/add-responsable.component';
+>>>>>>> master
 
 
 @NgModule({
@@ -101,8 +113,20 @@ import { InstitutionService } from './institution/institution.service';
     CategoriesComponent,
     CategorieComponent,
     SingupComponent,
+<<<<<<< HEAD
     AddInstitutionComponent,
     ListInstitutionComponent
+=======
+    CategorieUpdateComponent,
+    CaracteristiqueUpdateComponent,
+    ResnavComponent,
+    AdminDemandeComponent,
+    ConnectionComponent,
+    AddDetenteurComponent,
+    AddOperateurComponent,
+    AddScientifiqueComponent,
+    AddResponsableComponent
+>>>>>>> master
 
   ],
   imports: [
@@ -147,6 +171,10 @@ import { InstitutionService } from './institution/institution.service';
       {
         path: 'news',
         component: NewsComponent
+      },
+      {
+        path: 'admin/demande/connection',
+        component: ConnectionComponent
       },
       {
         path: 'addnews',
@@ -218,7 +246,7 @@ import { InstitutionService } from './institution/institution.service';
         component: SingupComponent
       },
       {
-        path:'caracteristique',
+        path:'caracteristiques',
         component:CaracteristiquesComponent
       },
       {
@@ -247,18 +275,31 @@ import { InstitutionService } from './institution/institution.service';
         component:ClasseComponent
       },
       {
+        path:'admin/demandes',
+        component:AdminDemandeComponent
+      },
+      {
         path:'categories',
         component:CategoriesComponent
       },{
         path:'categorie',
         component:CategorieComponent
       },{
+<<<<<<< HEAD
         path:'addinstitution',
         component:AddInstitutionComponent
       },{
         path:'institutions',
         component:ListInstitutionComponent}
       
+=======
+        path:'categorie/:id',
+        component:CategorieUpdateComponent
+      },{
+        path:'caracteristiques/:id',
+        component:CaracteristiqueUpdateComponent
+      }
+>>>>>>> master
     ])
   ],
   providers: [ApiService,DocumentService,InstitutionService, {provide: HTTP_INTERCEPTORS,
