@@ -262,7 +262,7 @@ import { ResnavComponent } from './resnav/resnav.component';
       }
     ])
   ],
-  providers: [ApiService, {provide: HTTP_INTERCEPTORS,
+  providers: [ApiService,DocumentService, {provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
   bootstrap: [AppComponent]

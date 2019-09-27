@@ -1,11 +1,32 @@
 <div class="panel">
   <h4>Documents</h4>
-     <div class="file-field input-field right">
-  <div class="btn light-green waves-effect text-white right">
-    <span>Importer</span>
-    <input type="file">
+  <a class="waves-effect waves-light btn modal-trigger right light-green" href="#modal1">Importer</a>
+  <div id="modal1" class="modal">
+      <form (ngSubmit)="onSubmit()" #documentForm="ngForm" action="">
+    <div class="modal-content">
+      <h4 style="margin-bottom:2rem;">Importer un document</h4>
+      <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name2" type="text" [(ngModel)]="document.type_document" name="type" class="validate">
+            <label class="active" for="first_name2">Type du document</label>
+          </div>
+        </div>
+      <div class="file-field input-field">
+          <div class="btn light-green">
+            <span>Importer</span>
+            <input type="file" name="file" [(ngModel)]="currentInput"
+            (change)="onFileSelected($event)">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="modal-close waves-effect waves-green btn-flat">Submit</button>
+    </div>
+  </form>
   </div>
-   </div>
     </div>
     <hr>
  <nav class="light-green searchbar">
@@ -23,9 +44,9 @@
 
 <ul class="collection">
 
-  <li *ngFor="let document of documents" class="collection-item avatar">
+  <li *ngFor="let doc of documents" class="collection-item avatar">
     <i class="material-icons circle">picture_as_pdf</i>
-    <a href="#" class="title">{{document.nomDocument}}</a>
+    <a href="#" class="title">{{doc.nom_document}}</a>
     <p><strong>Relation avec:</strong><br>
        Document2, Document3
     </p>
