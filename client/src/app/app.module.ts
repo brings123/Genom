@@ -50,6 +50,9 @@ import { ClasseComponent } from './classe/classe.component';
 import { TypeComponent } from './type/type.component';
 import { CategoriesComponent } from './Ressource/categories/categories.component';
 import { CategorieComponent } from './Ressource/categorie/categorie.component';
+import { AddInstitutionComponent } from './institution/add-institution/add-institution.component';
+import { ListInstitutionComponent } from './institution/list-institution/list-institution.component';
+import { InstitutionService } from './institution/institution.service';
 
 
 @NgModule({
@@ -97,7 +100,9 @@ import { CategorieComponent } from './Ressource/categorie/categorie.component';
     TypeComponent,
     CategoriesComponent,
     CategorieComponent,
-    SingupComponent
+    SingupComponent,
+    AddInstitutionComponent,
+    ListInstitutionComponent
 
   ],
   imports: [
@@ -247,10 +252,16 @@ import { CategorieComponent } from './Ressource/categorie/categorie.component';
       },{
         path:'categorie',
         component:CategorieComponent
-      }
+      },{
+        path:'addinstitution',
+        component:AddInstitutionComponent
+      },{
+        path:'institutions',
+        component:ListInstitutionComponent}
+      
     ])
   ],
-  providers: [ApiService,DocumentService, {provide: HTTP_INTERCEPTORS,
+  providers: [ApiService,DocumentService,InstitutionService, {provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
   bootstrap: [AppComponent]
