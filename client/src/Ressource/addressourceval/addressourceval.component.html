@@ -1,0 +1,51 @@
+<div class="row card-panel ">
+    <h4>Information du Ressource</h4>
+    <hr>
+    <br><br>
+    <form class="col s12">
+      <div class="row" *ngFor="let caracteristique of caracteristiques ; let i = index">
+        <div class="col s12">
+            <h5>{{caracteristique.name}}</h5>
+        </div> 
+        <div class="input-field col s8" *ngFor="let valeur of valeurs[i]; let j = index">
+          <input id="fiche_titre"  [name]="valeur.name" type="text" class="validate" [(ngModel)]="valeurs[i][j].val">
+          <label for="fiche_titre">{{valeur.name}}</label>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <h5>Photo :</h5>
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Upload File</span>
+          <input type="file" (change)="onPhotoSelected($event)">
+        </div>
+        <div class="file-path-wrapper">
+          <input type="text" class="file-path">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <h5>Emplacement :</h5>
+      <div class="input-field col s12">
+        
+        <select (change)="selectWilaya($event.target.value)" >
+          <option value="" disabled selected>Choisir la wilaya</option>
+          <option *ngFor="let wilaya of wilayas" [value]="wilaya.id" >{{wilaya.id+' - '+wilaya.nom}}</option>
+        </select>
+        <label>wilaya</label>
+      </div>
+      <div class="input-field col s12">
+         
+          <select (change)="selectCommune($event.target.value)" >
+            <option value="" disabled selected>Choisir la commune</option>
+            <option *ngFor="let commune of communes" [value]="commune.id" >{{commune.nom}}</option>
+          </select>
+          <label>Commune</label>
+        </div>
+    </div>
+    <button (click)="onSubmit()" class="btn waves-effect waves-light right teal darken-2">Suivant
+        <i class="material-icons left ">add_circle</i>
+      </button>
+  
+  </div>

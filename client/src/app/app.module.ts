@@ -50,6 +50,11 @@ import { ClasseComponent } from './classe/classe.component';
 import { TypeComponent } from './type/type.component';
 import { CategoriesComponent } from './Ressource/categories/categories.component';
 import { CategorieComponent } from './Ressource/categorie/categorie.component';
+<<<<<<< HEAD
+import { AddInstitutionComponent } from './institution/add-institution/add-institution.component';
+import { ListInstitutionComponent } from './institution/list-institution/list-institution.component';
+import { InstitutionService } from './institution/institution.service';
+=======
 import { CategorieUpdateComponent } from './Ressource/categorie-update/categorie-update.component';
 import { CaracteristiqueUpdateComponent } from './caracteristique-update/caracteristique-update.component';
 import { ResnavComponent } from './resnav/resnav.component';
@@ -59,6 +64,7 @@ import { AddDetenteurComponent } from './demande/add-detenteur/add-detenteur.com
 import { AddOperateurComponent } from './demande/add-operateur/add-operateur.component';
 import { AddScientifiqueComponent } from './demande/add-scientifique/add-scientifique.component';
 import { AddResponsableComponent } from './demande/add-responsable/add-responsable.component';
+>>>>>>> master
 
 
 @NgModule({
@@ -107,6 +113,10 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
     CategoriesComponent,
     CategorieComponent,
     SingupComponent,
+<<<<<<< HEAD
+    AddInstitutionComponent,
+    ListInstitutionComponent
+=======
     CategorieUpdateComponent,
     CaracteristiqueUpdateComponent,
     ResnavComponent,
@@ -116,6 +126,7 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
     AddOperateurComponent,
     AddScientifiqueComponent,
     AddResponsableComponent
+>>>>>>> master
 
   ],
   imports: [
@@ -274,15 +285,24 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
         path:'categorie',
         component:CategorieComponent
       },{
+<<<<<<< HEAD
+        path:'addinstitution',
+        component:AddInstitutionComponent
+      },{
+        path:'institutions',
+        component:ListInstitutionComponent}
+      
+=======
         path:'categorie/:id',
         component:CategorieUpdateComponent
       },{
         path:'caracteristiques/:id',
         component:CaracteristiqueUpdateComponent
       }
+>>>>>>> master
     ])
   ],
-  providers: [ApiService,DocumentService, {provide: HTTP_INTERCEPTORS,
+  providers: [ApiService,DocumentService,InstitutionService, {provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
   bootstrap: [AppComponent]

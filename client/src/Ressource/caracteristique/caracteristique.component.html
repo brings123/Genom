@@ -1,0 +1,14 @@
+<div class="panel">
+        <h4>Valeur</h4>
+      </div>
+      <hr>
+      <div class="collection">
+            <a  *ngFor="let valeur of valeur$ | async" class="collection-item">{{valeur.name}}</a>
+      </div>
+      <button (click)="onBack()" class="btn waves-effect waves-light right teal darken-2">Retour
+            <i class="material-icons left ">keyboard_backspace</i>
+          </button>
+     <div class="fixed-action-btn">
+        <a (click)="onClick()" class="btn-floating btn-large waves-effect waves-lightteal darken-2 right">
+        <i class="material-icons left">add</i></a>
+    </div>
