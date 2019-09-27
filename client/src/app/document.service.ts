@@ -10,14 +10,15 @@ export class DocumentService {
   private addDocUrl:string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8081/lot1/allDocuments/unordered';
-    this.addDocUrl = 'http://localhost:8081/lot1/add_document';
+    this.usersUrl = 'http://localhost:8083/lot1/allDocuments/unordered';
+    this.addDocUrl = 'http://localhost:8083/lot1/add_document';
   }
 
   public findAll(): Observable<Document[]> {
     return this.http.get<Document[]>(this.usersUrl);
   }
   public save(document: Document) {
+    console.log(document);
     return this.http.post<Document>(this.addDocUrl, document);
   }
 }

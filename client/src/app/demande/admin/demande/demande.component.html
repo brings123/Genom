@@ -1,0 +1,66 @@
+<div>
+        <table>
+                <thead>
+                  <tr>
+                      <th>Nom de demandeur</th>
+                      <th>Type</th>
+                      <th>Zone</th>
+                      <th>Moyen de transport</th>
+                      <th>Action</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr>
+                    <td><a href="#">Demandeur1</a></td>
+                    <td>Scientifique</td>
+                    <td>Alger</td>
+                    <td>Voiture</td>
+                    <td><button class="btn green darken-2 modal-trigger" href="#modal1">Accepter</button><button class="btn red darken-2">Réfuser</button></td>
+                    <div id="modal1" class="modal">
+                            <form (ngSubmit)="onSubmit()" #demandeForm="ngForm" action="">
+                          <div class="modal-content">
+                            <h4 style="margin-bottom:2rem;">Connexion du demandeur</h4>s
+                            <div class="input-field col s12">
+                                    <select>
+                                      <option value="" disabled selected>Affecter un détenteur</option>
+                                      <option value="1">Option 1</option>
+                                      <option value="2">Option 2</option>
+                                      <option value="3">Option 3</option>
+                                    </select>
+                                  </div>
+                                  <div class="input-field col s12">
+                                        <select>
+                                          <option value="" disabled selected>Affecter un Opérateur</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                        </select>
+                                      </div>
+                                      <div class="input-field col s12">
+                                            <select>
+                                              <option value="" disabled selected>Affecter un Résponsable</option>
+                                              <option value="1">Option 1</option>
+                                              <option value="2">Option 2</option>
+                                              <option value="3">Option 3</option>
+                                            </select>
+                                          </div>
+                                          <div class="input-field col s12">
+                                                <select>
+                                                  <option value="" disabled selected>Affecter un Scientifique</option>
+                                                  <option value="1">Option 1</option>
+                                                  <option value="2">Option 2</option>
+                                                  <option value="3">Option 3</option>
+                                                </select>
+                                              </div>
+                            <div class="modal-footer">
+                            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Submit</button>
+                          </div>
+                        </form>
+                        </div>
+                </tr>
+                 
+                </tbody>
+              </table>
+        
+</div>

@@ -45,6 +45,11 @@ export class RessourcesComponent implements OnInit {
     this.selectedCat = null;
     this.ressources$ = this.webService.getRessources();
   }
+  getRessourceImage(id){
+    return this.images.find((val,i)=>{
+     return val.ressource.id == id;
+    })
+  }
   inputChanged(){
     if(this.searchString != '')
     this.ressources$ = this.webService.searchRessource(this.searchString);

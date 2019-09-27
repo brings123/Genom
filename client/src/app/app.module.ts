@@ -53,6 +53,12 @@ import { CategorieComponent } from './Ressource/categorie/categorie.component';
 import { CategorieUpdateComponent } from './Ressource/categorie-update/categorie-update.component';
 import { CaracteristiqueUpdateComponent } from './caracteristique-update/caracteristique-update.component';
 import { ResnavComponent } from './resnav/resnav.component';
+import { AdminDemandeComponent } from './demande/admin/admin-demande/admin-demande.component';
+import { ConnectionComponent } from './demande/admin/connection/connection.component';
+import { AddDetenteurComponent } from './demande/add-detenteur/add-detenteur.component';
+import { AddOperateurComponent } from './demande/add-operateur/add-operateur.component';
+import { AddScientifiqueComponent } from './demande/add-scientifique/add-scientifique.component';
+import { AddResponsableComponent } from './demande/add-responsable/add-responsable.component';
 
 
 @NgModule({
@@ -103,7 +109,13 @@ import { ResnavComponent } from './resnav/resnav.component';
     SingupComponent,
     CategorieUpdateComponent,
     CaracteristiqueUpdateComponent,
-    ResnavComponent
+    ResnavComponent,
+    AdminDemandeComponent,
+    ConnectionComponent,
+    AddDetenteurComponent,
+    AddOperateurComponent,
+    AddScientifiqueComponent,
+    AddResponsableComponent
 
   ],
   imports: [
@@ -148,6 +160,10 @@ import { ResnavComponent } from './resnav/resnav.component';
       {
         path: 'news',
         component: NewsComponent
+      },
+      {
+        path: 'admin/demande/connection',
+        component: ConnectionComponent
       },
       {
         path: 'addnews',
@@ -246,6 +262,10 @@ import { ResnavComponent } from './resnav/resnav.component';
       },{
         path:'classe',
         component:ClasseComponent
+      },
+      {
+        path:'admin/demandes',
+        component:AdminDemandeComponent
       },
       {
         path:'categories',
