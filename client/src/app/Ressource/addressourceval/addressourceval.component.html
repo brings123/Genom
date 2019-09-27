@@ -1,3 +1,4 @@
+<app-resnav></app-resnav>
 <div class="row card-panel ">
     <h4>Information du Ressource</h4>
     <hr>
@@ -20,6 +21,9 @@
           <span>Upload File</span>
           <input type="file" (change)="onPhotoSelected($event)">
         </div>
+        <div class="progress" *ngIf="onUpload">
+          <div class="indeterminate"></div>
+      </div>
         <div class="file-path-wrapper">
           <input type="text" class="file-path">
         </div>

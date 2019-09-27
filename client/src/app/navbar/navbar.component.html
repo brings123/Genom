@@ -7,7 +7,7 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
 
-        <li><a  *ngIf="!apiService.loggedIn()" class="nav-link" href="/login" routerLinkActive="active">Connecter</a></li>
+        <li><a   class="nav-link" href="/login" routerLinkActive="active">Connecter</a></li>
         <li><a class="nav-link"  style="cursor:pointer"*ngIf="apiService.loggedIn()" (click)="apiService.logoutUser()">Déconnecter</a></li>   
 
       </ul>
@@ -17,7 +17,7 @@
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-      <li><a  *ngIf="!apiService.loggedIn()" class="nav-link" href="/login" routerLinkActive="active">Connecter</a></li>
+      <li><a   class="nav-link" href="/login" routerLinkActive="active">Connecter</a></li>
       <li><a class="nav-link"  style="cursor:pointer"*ngIf="apiService.loggedIn()" (click)="apiService.logoutUser()">Déconnecter</a></li>   
      
   </ul>

@@ -50,6 +50,9 @@ import { ClasseComponent } from './classe/classe.component';
 import { TypeComponent } from './type/type.component';
 import { CategoriesComponent } from './Ressource/categories/categories.component';
 import { CategorieComponent } from './Ressource/categorie/categorie.component';
+import { CategorieUpdateComponent } from './Ressource/categorie-update/categorie-update.component';
+import { CaracteristiqueUpdateComponent } from './caracteristique-update/caracteristique-update.component';
+import { ResnavComponent } from './resnav/resnav.component';
 
 
 @NgModule({
@@ -97,7 +100,10 @@ import { CategorieComponent } from './Ressource/categorie/categorie.component';
     TypeComponent,
     CategoriesComponent,
     CategorieComponent,
-    SingupComponent
+    SingupComponent,
+    CategorieUpdateComponent,
+    CaracteristiqueUpdateComponent,
+    ResnavComponent
 
   ],
   imports: [
@@ -213,7 +219,7 @@ import { CategorieComponent } from './Ressource/categorie/categorie.component';
         component: SingupComponent
       },
       {
-        path:'caracteristique',
+        path:'caracteristiques',
         component:CaracteristiquesComponent
       },
       {
@@ -247,6 +253,12 @@ import { CategorieComponent } from './Ressource/categorie/categorie.component';
       },{
         path:'categorie',
         component:CategorieComponent
+      },{
+        path:'categorie/:id',
+        component:CategorieUpdateComponent
+      },{
+        path:'caracteristiques/:id',
+        component:CaracteristiqueUpdateComponent
       }
     ])
   ],

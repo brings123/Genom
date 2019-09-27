@@ -16,6 +16,7 @@ const CLOUDINARY_UPLOUD_PRESET = "pudg1yjq";
 })
 export class WebRessourceService {
 
+  url = "http://localhost:8083"
   httpOptions = {
     headers : new HttpHeaders({ 'X-Requested-With':  'XMLHttpRequest'})
   };
@@ -23,47 +24,62 @@ export class WebRessourceService {
   constructor(private http:HttpClient) {  }
 
   getRessources ():Observable<Ressource []> {
-    return this.http.get<Ressource[]>("http://localhost:8081/ressources");
+    return this.http.get<Ressource[]>(this.url+"/ressources");
   }
   getRessource (id):Observable<Ressource> {
-    return this.http.get<Ressource>("http://localhost:8081/ressource/"+id);
+    return this.http.get<Ressource>(this.url+"/ressource/"+id);
   }
 
   getRessourcesCat (categorie : Categorie):Observable<Ressource []> {
-    return this.http.get<Ressource[]>("http://localhost:8081/ressource/categorie/"+categorie.id);
+    return this.http.get<Ressource[]>(this.url+"/ressource/categorie/"+categorie.id);
   }
 
   searchRessource(name:string){
-    return this.http.get<Ressource[]>("http://localhost:8081/ressource/name/"+name);
+    return this.http.get<Ressource[]>(this.url+"/ressource/name/"+name);
   }
 
   getCategories ():Observable<Categorie []> {
-    return this.http.get<Categorie[]>("http://localhost:8081/categories");
+    return this.http.get<Categorie[]>(this.url+"/categories");
+  }
+  getCategorie (id):Observable<Categorie> {
+    return this.http.get<Categorie>(this.url+"/categorie/"+id);
   }
 
   getTypeCat (idCat:number): Observable<Type[]> {
-    return this.http.get<Type[]>("http://localhost:8081/type/categorie/"+idCat);
+    return this.http.get<Type[]>(this.url+"/type/categorie/"+idCat);
   }
   getTypes (): Observable<Type[]> {
-    return this.http.get<Type[]>("http://localhost:8081/types");
+    return this.http.get<Type[]>(this.url+"/types");
   }
   getClasseCat (idCat:number): Observable<Classe[]> {
-    return this.http.get<Classe[]>("http://localhost:8081/classe/categorie/"+idCat);
+    return this.http.get<Classe[]>(this.url+"/classe/categorie/"+idCat);
   }
   getClasses (): Observable<Classe[]> {
-    return this.http.get<Classe[]>("http://localhost:8081/classes");
+    return this.http.get<Classe[]>(this.url+"/classes");
   }
   getValeurAbs (id:number):Observable<ValeurAbs[]>{
-    return this.http.get<ValeurAbs[]>("http://localhost:8081/valeurabs/caracteristique/"+id);
+    return this.http.get<ValeurAbs[]>(this.url+"/valeurabs/caracteristique/"+id);
+  }
+  getValeur (id:number):Observable<Valeur[]>{
+    return this.http.get<Valeur[]>(this.url+"/valeur/ressource/"+id);
   }
   getCaracteristique (id:number):Observable<Caracteristique[]>{
-    return this.http.get<Caracteristique[]>("http://localhost:8081/caracteristique/categorie/"+id);
+    return this.http.get<Caracteristique[]>(this.url+"/caracteristique/categorie/"+id);
+  }
+  getCaracteristiqueById (id:number):Observable<Caracteristique>{
+    return this.http.get<Caracteristique>(this.url+"/caracteristique/"+id);
   }
   getCaracteristiques ():Observable<Caracteristique[]>{
-    return this.http.get<Caracteristique[]>("http://localhost:8081/caracteristiques");
+    return this.http.get<Caracteristique[]>(this.url+"/caracteristiques");
   }
   getLocalisation (id):Observable<any[]>{
-    return this.http.get<any[]>("http://localhost:8081/localisation/ressource/"+id);
+    return this.http.get<any[]>(this.url+"/localisation/ressource/"+id);
+  }
+  getImage(id):Observable<any []>{
+    return this.http.get<any[]>(this.url+"/image/ressource/"+id);
+  }
+  getImages():Observable<any []>{
+    return this.http.get<any[]>(this.url+"/images");
   }
 
   postRessource(val):Observable<Ressource>{
@@ -74,11 +90,11 @@ export class WebRessourceService {
       "classe":{"id":val.classe},
       "type":{"id":val.type}
     }
-    return this.http.post<Ressource>("http://localhost:8081/ressource",ressource)
+    return this.http.post<Ressource>(this.url+"/ressource",ressource)
   }
 
   postValeur (valeur:Valeur){
-    this.http.post<Valeur>("http://localhost:8081/valeur",valeur).subscribe(res => {
+    this.http.post<Valeur>(this.url+"/valeur",valeur).subscribe(res => {
       console.log(res);
     });
   }
@@ -89,32 +105,35 @@ export class WebRessourceService {
       "ville": id2,
       "ressource":{"id":id3}
     }
-    this.http.post("http://localhost:8081/localisation",location).subscribe(res =>{
+    this.http.post(this.url+"/localisation",location).subscribe(res =>{
       console.log(res);
     })
   }
 
   postCaracteristique (val):Observable<any>{
     val.categorie = {"id": val.categorie};
-    return this.http.post("http://localhost:8081/caracteristique",val)
+    return this.http.post(this.url+"/caracteristique",val)
+  }
+  postCaracteristique2 (val):Observable<any>{
+    return this.http.post(this.url+"/caracteristique",val)
   }
   postType (val):Observable<any>{
     val.categorie = {"id": val.categorie};
-    return this.http.post("http://localhost:8081/type",val)
+    return this.http.post(this.url+"/type",val)
   }
   postClasse (val):Observable<any>{
     val.categorie = {"id": val.categorie};
-    return this.http.post("http://localhost:8081/classe",val)
+    return this.http.post(this.url+"/classe",val)
   }
 
   postCategorie (val):Observable<any>{
-    return this.http.post("http://localhost:8081/categorie",val)
+    return this.http.post(this.url+"/categorie",val)
   }
 
   postValeurAbs (val,id):Observable<any>{
     val.caracteristique = {"id": id};
     console.log(val);
-    return this.http.post("http://localhost:8081/valeurabs",val)
+    return this.http.post(this.url+"/valeurabs",val)
   }
 
   postImageToCloud (img){
@@ -130,9 +149,35 @@ export class WebRessourceService {
       "url" : url,
       "ressource": {"id":id}
     }
-    this.http.post("http://localhost:8081/image",img).subscribe(res => {
-      console.log('photo added');
-    })
+    return this.http.post(this.url+"/image",img);
+  }
+
+  deleteCategorie(id){
+    return this.http.delete(this.url+"/categorie/"+id)
+  }
+  deleteCaracteristique(id){
+    /*this.getValeur(id).subscribe(res => {
+      res.forEach((item , index) => {
+        this.deleteValeur(item.id).subscribe(res => {
+          
+        });
+      });
+    });
+    this.getValeurAbs(id).subscribe(res => {
+      res.forEach((item , index) => {
+        this.deleteValeurAbs(item.id).subscribe(res => {
+
+        });
+      });
+    })*/
+    return this.http.delete(this.url+"/caracteristique/"+id)
+  }
+
+  deleteValeur(id){
+    return this.http.delete(this.url+"/valeur/"+id)
+  }
+  deleteValeurAbs(id){
+    return this.http.delete(this.url+"/valeurabs/"+id)
   }
  
 

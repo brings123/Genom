@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Caracteristique } from '../caracteristique';
 import { Observable } from 'rxjs';
 import { WebRessourceService } from '../web-ressource.service';
@@ -16,6 +16,7 @@ export class AddressourcevalComponent implements OnInit {
  form;
  idRessource: number ;
   idCategorie : number ;
+  onUpload : boolean = false ;
  caracteristiques : Caracteristique[];
  valeurs=[];
  wilayas = wilayas;
@@ -26,6 +27,7 @@ export class AddressourcevalComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private webService : WebRessourceService,
+    private router : Router
   ) { 
   }
 
@@ -37,6 +39,13 @@ export class AddressourcevalComponent implements OnInit {
         var instances = M.FormSelect.init(elems, options);
       },600);
     });
+    var event;
+    setTimeout(function(){
+      event = document.createEvent("HTMLEvents");
+      event.initEvent("DOMContentLoaded", true, true);
+      event.eventName = "DOMContentLoaded";
+      document.dispatchEvent(event);
+    },800);
 
     this.idRessource =Number(this.route.snapshot.paramMap.get('id'));
     this.webService.getRessource(this.idRessource).subscribe(res => {
@@ -64,6 +73,7 @@ export class AddressourcevalComponent implements OnInit {
     }) ;
 
     this.webService.postLocation(this.idWilaya,this.idCommune, this.idRessource);
+    this.router.navigate(['/ressources']);
   }
 
   selectWilaya(id){
@@ -92,9 +102,12 @@ export class AddressourcevalComponent implements OnInit {
   }
 
   onPhotoSelected (event){
+    this.onUpload = true ;
    var file = event.target.files[0];
    this.webService.postImageToCloud(file).subscribe(res => {
-   this.webService.postImage(res['secure_url'],this.idRessource);
+   this.webService.postImage(res['secure_url'],this.idRessource).subscribe(res => {
+     this.onUpload = false;
+   });
    });
 
   }
