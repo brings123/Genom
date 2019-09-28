@@ -11,9 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.esi.genom.entities.users.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -31,17 +36,25 @@ public class Events implements Serializable {
 	private String titre;
 	@Column
 	@NotNull
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd")
+
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date start_evnt;
 	@Column
 	@NotNull
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date end_evnt;
-	@Column
-	@NotNull
-	private String description;
+	
 	
 	@Column	
 	private Boolean valide;
-	 
+	
+	@ManyToOne(optional = true)
+	@JoinColumn(name="users_id")
+	private User creator;
 //	@ManyToOne(optional = true)
 //	@JoinColumn(name="users_id")
 //	private User creator;
@@ -83,17 +96,7 @@ public class Events implements Serializable {
 		this.end_evnt = end;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	
-	
-		
 	
 }
 

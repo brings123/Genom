@@ -22,6 +22,21 @@ import { ListUserComponent } from './Components/list-user/list-user.component';
 import { ApiService } from './_services/api.service';
 import { TokenInterceptor } from './_helper/interceptor';
 import { RoleGuardService } from './_helper/role.guard';
+import { ListContactComponent } from './Components/list-contact/list-contact.component';
+import { AddContactComponent } from './Components/add-contact/add-contact.component';
+import { PresentationService } from './_services/presentation.service';
+import { AddFicheInformationComponent } from './Components/add-fiche-information/add-fiche-information.component';
+import { ListFicheInformationComponent } from './Components/list-fiche-information/list-fiche-information.component';
+import { DetailFicheInformationComponent } from './Components/detail-fiche-information/detail-fiche-information.component';
+//import {QuillModule} from 'ngx-quill';
+//import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { DatePipe } from '@angular/common';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { EvenementComponent } from './Components/evenement/evenement.component';
+import { AddEvenementComponent } from './Components/add-evenement/add-evenement.component'; 
+
+
 import { NewsComponent } from './news/news.component';
 import { AddNewsComponent } from './news/addnews/addnews.component';
 import { InfoFicheComponent } from './infofiche/infofiche.component';
@@ -50,11 +65,10 @@ import { ClasseComponent } from './classe/classe.component';
 import { TypeComponent } from './type/type.component';
 import { CategoriesComponent } from './Ressource/categories/categories.component';
 import { CategorieComponent } from './Ressource/categorie/categorie.component';
-<<<<<<< HEAD
+
 import { AddInstitutionComponent } from './institution/add-institution/add-institution.component';
 import { ListInstitutionComponent } from './institution/list-institution/list-institution.component';
 import { InstitutionService } from './institution/institution.service';
-=======
 import { CategorieUpdateComponent } from './Ressource/categorie-update/categorie-update.component';
 import { CaracteristiqueUpdateComponent } from './caracteristique-update/caracteristique-update.component';
 import { ResnavComponent } from './resnav/resnav.component';
@@ -64,7 +78,6 @@ import { AddDetenteurComponent } from './demande/add-detenteur/add-detenteur.com
 import { AddOperateurComponent } from './demande/add-operateur/add-operateur.component';
 import { AddScientifiqueComponent } from './demande/add-scientifique/add-scientifique.component';
 import { AddResponsableComponent } from './demande/add-responsable/add-responsable.component';
->>>>>>> master
 
 
 @NgModule({
@@ -84,6 +97,20 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
     AddUserComponent,
     EditUserComponent,
     ListUserComponent,
+
+    ListContactComponent,
+    AddContactComponent,
+    AddFicheInformationComponent,
+    ListFicheInformationComponent,
+    DetailFicheInformationComponent,
+    EvenementComponent,
+    AddEvenementComponent,
+    
+    
+
+
+
+
     NewsComponent,
     AddNewsComponent,
     InfoFicheComponent,
@@ -113,10 +140,9 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
     CategoriesComponent,
     CategorieComponent,
     SingupComponent,
-<<<<<<< HEAD
     AddInstitutionComponent,
     ListInstitutionComponent
-=======
+
     CategorieUpdateComponent,
     CaracteristiqueUpdateComponent,
     ResnavComponent,
@@ -126,7 +152,7 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
     AddOperateurComponent,
     AddScientifiqueComponent,
     AddResponsableComponent
->>>>>>> master
+
 
   ],
   imports: [
@@ -138,6 +164,27 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FullCalendarModule,
+    AngularEditorModule,
+    //FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+   // QuillModule.forRoot({
+     // modules: {
+       // syntax: false,
+     //   toolbar: [
+       //   ['bold', 'italic', 'underline', 'strike'] ,
+         // [ 'code-block'],       
+       //   [{ 'header': 1 }, { 'header': 2 }],   
+         // [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+         // [{ 'script': 'sub'}, { 'script': 'super' }],
+         // [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+        //  [{ 'direction': 'rtl' }],
+                                             // remove formatting button
+      
+         // ['link', 'image', 'video']  
+     //  ]
+   //   }
+ //   }),
+ 
 
     ReactiveFormsModule,
 
@@ -165,8 +212,15 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
       
       { path: 'login', component: LoginComponent , },
       { path: 'add-user', component: AddUserComponent, },
+      { path: 'add-fiche-information', component: AddFicheInformationComponent, },
+      { path: 'list-fiche-information', component: ListFicheInformationComponent,},
+
+      { path: 'add-contact', component: AddContactComponent, },
+      { path: 'evenement', component: EvenementComponent, },
+      { path: 'add-event', component: AddEvenementComponent },
       { path: 'list-user', component: ListUserComponent ,},
       { path: 'edit-user', component: EditUserComponent },
+      { path: 'list-contact', component: ListContactComponent },
       {path : '', component : LoginComponent},
       {
         path: 'news',
@@ -285,24 +339,24 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
         path:'categorie',
         component:CategorieComponent
       },{
-<<<<<<< HEAD
+
         path:'addinstitution',
         component:AddInstitutionComponent
       },{
         path:'institutions',
         component:ListInstitutionComponent}
       
-=======
         path:'categorie/:id',
         component:CategorieUpdateComponent
       },{
         path:'caracteristiques/:id',
         component:CaracteristiqueUpdateComponent
       }
->>>>>>> master
+
     ])
   ],
-  providers: [ApiService,DocumentService,InstitutionService, {provide: HTTP_INTERCEPTORS,
+
+  providers: [ApiService,DocumentService,InstitutionService,PresentationService, DatePipe,{provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
   bootstrap: [AppComponent]

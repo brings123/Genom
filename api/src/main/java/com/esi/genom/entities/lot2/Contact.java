@@ -31,30 +31,37 @@ public class Contact implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private String id;
+	
+	@Column(name = "contact_name")
+	private String name;
 	@Column(name = "contact_email")
 	private String email;
 	@Column(name = "contact_tel")
 	private String telephone;
 	@Column(name = "contact_adresse")
 	private String adresse;
-	@Column(name = "contact_date_ajout")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date date_ajout;
+	@Column(name = "contact_titre")
+	private String titre;
 	@Column(name = "contact_valide")
 	@NotNull
-	private Boolean valide;
-	
-	
-	 @ManyToOne(optional = true)
-	 @JoinColumn(name="users_id")
+	private Boolean valide; 
+	@ManyToOne(optional = true)
+	@JoinColumn(name="users_id")
 	private User creator;
 	
+    
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
@@ -74,12 +81,7 @@ public class Contact implements Serializable{
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public Date getDate_ajout() {
-		return date_ajout;
-	}
-	public void setDate_ajout(Date date_ajout) {
-		this.date_ajout = date_ajout;
-	}
+	
 	public Boolean getValide() {
 		return valide;
 	}
@@ -95,5 +97,11 @@ public class Contact implements Serializable{
 		this.creator = creator;
 	}
 	
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 
 }

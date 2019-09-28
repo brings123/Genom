@@ -1,5 +1,5 @@
 
-<div class="panel">
+<!-->div class="panel">
     <h2 class="text-center">Add User</h2>
     <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -26,15 +26,44 @@
         <label for="telephone">telephone:</label>
         <input type="number" formControlName="telephone" placeholder="telephone" name="telephone" class="form-control" id="telephone">
       </div>
-      <div class="form-group">
-          <label for="role">role:</label>
-          <select materialize="material_select" formControlName="role" id="role">
-              <option value="" disabled selected>Choisir le role de l'utilisateur</option>
-              <option *ngFor="let role of roles$ | async" [value]="role.id">
-                {{role.name}}
-              </option>       
-               </select>
-      </div>
+
+      <div class="form-group" >
+          <p>
+              <label>
+                <input name="group1" type="radio" (change)="toggleClient()" checked/>
+                <span>Administrateur</span>
+              </label>
+            </p>
+            <p>
+                <label>
+                  <input name="group1" type="radio"  (change)="toggleClient()" />
+                  <span>Client</span>
+                </label>
+              </p>
+      
+    </div>
+
+        <div class="form-group" [hidden] = 'Client$' >
+            <label for="role">role:</label>
+            <select materialize="material_select" formControlName="role" id="role">
+                <option value="" disabled selected>Choisir le role de l'utilisateur</option>
+                <option *ngFor="let role of roles$ | async" [value]="role.id">
+                  {{role.name}}
+                </option>       
+                 </select>
+        </div>
+        
+  
+ 
+        <div class="form-group" [hidden] = '!Client$' >
+            <label for="telephone">Privilage:</label>
+            <input type="number"  placeholder="Privilage"  class="form-control" id="privilage" >
+          </div>
+
+
+
+      
+      
       
     
   
@@ -45,4 +74,90 @@
      
       <button class="btn btn-success">Add</button>
     </form>
+  </div-->
+
+
+    
+<div class="row card-panel ">
+    <h4>Ajouter un utilisateur</h4>
+    <hr>
+    <br><br>
+    <form class="col s12" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      
+  
+        <div class="form-group input-field">
+          <i class="material-icons prefix">group</i>
+          <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+       
+          
+        </div>
+        <div class="form-group input-field">
+            <i class="material-icons prefix">email</i>
+            <input  formControlName="email" placeholder="email" name="email" class="form-control" id="email">
+       
+            
+          </div>
+          <div class="form-group input-field">
+              <i class="material-icons prefix">edit </i>
+              <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+       
+              
+            </div>
+
+            <div class="form-group row">
+                <div class="form-group input-field col s6">
+                    <i class="material-icons prefix">person</i>
+                    <input formControlName="prenom" placeholder="Prenom" name="Prenom" class="form-control" id="prenom">
+                  </div>
+              
+                  <div class="form-group input-field col s6">
+                      <i class="material-icons prefix">person</i>
+                      <input formControlName="nom" placeholder="Nom" name="Nom" class="form-control" id="nom">
+                  </div>
+            </div>
+      
+         
+              <div class="form-group input-field">
+                  <i class="material-icons prefix">local_phone</i>
+
+                  <input type="number" formControlName="telephone" placeholder="telephone" name="telephone" class="form-control" id="telephone">
+                
+                 
+                </div>
+                <div class="form-group row" >
+                    <p>
+                        <label >
+                          <input name="group1"  type="radio" (change)="toggleClient()" checked/>
+                          <span>Administrateur</span>
+                        </label>
+                    </p>
+                    <p>   
+                          <label>
+                            <input name="group1" type="radio"  (change)="toggleClient()" />
+                            <span>Client</span>
+                          </label>
+                        </p>
+                
+              </div>
+              <div class="form-group" [hidden] = 'Client$' >
+
+                  <select materialize="material_select" formControlName="role" id="role">
+                      <option value="" disabled selected>Choisir le role de l'utilisateur</option>
+                      <option *ngFor="let role of roles$ | async" [value]="role.id">
+                        {{role.name}}
+                      </option>       
+                       </select>
+
+              </div>
+              <div class="form-group input-field" [hidden] = '!Client$' >
+                  <i class="material-icons prefix">security
+                    </i>
+
+                  <label for="telephone">Privilage:</label>
+                  <input type="number"  placeholder="Privilage"  class="form-control" id="privilage" >
+                </div>
+      
+                <button class="btn btn-success">Add</button>
+    </form>
+   
   </div>

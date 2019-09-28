@@ -1,13 +1,20 @@
 <ul id="slide-out" class="sidenav sidenav-fixed hoverable z-depth-1">
-    <br>
-    <div *ngIf="role === 'ADMIN'">
-        <li><a class="waves-effect " routerLink="add-user">Ajouter un utilisateur</a></li>
-        <li><a class="waves-effect " routerLink="edit-user">Modifier utilisateur</a></li>
-        <li><a class="waves-effect " routerLink="list-user">La list des utilisateurs</a></li>
-    </div>
-    <!--li><a class="waves-effect " routerLink="documents">Les lois</a></li>
+  <h4 class="center">Genom</h4>
+  <hr>
+  <br>
+  <div *ngIf="role === 'ADMIN'">
+    <li><a class="waves-effect " routerLink="add-user">Ajouter un utilisateur</a></li>
+      <li><a class="waves-effect " routerLink="edit-user">Modifier utilisateur</a></li>
+      <li><a class="waves-effect " routerLink="list-user">La list des utilisateurs</a></li>
+  </div >
+  <div *ngIf="role === 'RESPONSABLE_PRESENTATION'">
+      <li><a class="waves-effect " routerLink="list-fiche-information">Fiche d'Informattion</a></li>
+        <li><a class="waves-effect " routerLink="list-contact">Contacts</a></li>
+        <li><a class="waves-effect " routerLink="evenement">Evenements</a></li>
+    </div >
+  <!--li><a class="waves-effect " routerLink="documents">Les lois</a></li>
   <li><a class="waves-effect " routerLink="demande">Demandes des ressources</a></li>
   <li><a class="waves-effect " routerLink="admin/documents">Documents des lois déposé</a></li-->
 
-</ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>

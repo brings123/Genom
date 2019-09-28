@@ -14,6 +14,9 @@ declare var M:any;
 export class AddUserComponent implements OnInit {
   
   addForm: FormGroup;
+  public Admin$:boolean = false;
+  public Client$:boolean = false;
+
   roles$ : Observable<Role[]>
   constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { 
   
@@ -76,5 +79,10 @@ export class AddUserComponent implements OnInit {
         this.router.navigate(['list-user']);
       });
   }
-
+  toggleAdmin() {
+    this.Admin$ = !this.Admin$;
+  }
+  toggleClient() {
+    this.Client$ = !this.Client$;
+  }
 }
