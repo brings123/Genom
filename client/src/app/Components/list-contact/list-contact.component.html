@@ -1,0 +1,35 @@
+<div class="panel">
+        <h4>Contacts</h4>
+      </div>
+      <hr>
+      
+      <nav class="teal lighten-5 searchbar">
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+        
+      <ul class="collection">
+       <li *ngFor="let contact of contacts$" class="collection-item avatar">
+          <i class="material-icons circle  teal accent-4"  style="background-color:#87BD25" >person_pin</i>
+          <a class="title"><b> {{contact.name}}</b></a>
+          <p><strong>{{contact.titre}}</strong><br>
+            {{contact.email}} , {{contact.telephone}}<br>
+            {{contact.adresse}}
+          </p>
+          <a href="#!" class="waves-effect"><span>edit</span></a>
+          <a href="#!" class="secondary-content">
+            <span><i class="material-icons " style="color: #CC2936">delete</i></span></a>
+        </li>
+
+      </ul>
+            <div class="fixed-action-btn">
+      <a href="/add-contact" class="btn-floating btn-large waves-effect waves-lightteal darken-2 right">
+        <i class="material-icons left">person_add</i>Nouveau Contact</a>
+            </div>

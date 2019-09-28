@@ -77,7 +77,7 @@ export class ApiService {
  */
 
   deleteUser(id: number): Observable<ApiResponse> {
-    return this.http.delete<ApiResponse>(this.baseUrl + id);
+    return this.http.delete<ApiResponse>(this.baseUrl+"delete/" + id);
   }
 
   loggedIn() {
@@ -87,6 +87,7 @@ export class ApiService {
   logoutUser() {
     localStorage.removeItem('token')
     localStorage.removeItem('username')
+    localStorage.removeItem('user_id')
     localStorage.removeItem('role') 
     this.router.navigate(['/'])
   }

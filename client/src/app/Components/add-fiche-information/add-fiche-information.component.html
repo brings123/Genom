@@ -1,0 +1,37 @@
+  
+<div class="row card-panel ">
+        <h4>Ajouter un Fiche d'information</h4>
+        <hr>
+        <br><br>
+        <form class="col s12" [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+            <!--quill-editor style="height: 250px" formControlName ="editor" class="formGroup">
+            
+            </quill-editor>
+            <div [froalaEditor]>Hello, Froala!</div-->
+              <div class="form-group row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">description</i>
+                  <input formControlName="titre" id="titre" type="text" class="validate">
+                  <label for="contact_nom">Titre</label>
+                </div>
+
+
+
+            
+              
+              
+              </div>
+
+
+
+              
+              <div class="formGroup">
+              <angular-editor formControlName="htmlContent" [config]="editorConfig" class="formGroup"></angular-editor>
+            </div>
+            <br>
+            <button class="btn waves-effect waves-light right teal darken-2" type="submit" name="action">Ajouter
+                    <i class="material-icons left ">note_add</i>
+                  </button>
+        </form>
+       
+      </div>

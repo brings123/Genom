@@ -7,6 +7,11 @@
       <li><a class="waves-effect " routerLink="edit-user">Modifier utilisateur</a></li>
       <li><a class="waves-effect " routerLink="list-user">La list des utilisateurs</a></li>
   </div >
+  <div *ngIf="role === 'RESPONSABLE_PRESENTATION'">
+      <li><a class="waves-effect " routerLink="list-fiche-information">Fiche d'Informattion</a></li>
+        <li><a class="waves-effect " routerLink="list-contact">Contacts</a></li>
+        <li><a class="waves-effect " routerLink="evenement">Evenements</a></li>
+    </div >
   <!--li><a class="waves-effect " routerLink="documents">Les lois</a></li>
   <li><a class="waves-effect " routerLink="demande">Demandes des ressources</a></li>
   <li><a class="waves-effect " routerLink="admin/documents">Documents des lois déposé</a></li-->

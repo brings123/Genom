@@ -10,7 +10,10 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
 import java.util.List;
+
+import javax.websocket.server.PathParam;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -43,7 +46,12 @@ public class UserController {
     public ApiResponse<User> getUserByUsername(@PathVariable (value = "username")String username){
         return new ApiResponse<User>(HttpStatus.OK.value(), "User return successfully.",userService.findByUsername(username));
     }
-
+    
+    @RequestMapping(value="/users/delete/{id}",method = RequestMethod.DELETE	) 
+    public String  deleteUser(@PathVariable (value= "id") Long id) {
+    	userService.delete(id); 	
+    	return "user deleted saccesfuly";
+    }
 
 
 }
