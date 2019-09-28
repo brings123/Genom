@@ -6,12 +6,13 @@ import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.esi.genom.entities.lot1.Document;
+//import com.esi.genom.entities.lot1.Document;
+import com.esi.genom.entities.lot1.Documents;
 
 
 
 @Repository
-public interface DocumentsRepository extends JpaRepository<Document, Long>{
+public interface DocumentsRepository extends JpaRepository<Documents, Long>{
 	
 	//public List<Document> findByDocumentTypeId (Long id);
 	//public List<Document> findByDocumentTypeId (Long id, Sort sort);
@@ -19,19 +20,19 @@ public interface DocumentsRepository extends JpaRepository<Document, Long>{
 	//public List<Document> findByDocumentTypeIdOrderByDocumentDateCreation(Long id);
 	//public List<Document> findByDocumentTypeIdOrderByDocumentDateModification(Long id);
 	
-	public List<Document> findByDocumentType(String nomTypeDocument);
-	public List<Document> findByDocumentType(String nomTypeDocument, Sort sort);
+	public List<Documents> findByDocumentType(String nomTypeDocument);
+	public List<Documents> findByDocumentType(String nomTypeDocument, Sort sort);
 	
-	public List<Document> findByCreateurDocumentUsername(String userName);
-	public List<Document> findByCreateurDocumentUsername(String userName, Sort sort);
+	//public List<Documents> findByCreateurDocumentUsername(String userName);
+	//public List<Documents> findByCreateurDocumentUsername(String userName, Sort sort);
 	
-	public List<Document> findByDocumentDateModification(Date modificationDate);
-	public List<Document> findByDocumentDateModification(Date modificationDate, Sort sort);
+	//public List<Documents> findByDocumentDateModification(Date modificationDate);
+	//public List<Documents> findByDocumentDateModification(Date modificationDate, Sort sort);
 	
-	public List<Document> findByDocumentDateCreation(Date creationDate);
-	public List<Document> findByDocumentDateCreation(Date creationDate, Sort sort);
+	//public List<Documents> findByDocumentDateCreation(Date creationDate);
+	//public List<Documents> findByDocumentDateCreation(Date creationDate, Sort sort);
 	
-	public Document findByNomDocument(String nomDocument); 
+	public Documents findByNomDocument(String nomDocument); 
 	
 	public void deleteByNomDocument(String nomDocument);
 
