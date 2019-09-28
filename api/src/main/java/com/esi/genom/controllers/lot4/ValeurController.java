@@ -40,12 +40,12 @@ public class ValeurController {
 	    return valrepo.findById(id);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/valeur/Caracteristique/{id}")
+	@RequestMapping(method=RequestMethod.GET,value="/valeur/caracteristique/{id}")
 	public List<Valeur> getResByCar(@PathVariable Integer id) {
 	    return valrepo.findByCaracteristiqueId(id);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/valeur/Ressource/{id}")
+	@RequestMapping(method=RequestMethod.GET,value="/valeur/ressource/{id}")
 	public List<Valeur> getResByRes(@PathVariable Integer id) {
 	    return valrepo.findByRessourceId(id);
 	}
@@ -62,8 +62,9 @@ public class ValeurController {
     }
 	
     @RequestMapping(method=RequestMethod.POST,value="/valeur")
-    public void  addClasse(@RequestBody Valeur valeur) {
+    public Valeur  addClasse(@RequestBody Valeur valeur) {
     	valrepo.save(valeur);
+    	return valeur;
     }
     
     

@@ -1,15 +1,4 @@
-<ul id="slide-out" class="sidenav sidenav-fixed hoverable z-depth-1">
-    <h4 class="center">Publication</h4>
-    <hr>
-    <br>
-        <li><a class="waves-effect " routerLink="/news">Annonces</a></li>
-        <li><a class="waves-effect " routerLink="/infofiche">Fiches d'informations</a></li>
-        <li><a class="waves-effect " routerLink="/events">Evenements</a></li>
-        <li><a class="waves-effect " routerLink="/videos">Vidéos</a></li>
-        <li><a class="waves-effect " routerLink="/links">Gestionnaire de liens</a></li>
-        <li><a class="waves-effect " routerLink="/contacts">Contacts</a></li> 
-</ul>
-
+<app-resnav></app-resnav>
 <div class="panel">
     <h4>Ressource</h4>
   </div>
@@ -30,16 +19,32 @@
     </div>
   </nav>
 
-  <ul class="collection">
+  <!--<ul class="collection">
     <li class="collection-item avatar" *ngFor="let ressource of ressources$ | async">
         <i class="material-icons circle teal ">settings_input_svideo</i>
-        <a href="#" class="title"><b>{{ressource.name}}</b></a>
+        <a routerLink="/ressource/{{ressource.id}}" class="title"><b>{{ressource.name}}</b></a>
         <p><strong>Type : {{ressource.type.name}} </strong></p>
+        <p><strong>Classe : {{ressource.classe.name}} </strong></p>
         <br>
-        <a href="#!" class="waves-effect">
-          <span>Supprimer</span></a>
       </li>
-  </ul>
+  </ul>-->
+  <div class="row" height="100px">
+    <div class="col s4" *ngFor="let ressource of ressources$ | async;let i = index;">
+        <div class="card small" >
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" [src]="getRessourceImage(ressource.id).url">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{ressource.name}}<i class="material-icons right">more_vert</i></span>
+              <p><a routerLink="/ressource/{{ressource.id}}">Detail</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{ressource.name}}<i class="material-icons right">close</i></span>
+              <p>{{ressource.description}}</p>
+            </div>
+          </div>
+    </div>
+  </div>
 
   <div class="fixed-action-btn">
       <a routerLink="/addressource" class="btn-floating btn-large waves-effect waves-lightteal darken-2 right">

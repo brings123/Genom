@@ -1,7 +1,9 @@
-export interface Document {
+export class Document {
     document_id:number;
-    nomDocument:string;
-    cheminDocument:string;
-    documentDateCreation:Date;
-    documentDateModification:Date;
+    nom_document:string;
+    type_document:string;
+    createur:any;
+    chemin_document:string;
+    date_creation_document:Date;
+    date_modification_document:Date;
 }

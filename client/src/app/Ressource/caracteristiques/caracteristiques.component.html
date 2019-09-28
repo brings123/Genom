@@ -1,0 +1,38 @@
+<app-resnav></app-resnav>
+<div class="panel">
+    <h4>Caracteristique</h4>
+  </div>
+  <hr>
+  <div class="chip  light-blue lighten-4 black-text" *ngFor="let categorie of categories$ | async" [class.lighten-1]="categorie === selectedCat" (click)="onSelectCat(categorie)">
+        {{categorie.name}}
+    </div >
+    <div class="chip  light-blue lighten-4 black-text" [class.lighten-1]="All === 'All'" (click)="selectAllCat()">
+        All
+    </div>
+  <div class="collection">
+        <a   *ngFor="let caracteristique of caracteristique$ | async" class="collection-item">
+            <a (click)= "caraClick(caracteristique.id)" class="teal-text">{{caracteristique.name}}</a>
+        <a (click)="supprimer(caracteristique.id)" href="#modal1" class="secondary-content modal-trigger">
+            <i class="material-icons red-text">close</i>
+          </a>
+
+          <a routerLink="/caracteristiques/{{caracteristique.id}}" class="secondary-content">
+            <i class="material-icons">mode_edit</i>
+          </a>
+    </a>
+  </div>
+ <div class="fixed-action-btn">
+    <a routerLink="/addcaracteristique" class="btn-floating btn-large waves-effect waves-lightteal darken-2 right">
+    <i class="material-icons left">add</i></a>
+</div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Supprimer caracteristique</h4>
+      <p>etes vous sure de supprimer cette caracteristique ?</p>
+      <p class="red-text">Cette action entraîne la suppression de toutes les valeurs lié a cette caractiristique</p>
+    </div>
+    <div class="modal-footer">
+      <a (click)="confirmer()" class="modal-close waves-effect waves-green btn-flat">Oui</a>
+    </div>
+  </div>

@@ -54,7 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users","/users/*","/users/username/*","/users/delete/*").permitAll()
                 .antMatchers("/downloadFile/*","/uploadMultipleFiles","/uploadFile").permitAll()
                 .antMatchers("/roles/*","/contacts/new","contacts/*","/contacts/all").permitAll()
-                .antMatchers("/caracteristique","/caracteristique/*","/caracteristiques").permitAll()
+
+                .antMatchers("/caracteristique","/caracteristique/*","/caracteristique/categorie/*","/caracteristiques").permitAll()
                 .antMatchers("/categorie","/categorie/*","/categories").permitAll()
                 .antMatchers("/classe","/classe/*","/classe/categorie/*","/classes").permitAll()
                 .antMatchers("/image","/image/ressource/*","/image/*","/images").permitAll()
@@ -64,6 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/valeur","/valeur/caracteristique/*","/valeur/ressource/*","/valeur/*","/valeurs").permitAll()
                 .antMatchers("/valeurabs","/valeurabs/caracteristique/*","/valeurabs/ressource/*","/valeurabs/*","/valeursabs").permitAll()
                 .antMatchers("/lot1/**").permitAll()
+                .antMatchers("/lot5/**").permitAll()
+                .antMatchers("/Institutions","/institutions/{id}","/Institutions/new").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

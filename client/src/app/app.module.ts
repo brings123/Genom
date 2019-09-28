@@ -12,10 +12,6 @@ import { DocumentsComponent } from './documents/documents.component';
 import { HomeComponent } from './home/home.component';
 import { DemandeComponent } from './demande/demande.component';
 import { AdminDocumentComponent } from './admin/admin-document/admin-document.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './Components/login/login.component';
 import { AlertComponent } from './Components/alert/alert.component';
@@ -41,9 +37,6 @@ import { EvenementComponent } from './Components/evenement/evenement.component';
 import { AddEvenementComponent } from './Components/add-evenement/add-evenement.component'; 
 
 
-
-
-
 import { NewsComponent } from './news/news.component';
 import { AddNewsComponent } from './news/addnews/addnews.component';
 import { InfoFicheComponent } from './infofiche/infofiche.component';
@@ -56,14 +49,35 @@ import { LinkComponent } from './link/link.component';
 import { AddLinkComponent } from './link/addlink/addlink.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewContactComponent } from './contact/newContact/newcontact.component';
-import { HttpClientModule } from '@angular/common/http';
 import { DocumentService } from './document.service';
 import { RessourcesComponent } from './Ressource/ressources/ressources.component';
 import { RessourceComponent } from './Ressource/ressource.component';
 import { AddressourceComponent } from './Ressource/addressource/addressource.component';
 import { AddressourcevalComponent } from './Ressource/addressourceval/addressourceval.component';
-import { LoginComponent } from './login/login.component';
 import { SingupComponent } from './singup/singup.component';
+import { CaracteristiquesComponent } from './Ressource/caracteristiques/caracteristiques.component';
+import { CaracteristiqueComponent } from './Ressource/caracteristique/caracteristique.component';
+import { AddValAbsComponent } from './Ressource/add-val-abs/add-val-abs.component';
+import { AddCaracteristiqueComponent } from './Ressource/add-caracteristique/add-caracteristique.component';
+import { ClassesComponent } from './classes/classes.component';
+import { TypesComponent } from './types/types.component';
+import { ClasseComponent } from './classe/classe.component';
+import { TypeComponent } from './type/type.component';
+import { CategoriesComponent } from './Ressource/categories/categories.component';
+import { CategorieComponent } from './Ressource/categorie/categorie.component';
+
+import { AddInstitutionComponent } from './institution/add-institution/add-institution.component';
+import { ListInstitutionComponent } from './institution/list-institution/list-institution.component';
+import { InstitutionService } from './institution/institution.service';
+import { CategorieUpdateComponent } from './Ressource/categorie-update/categorie-update.component';
+import { CaracteristiqueUpdateComponent } from './caracteristique-update/caracteristique-update.component';
+import { ResnavComponent } from './resnav/resnav.component';
+import { AdminDemandeComponent } from './demande/admin/admin-demande/admin-demande.component';
+import { ConnectionComponent } from './demande/admin/connection/connection.component';
+import { AddDetenteurComponent } from './demande/add-detenteur/add-detenteur.component';
+import { AddOperateurComponent } from './demande/add-operateur/add-operateur.component';
+import { AddScientifiqueComponent } from './demande/add-scientifique/add-scientifique.component';
+import { AddResponsableComponent } from './demande/add-responsable/add-responsable.component';
 
 
 @NgModule({
@@ -83,6 +97,7 @@ import { SingupComponent } from './singup/singup.component';
     AddUserComponent,
     EditUserComponent,
     ListUserComponent,
+
     ListContactComponent,
     AddContactComponent,
     AddFicheInformationComponent,
@@ -92,6 +107,7 @@ import { SingupComponent } from './singup/singup.component';
     AddEvenementComponent,
     
     
+
 
 
 
@@ -111,8 +127,32 @@ import { SingupComponent } from './singup/singup.component';
     RessourceComponent,
     AddressourceComponent,
     AddressourcevalComponent,
-  
-    SingupComponent
+    LoginComponent,
+    SingupComponent,
+    CaracteristiquesComponent,
+    CaracteristiqueComponent,
+    AddValAbsComponent,
+    AddCaracteristiqueComponent,
+    ClassesComponent,
+    TypesComponent,
+    ClasseComponent,
+    TypeComponent,
+    CategoriesComponent,
+    CategorieComponent,
+    SingupComponent,
+    AddInstitutionComponent,
+    ListInstitutionComponent
+
+    CategorieUpdateComponent,
+    CaracteristiqueUpdateComponent,
+    ResnavComponent,
+    AdminDemandeComponent,
+    ConnectionComponent,
+    AddDetenteurComponent,
+    AddOperateurComponent,
+    AddScientifiqueComponent,
+    AddResponsableComponent
+
 
   ],
   imports: [
@@ -187,6 +227,10 @@ import { SingupComponent } from './singup/singup.component';
         component: NewsComponent
       },
       {
+        path: 'admin/demande/connection',
+        component: ConnectionComponent
+      },
+      {
         path: 'addnews',
         component: AddNewsComponent
       },
@@ -239,6 +283,10 @@ import { SingupComponent } from './singup/singup.component';
         component: AddressourceComponent
       },
       {
+        path: 'ressource/:id',
+        component: RessourceComponent
+      },
+      {
         path: 'addressourceval/:id',
         component: AddressourcevalComponent
       },
@@ -251,9 +299,64 @@ import { SingupComponent } from './singup/singup.component';
         path: 'singup',
         component: SingupComponent
       },
+      {
+        path:'caracteristiques',
+        component:CaracteristiquesComponent
+      },
+      {
+        path:'caracteristique/:id',
+        component:CaracteristiqueComponent
+      },
+      {
+        path:'addvaleurabs/:id',
+        component:AddValAbsComponent
+      },
+      {
+        path:'addcaracteristique',
+        component:AddCaracteristiqueComponent
+      },
+      {
+        path:'classes',
+        component:ClassesComponent
+      },{
+        path:'types',
+        component:TypesComponent
+      },{
+        path:'type',
+        component:TypeComponent
+      },{
+        path:'classe',
+        component:ClasseComponent
+      },
+      {
+        path:'admin/demandes',
+        component:AdminDemandeComponent
+      },
+      {
+        path:'categories',
+        component:CategoriesComponent
+      },{
+        path:'categorie',
+        component:CategorieComponent
+      },{
+
+        path:'addinstitution',
+        component:AddInstitutionComponent
+      },{
+        path:'institutions',
+        component:ListInstitutionComponent}
+      
+        path:'categorie/:id',
+        component:CategorieUpdateComponent
+      },{
+        path:'caracteristiques/:id',
+        component:CaracteristiqueUpdateComponent
+      }
+
     ])
   ],
-  providers: [ApiService,PresentationService ,DatePipe,{provide: HTTP_INTERCEPTORS,
+
+  providers: [ApiService,DocumentService,InstitutionService,PresentationService, DatePipe,{provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
   bootstrap: [AppComponent]

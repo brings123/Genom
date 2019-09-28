@@ -22,6 +22,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.esi.genom.entities.lot4.Ressource;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "lot5_demande")
@@ -35,14 +36,17 @@ public class Demande {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "demande_date_creation", nullable = false, updatable = false)
 	@CreatedDate
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateDemande;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "demande_date_debut_usage", nullable = false, updatable = true)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateDebutUsage;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "demande_date_fin_usage", nullable = false, updatable = true)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateFinUsage;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

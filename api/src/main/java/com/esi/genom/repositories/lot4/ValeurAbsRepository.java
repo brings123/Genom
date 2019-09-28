@@ -9,10 +9,11 @@ import org.springframework.data.jpa.repository.Modifying;
 
 import com.esi.genom.entities.lot4.Type;
 import com.esi.genom.entities.lot4.Valeur;
+import com.esi.genom.entities.lot4.ValeurAbs;
 
-public interface ValeurAbsRepository extends JpaRepository<Valeur,Integer> {
-	public List<Valeur> findByName(String name);
-	public List<Valeur> findByCaracteristiqueId(Integer id);
+public interface ValeurAbsRepository extends JpaRepository<ValeurAbs,Integer> {
+	public List<ValeurAbs> findByName(String name);
+	public List<ValeurAbs> findByCaracteristiqueId(Integer id);
 	 @Modifying
 	 @Transactional
 	 public void deleteByName(String name);

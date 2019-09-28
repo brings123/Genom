@@ -1,0 +1,18 @@
+<app-resnav></app-resnav>
+<div class="panel">
+    <h4>Classes</h4>
+  </div>
+  <hr>
+  <div class="chip  light-blue lighten-4 black-text" *ngFor="let categorie of categories$ | async" [class.lighten-1]="categorie === selectedCat" (click)="onSelectCat(categorie)">
+        {{categorie.name}}
+    </div >
+    <div class="chip  light-blue lighten-4 black-text" [class.lighten-1]="All === 'All'" (click)="selectAllCat()">
+        All
+    </div>
+  <div class="collection">
+        <a *ngFor="let classe of classes$ | async" class="collection-item">{{classe.name}}</a>
+  </div>
+ <div class="fixed-action-btn">
+    <a routerLink="/classe" class="btn-floating btn-large waves-effect waves-lightteal darken-2 right">
+    <i class="material-icons left">add</i></a>
+</div>

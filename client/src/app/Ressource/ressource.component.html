@@ -1,1 +1,39 @@
-<p>ressource works!</p>
+<app-resnav></app-resnav>
+<div class="card-panel">
+        <div class="row ">
+                <div *ngFor="let image of images" class="col s6">
+                  <!-- MATERIAL BOX -->
+                  <img [src]="image.url" [alt]="image.alt" class="materialboxed" width="200px">
+                </div>
+        </div>
+        <div class="row" *ngFor="let caracteristique of caracteristiques;let i = index">
+            <h5>{{caracteristique.name}}</h5>
+            <table class="bordered highlight responsive-table">
+                    <tbody>
+                      <tr *ngFor="let valeur of valeurs[i]">
+                        <th>{{valeur.name}}</th>
+                        <th>{{valeur.val}}</th>
+                      </tr>
+                      
+                    </tbody>
+            </table>
+        </div>
+        <div class="row" >
+                <h5>Localisation</h5>
+                <table class="bordered highlight responsive-table">
+                        <tbody>
+                          <tr *ngFor="let ville of ville">
+                              <th>Ville</th>
+                              <th>{{ville.nom}}</th>
+                          </tr>
+                          <tr *ngFor="let commune of commune">
+                                <th>Commune</th>
+                                <th>{{commune.nom}}</th>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+</div>
+
+
+  

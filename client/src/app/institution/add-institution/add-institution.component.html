@@ -1,0 +1,53 @@
+<div class="row card-panel ">
+    <h4>Ajouter un Institution</h4>
+
+    <br>
+    <hr>
+    <br>
+    <form class="col s12" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input formControlName="nom" id="institution_nom" type="text" class="validate">
+                <label for="institution_nom">Nom de l'institution</label>
+            </div>
+
+        </div>
+
+        <div class="form-group input-field">
+            <i class="material-icons prefix">group</i>
+            <input formControlName="description" id="institution_description" type="text" class="validate">
+            <label for="institution_description">Description</label>
+        </div>
+
+        <div class="form-group row">
+            <div class="input-field col s6  ">
+                <i class="material-icons prefix">email</i>
+                <input formControlName="email" id="institution_email" type="email" class="validate">
+                <label for="institution_email">Email</label>
+            </div>
+            <div class="form-group  input-field col s6">
+                <i class="material-icons prefix ">phone</i>
+                <input formControlName="telephone" id="institution_telephone" type="tel" class="validate">
+                <label for="institution_telephone">Telephone</label>
+            </div>
+        </div>
+
+        <div class="form-group input-field">
+            <i class="material-icons prefix">place</i>
+            <input formControlName="adresse" id="institution_adresse" type="text" class="validate">
+            <label for="institution_adresse">Adresse</label>
+        </div>
+        <div class="form-group input-field">
+            <i class="material-icons prefix">website</i>
+            <input formControlName="siteweb" id="institution_adresse" type="text" class="validate">
+            <label for="institution_adresse">Site Web</label>
+        </div>
+        <br>
+        <button class="btn waves-effect waves-light right light-green" type="submit" name="action">Ajouter
+                    <i class="material-icons left ">add</i>
+                  </button>
+        <br>
+    </form>
+
+</div>

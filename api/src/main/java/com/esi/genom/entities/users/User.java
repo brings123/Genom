@@ -92,8 +92,6 @@ public class User  {
 	
 	
 	@JsonCreator
-	
-
 	public Long getId() {
 		return id;
 	}

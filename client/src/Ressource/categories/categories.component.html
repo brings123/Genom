@@ -1,0 +1,11 @@
+<div class="panel">
+    <h4>Categories</h4>
+  </div>
+  <hr>
+  <div class="collection">
+        <a  *ngFor="let categorie of categories$ | async" class="collection-item">{{categorie.name}}</a>
+  </div>
+ <div class="fixed-action-btn">
+    <a routerLink="/categorie" class="btn-floating btn-large waves-effect waves-lightteal darken-2 right">
+    <i class="material-icons left">add</i></a>
+</div>
