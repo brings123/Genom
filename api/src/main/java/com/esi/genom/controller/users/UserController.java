@@ -24,6 +24,7 @@ public class UserController {
 
     //@Secured({"ROLE_ADMIN", "ROLE_USER"})
     // @PreAuthorize("hasRole('ADMIN')")
+
     @RequestMapping(value="/users", method = RequestMethod.GET)
     public ApiResponse<List<User>> listUser(){
         return new ApiResponse<>(HttpStatus.OK.value(), "User list fetched successfully.",userService.findAll());

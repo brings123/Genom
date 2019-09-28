@@ -31,6 +31,10 @@ public class TypeController {
 	public Optional<Type> getResById(@PathVariable Integer id) {
 	    return typerepo.findById(id);
 	}
+	@RequestMapping(method=RequestMethod.GET,value="/type/categorie/{id}")
+	public List<Type> getResByCat(@PathVariable Integer id) {
+	    return typerepo.findByCategorieId(id);
+	}
 	/*
 	 * 
 	 *	POST

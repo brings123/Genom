@@ -31,6 +31,11 @@ public class ClassController {
 	public Optional<Class> getResById(@PathVariable Integer id) {
 	    return classrepo.findById(id);
 	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/classe/categorie/{id}")
+	public List<Class> getResByCat(@PathVariable Integer id) {
+	    return classrepo.findByCategorieId(id);
+	}
 	/*
 	 * 
 	 *	POST

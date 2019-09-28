@@ -39,6 +39,16 @@ public class ValeurController {
 	public Optional<Valeur> getResById(@PathVariable Integer id) {
 	    return valrepo.findById(id);
 	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/valeur/Caracteristique/{id}")
+	public List<Valeur> getResByCar(@PathVariable Integer id) {
+	    return valrepo.findByCaracteristiqueId(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/valeur/Ressource/{id}")
+	public List<Valeur> getResByRes(@PathVariable Integer id) {
+	    return valrepo.findByRessourceId(id);
+	}
 	/*
 	 * 
 	 *	POST
