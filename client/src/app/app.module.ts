@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
@@ -78,6 +78,7 @@ import { AddDetenteurComponent } from './demande/add-detenteur/add-detenteur.com
 import { AddOperateurComponent } from './demande/add-operateur/add-operateur.component';
 import { AddScientifiqueComponent } from './demande/add-scientifique/add-scientifique.component';
 import { AddResponsableComponent } from './demande/add-responsable/add-responsable.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -141,7 +142,7 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
     CategorieComponent,
     SingupComponent,
     AddInstitutionComponent,
-    ListInstitutionComponent
+    ListInstitutionComponent,
 
     CategorieUpdateComponent,
     CaracteristiqueUpdateComponent,
@@ -345,8 +346,8 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
       },{
         path:'institutions',
         component:ListInstitutionComponent}
-      
-        path:'categorie/:id',
+      ,
+        {path:'categorie/:id',
         component:CategorieUpdateComponent
       },{
         path:'caracteristiques/:id',
@@ -354,9 +355,7 @@ import { AddResponsableComponent } from './demande/add-responsable/add-responsab
       }
 
     ])
-  ],
-
-  providers: [ApiService,DocumentService,InstitutionService,PresentationService, DatePipe,{provide: HTTP_INTERCEPTORS,
+  ],    providers: [ApiService,DocumentService,InstitutionService,PresentationService, DatePipe,{provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
   bootstrap: [AppComponent]
