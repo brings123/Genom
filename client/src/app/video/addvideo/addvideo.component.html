@@ -2,31 +2,31 @@
   <h4>Ajouter une Vidéo</h4>
   <hr>
   <br><br>
-  <form class="col s12">
+  <form class="col s12" [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="input-field col s8">
         <i class="material-icons prefix">title</i>
-        <input id="video_titre" type="text" class="validate">
+        <input formControlName="titre" id="video_titre" type="text" class="validate">
         <label for="video_titre">Titre</label>
       </div>
 
       <div class="input-field col s4">
         <i class="material-icons prefix">date_range</i>
-        <input id="video_date" type="text" class="datepicker">
+        <input formControlName="date" id="video_date" type="text" class="datepicker">
         <label for="video_date">Date</label>
       </div>
     </div>
 
     <div class="input-field col s12">
       <i class="material-icons prefix">mode_edit</i>
-      <textarea id="video_description" class="materialize-textarea" data-length="500"></textarea>
+      <textarea formControlName=description id="video_description" class="materialize-textarea" data-length="500"></textarea>
       <label for="video_description">Description</label>
     </div>
 
     <div class="file-field input-field  col s12">
       <a class="waves-effect waves-light btn teal darken-4">
         <i class="material-icons left">video_library</i>Importer
-        <input type="file"></a>
+        <input formControlName="url" type="file"></a>
       <div class="file-path-wrapper">
         <input placeholder="Upload a Video" id="video_image" class="file-path validate" type="text">
       </div>
