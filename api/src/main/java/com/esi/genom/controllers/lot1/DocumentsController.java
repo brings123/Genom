@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esi.genom.entities.lot1.Document;
+import com.esi.genom.entities.lot1.Documents;
 import com.esi.genom.services.lot1.DocumentsService;
 
 @RestController
@@ -27,139 +27,126 @@ public class DocumentsController {
 	private DocumentsService documentsService;
 	
 	@RequestMapping(method=RequestMethod.GET,value="/allDocuments/unordered")
-	public List<Document> getAllDocuments(){
-		return documentsService.getAllDocuments();
+	public List<Documents> getAllDocuments(){
+		return documentsService.getAllDocumentsss();
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/alldocuments/ordered_by/modification_date")
-	public List<Document> getAllDocumentsOrderedByModificationDate(){
-		return documentsService.getAllDocumentsOrderedByModificationDate();
+	public List<Documents> getAllDocumentsOrderedByModificationDate(){
+		return documentsService.getAllDocumentsssOrderedByModificationDate();
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/alldocuments/ordered_by/creation_date")
-	public List<Document> getAllDocumentsOrderedByCreationDate(){
-		return documentsService.getAllDocumentsOrderedByCreationDate();
+	public List<Documents> getAllDocumentsOrderedByCreationDate(){
+		return documentsService.getAllDocumentsssOrderedByCreationDate();
 	}
 	
 	@GetMapping("/alldocuments/ordered_by/document_name")
-	public List<Document> getAllDocumentsOrderedByDocumentName(){
-		return documentsService.getAllDocumentsOrderedByNomDocument();
+	public List<Documents> getAllDocumentsOrderedByDocumentsName(){
+		return documentsService.getAllDocumentsssOrderedByNomDocumentss();
 	}
 	
 	/*
-	 * @GetMapping("/documents_of_type_id/{typeId}") public List<Document>
+	 * @GetMapping("/documents_of_type_id/{typeId}") public List<Documents>
 	 * getTopic(@PathVariable("typeId") Long id) { return
 	 * documentsService.getAllDocumentsOfType(id); }
 	 * 
 	 * @GetMapping("/documents_of_type_id/{typeId}/ordered_by/modification_date")
-	 * public List<Document>
+	 * public List<Documents>
 	 * getAllDocumentsOfTypeOrderedByModificationDate(@PathVariable("typeId") Long
 	 * id) { return
 	 * documentsService.getAllDocumentsOfTypeOrderedByModificationDate(id); }
 	 * 
 	 * @GetMapping("/documents_of_type_id/{typeId}/ordered_by/creation_date") public
-	 * List<Document>
+	 * List<Documents>
 	 * getAllDocumentsOfTypeOrderedByCreationDate(@PathVariable("typeId") Long id) {
 	 * return documentsService.getAllDocumentsOfTypeOrderedByCreationDate(id); }
 	 * 
 	 * @GetMapping("/documents_of_type_id/{typeId}/ordered_by/document_name") public
-	 * List<Document>
-	 * getAllDocumentsOfTypeOrderedByDocumentName(@PathVariable("typeId") Long id) {
-	 * return documentsService.getAllDocumentsOfTypeOrderedByDocumentName(id); }
+	 * List<Documents>
+	 * getAllDocumentsOfTypeOrderedByDocumentsName(@PathVariable("typeId") Long id) {
+	 * return documentsService.getAllDocumentsOfTypeOrderedByDocumentsName(id); }
 	 */
 	@GetMapping("/documents_of_type/{typeName}")
-	public List<Document> getAllDocumentsOfType(@PathVariable("typeName") String type) {
-		return documentsService.getAllDocumentsOfType(type);
+	public List<Documents> getAllDocumentsOfType(@PathVariable("typeName") String type) {
+		return documentsService.getAllDocumentsssOfType(type);
 	}
 	
-	@GetMapping("/documents_of_type/{typeName}/ordered_by/modification_date")
-	public List<Document> getAllDocumentsOfTypeOrderedByModificationDate(@PathVariable("typeName") String type) {
-		return documentsService.getAllDocumentsOfTypeOrderedByModificationDate(type);
-	}	
+	
 
-	@GetMapping("/documents_of_type/{typeName}/ordered_by/creation_date")
-	public List<Document> getAllDocumentsOfTypeOrderedByCreationDate(@PathVariable("typeName") String type) {
-		return documentsService.getAllDocumentsOfTypeOrderedByCreationDate(type);
-	}
-
+	/*
+	 * @GetMapping("/documents_of_type/{typeName}/ordered_by/creation_date") public
+	 * List<Documents>
+	 * getAllDocumentsOfTypeOrderedByCreationDate(@PathVariable("typeName") String
+	 * type) { return
+	 * documentsService.getAllDocumentsssOfTypeOrderedByCreationDate(type); }
+	 */
 	@GetMapping("/documents_of_type/{typeName}/ordered_by/document_name")
-	public List<Document> getAllDocumentsOfTypeOrderedByDocumentName(@PathVariable("typeName") String type) {
-		return documentsService.getAllDocumentsOfTypeOrderedByDocumentName(type);
+	public List<Documents> getAllDocumentsOfTypeOrderedByDocumentsName(@PathVariable("typeName") String type) {
+		return documentsService.getAllDocumentsssOfTypeOrderedByDocumentssName(type);
 	}
 	
-	@GetMapping("/documents_created_by/{userName}")
-	public List<Document> getAllDocumentsCreatedByUser(@PathVariable String userName) {
-		return documentsService.getAllDocumentsCreatedByUser(userName);
-	}	
+	/*
+	 * @GetMapping("/documents_created_in/{date}") public List<Documents>
+	 * getAllDocumentsCreatedInDate(@PathVariable Date date){ return
+	 * documentsService.getAllDocumentsssCreatedInDate(date); }
+	 */
 
-	@GetMapping("/documents_created_by/{userName}/ordered_by/modification_date")
-	public List<Document> getAllDocumentsCreatedByUserOrderedByModificationDate(@PathVariable String userName){
-		return documentsService.getAllDocumentsCreatedByUserOrderedByModificationDate(userName);
-	}
-
-	@GetMapping("/documents_created_by/{userName}/ordered_by/document_name")
-	public List<Document> getAllDocumentsCreatedByUserOrderedByDocumentName(@PathVariable String userName){
-		return documentsService.getAllDocumentsCreatedByUserOrderedByDocumentName(userName);
-	}
+	/*
+	 * @GetMapping("/documents_created_in/{date}/ordered_by/document_name") public
+	 * List<Documents>
+	 * getAllDocumentsCreatedInDateOrderedByDocumentsName(@PathVariable Date date){
+	 * return
+	 * documentsService.getAllDocumentsssCreatedInDateOrderedByDocumentssName(date);
+	 * }
+	 */
 	
-	@GetMapping("/documents_created_in/{date}")
-	public List<Document> getAllDocumentsCreatedInDate(@PathVariable Date date){
-		return documentsService.getAllDocumentsCreatedInDate(date);
-	}
-
-	@GetMapping("/documents_created_in/{date}/ordered_by/modification_date")
-	public List<Document> getAllDocumentsCreatedInDateOrderedByModificationDate(@PathVariable Date date){
-		return documentsService.getAllDocumentsCreatedInDateOrderedByModificationDate(date);
-	}
-	
-	@GetMapping("/documents_created_in/{date}/ordered_by/document_name")
-	public List<Document> getAllDocumentsCreatedInDateOrderedByDocumentName(@PathVariable Date date){
-		return documentsService.getAllDocumentsCreatedInDateOrderedByDocumentName(date);
-	}
-	
-	
-	@GetMapping("/documents_modified_in/{date}")
-	public List<Document> getAllDocumentsModifiedInDate(@PathVariable Date date){
-		return documentsService.getAllDocumentsModifiedInDate(date);
-	}
-
-	@GetMapping("/documents_modified_in/{date}/ordered_by/modification_date")
-	public List<Document> getAllDocumentsModifiedInDateOrderedByModificationDate(@PathVariable Date date){
-		return documentsService.getAllDocumentsModifiedInDateOrderedByModificationDate(date);
-	}
-
-	@GetMapping("/documents_modified_in/{date}/ordered_by/document_name")
-	public List<Document> getAllDocumentsModifiedInDateOrderedByDocumentName(@PathVariable Date date){
-		return documentsService.getAllDocumentsModifiedInDateOrderedByDocumentName(date);
-	}
+	/*
+	 * @GetMapping("/documents_modified_in/{date}/ordered_by/document_name") public
+	 * List<Documents>
+	 * getAllDocumentsModifiedInDateOrderedByDocumentsName(@PathVariable Date date){
+	 * return
+	 * documentsService.getAllDocumentsssModifiedInDateOrderedByDocumentssName(date)
+	 * ; }
+	 */
 	
 	@GetMapping("/document/{id}")
-	public Document getDocumentById(@PathVariable Long id) {
-		return documentsService.getDocumentById(id);
+	public Documents getDocumentsById(@PathVariable Long id) {
+		return documentsService.getDocumentssById(id);
 	}
 	
 	@GetMapping("/document_by_name/{name}")
-	public Document getDocumentByName(@PathVariable String name) {
-		return documentsService.getDocumentByName(name);
+	public Documents getDocumentsByName(@PathVariable String name) {
+		return documentsService.getDocumentssByName(name);
 	}
 
 	@PostMapping("/add_document")
-	public void addDocument(@RequestBody Document document) {
-		documentsService.addDocument(document);
+	public void addDocuments(@RequestBody Documents document) {
+		documentsService.addDocumentss(document);
 	}
+	
+	/*
+	 * @PostMapping("/add_documents") public void addDocument(@RequestBody Documents
+	 * document) { documentsService.addDocumentss(document); }
+	 */
 	
 	@PutMapping("/update_document/{id}")
-	public void updateDocument(@RequestBody Document document, @PathVariable Long id) {
-		documentsService.updateDocument(document);
+	public void updateDocuments(@RequestBody Documents document, @PathVariable Long id) {
+		documentsService.updateDocumentss(document);
 	}
 	
-	@DeleteMapping("/delete_document/{id}")
-	public void deleteDocumentById(@PathVariable Long id) {
-		documentsService.deleteDocumentById(id);
+	@DeleteMapping("/delete_documents/{id}")
+	public void deleteDocumentsById(@PathVariable Long id) {
+		documentsService.deleteDocumentssById(id);
 	}
 	
-	@DeleteMapping("/delete_document/{nomDocument}")
-	public void deleteDocumentByName(@PathVariable String nomDocument) {
-		documentsService.deleteDocumentByName(nomDocument);
+	@DeleteMapping("/delete_all_documents/")
+	public void deleteDocuments() {
+		documentsService.deleteAllDocumentss();
+	}
+	
+	@DeleteMapping("/delete_document/{nomDocuments}")
+	public void deleteDocumentsByName(@PathVariable String nomDocuments) {
+		documentsService.deleteDocumentssByName(nomDocuments);
 	}
 }
